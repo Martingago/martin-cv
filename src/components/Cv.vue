@@ -11,7 +11,9 @@
           <img src="../assets/img/css-3.png" alt="icono-language-programacion">
           <img src="../assets/img/java-script.png" alt="icono-language-programacion">
           <img src="../assets/img/github.png" alt="icono-language-programacion">
+          <img src="../assets/img/git.png" alt="icono-language-programacion">
           <img src="../assets/img/vue.png" alt="icono-language-programacion">
+
         </div>
       </div>
       <div class="profile-img">
@@ -71,12 +73,13 @@
 
     <hr>
 
-    <section class="experience">
+    <section class="formacion">
       <h2>Formación</h2>
       <div class="experience-description">
         <div class="description-data">
-          <h4>{{data.estudios.Actual.lugar}}</h4>
-          <p class="when">Santiago de Compostela, {{data.estudios.Actual.date}}</p>
+          <h4 class="position">Curso DAW</h4>
+          <p class="company"> CERSIA empresa</p>
+          <p class="when"> Agosto 2021 - Agosto 2022</p>
         </div>
         <div class="description-responsabilities">
           <i class="fa-solid fa-caret-right"></i><p>{{data.estudios.Actual.formacion}}</p>  
@@ -84,20 +87,22 @@
       </div>
       <div class="experience-description">
         <div class="description-data">
-          <h4>{{data.estudios.reciente.lugar}}</h4>
-          <p class="when"> Santiago de compostela {{data.estudios.reciente.date}}</p>
+          <h4 class="position">Ciclo.sup Gestión de Ventas y espacios comerciales</h4>
+          <p class="company">{{data.estudios.reciente.lugar}}</p>
+          <p class="when">{{data.estudios.reciente.date}}</p>
         </div>
         <div class="description-responsabilities">
-          <i class="fa-solid fa-caret-right"></i><p>{{data.estudios.reciente.formacion}}</p>
+  
         </div>
       </div>
       <div class="experience-description">
         <div class="description-data">
-          <h4>{{data.estudios.previo.lugar}}</h4>
-          <p class="when">Santiago de Compostela, {{data.estudios.previo.date}}</p>
+          <h4 class="position">Ciclo.sup Comercio Internacional</h4>
+          <p class="company">{{data.estudios.previo.lugar}}</p>
+          <p class="when">{{data.estudios.previo.date}}</p>
         </div>
         <div class="description-responsabilities">
-          <i class="fa-solid fa-caret-right"></i><p> {{data.estudios.previo.formacion}}</p>
+
         </div>
       </div>
     </section>
@@ -257,5 +262,20 @@ hr{
     padding: 0 5px;
     font-size: 1rem;
   }
-
+/* FORMACION */
+.formacion{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 30px 10px;
+}
+.formacion h2{
+  grid-column: 1/ 4;
+}
+.formacion .experience-description{
+  grid-template-columns:  auto;
+  grid-template-rows: auto auto;
+}
+.formacion .experience-description .description-data{
+  /* height: 120px; */
+}
 </style>
