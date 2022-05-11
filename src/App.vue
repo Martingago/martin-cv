@@ -1,22 +1,20 @@
 <template>
   <div>
-    <!-- <nav>
-      <router-link to="/">Sobre</router-link> |
-      <router-link to="/about">About</router-link>
-      
-    </nav> -->
-   <Cv></Cv>
+    <Navegador></Navegador>
    <router-view/>
+   <Cv></Cv>
   </div>
 </template>
 
-<style  scoped>
+<style>
 
 </style>
 
 <script setup>
 import Cv from "@/components/Cv.vue";
-require("@/assets/reset.css")
+import Navegador from "@/components/Navegador.vue";
+require("@/assets/reset.css");
+require("@/assets/app.css")
 
 </script>
 

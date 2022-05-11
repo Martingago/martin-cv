@@ -1,0 +1,19 @@
+@font-face {
+	font-family: montserrat;
+	src: url('font/Montserrat-Medium.ttf')
+	}
+
+body{
+    font-family: montserrat;
+}
+
+:root{
+    --colorprincipal: rgba(34, 32, 32, 1);
+
+    
+    --textotitulo: clamp(1.4rem, 3vw, 2rem);
+    --textosubtitulo: clamp(1.2rem, 2vw, 1.4rem);
+    --textoparrafo: clamp(1rem, 2vw, 1.2rem);
+    --textoreducido: clamp(.75rem, 1.75vw, 1rem);
+    --imagenesparrafo: clamp(2.5rem, 3vw, 6rem);
+}

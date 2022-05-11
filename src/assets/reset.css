@@ -7,7 +7,8 @@
 
 /* Remove default padding */
 ul[class],
-ol[class] {
+ol[class],
+li[class] {
 	padding: 0;
 }
 
@@ -29,25 +30,22 @@ dd {
 	margin: 0;
 }
 
-@font-face {
-	font-family: montserrat;
-	src: url('font/Montserrat-Medium.ttf')
-	}
-	
-
 /* Set core body defaults */
 body {
 	min-height: 100vh;
-	font-family: montserrat;
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+	margin-top: 100px;
+	background: rgb(34,193,195);
+	background: linear-gradient(153deg, rgba(34,193,195,1) 0%, rgba(252,175,8,1) 100%);
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
 ul[class],
-ol[class] {
-	list-style: none;
+ol[class],
+li[class] {
+	list-style-type: none;
 }
 
 /* A elements that don't have a class get default styles */
