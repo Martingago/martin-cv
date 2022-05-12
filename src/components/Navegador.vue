@@ -4,22 +4,22 @@
         
         <ul class="navigation-index">
             <li>
-                <router-link to="/" v-on:click="abrirCerrar"><i class="fa-solid fa-bars"></i></router-link>
+                <router-link to="/"><i class="fa-solid fa-bars"></i></router-link>
             </li>
         </ul>
         
         <ul class="navegation-menu">
             <li>
-                <router-link to="/">Sobre mi</router-link>
+                <router-link to="/" >Sobre mi</router-link>
             </li>
             <li>
                 <router-link to="/">Proyectos</router-link>
             </li>
             <li>
-                <router-link to="/">Currículum</router-link>
+                <router-link to="/curriculum" >Currículum</router-link>
             </li>
             <li>
-                <router-link to="/">Contacto</router-link>
+                <router-link to="/contacto">Contacto</router-link>
             </li>
         </ul>
 
@@ -41,15 +41,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
-let expandir = ref(false)
-
-let abrirCerrar = () => {
-    
+const btnActivo = () => {
+    console.log("estas aqui")
 }
-abrirCerrar()
-
 </script>
 
 <style scoped>
@@ -68,10 +62,11 @@ abrirCerrar()
 }
 .main-menu-section ul{
     display: flex;
-    flex-direction: row;
+    flex-direction: row;  
+    border-radius: 5px;
     background-color: rgba(125, 125, 125, .7);
     backdrop-filter: blur(3px);
-    border-radius: 5px;   
+    overflow: hidden;
 }
 .main-menu-section ul li{
     display: flex;
@@ -88,11 +83,10 @@ abrirCerrar()
     width: 100%;
     font-size: var(--textoparrafo);
     padding: 10px 0;
-    border-radius: 5px;
     transition: background-color .2s linear;
 }
 .main-menu-section ul li a:hover{
-    background-color: rgba(184, 64, 94, 1);
+    background-color: rgba(200, 200, 200);
 }
 .navegation-menu{
     justify-content: flex-end;
@@ -100,6 +94,7 @@ abrirCerrar()
 .main-menu-section .navigation-index li a{
     font-size: 2rem;
     padding: .5rem 1rem;
+    border-radius:5px;
 }
 .navegation-social{
     display: none !important;
@@ -108,33 +103,27 @@ abrirCerrar()
     justify-content: flex-end;
     align-items: center;
 }
-
-
-
-/* .main-menu-section{
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 60px;
-    grid-template-rows: auto 1fr auto;
-    gap: 20px;
-    background-color: var(--colorprincipal);
+.router-link-exact-active{
+    z-index:1;
+    background-color: rgba(184, 64, 94, 1);
 }
-    .main-menu-section ul li{
-        display: flex;
-        background-color: yellow;
-        width: 100%;
-        height: auto;
-        text-transform: uppercase;
-        font-size: .7rem;
-    }
-    .main-menu-section ul li a{
-        width: 100%;
-        height: 100%;
+
+@media screen and (max-width:600px) {
+    .main-menu-section{
+        width: calc(100% - 10px);
+        margin: 5px auto;
+        gap:5px;
     }
 
-/* EXPANDIDO */
+        .main-menu-section ul li a{
+            font-size: var(--textoreducido);
+        }
+
+        .main-menu-section .navigation-index li a i{
+            font-size: 20px;
+        }
+}
+
+
 
 </style>
