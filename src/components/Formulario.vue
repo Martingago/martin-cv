@@ -1,13 +1,11 @@
 <template>
   <section class="section-form">
-    <h2>contacta conmigo</h2>
-    <form class="form-contacto" action="" method="POST">
+    <form class="form-contacto" action="#" method="POST" autocomplete="off">
       <input
         type="text"
         name="name-usuario"
         id="input-name"
         placeholder="Nombre / Compañía"
-        autocomplete="off"
         required
       />
       <input
@@ -15,7 +13,6 @@
         name="email-usuario"
         id="input-email"
         placeholder="Email"
-        autocomplete="off"
         required
       />
       <input
@@ -23,7 +20,6 @@
         name="subject-usuario"
         id="input-subject"
         placeholder="Asunto"
-        autocomplete="off"
         required
       />
       <textarea
@@ -31,7 +27,6 @@
         name="message-usuario"
         rows="10"
         placeholder="Mensaje"
-        autocomplete="off"
         required
       >
       </textarea>
@@ -50,7 +45,7 @@
 
 <style scoped>
 ::placeholder {
-  color: white;
+  color: var(--colorprincipal);
 }
 .section-form {
   margin: auto;
@@ -58,16 +53,17 @@
 .section-form .form-contacto {
   display: grid;
   margin: auto;
+  padding: 2rem 1rem;
   max-width: 700px;
-  font-size: var(--textoparrafo);
   width: 90%;
   grid-template-columns: 50% 50%;
   gap: 5px;
-  grid-template-rows: repeat(3 auto);
+  font-size: var(--textoparrafo);
   background-color: rgba(250, 250, 250, 0.4);
   backdrop-filter: blur(3px);
-  padding: 2rem 1rem;
+  box-shadow: 5px 5px 10px var(--colorprincipal);
   border-radius: 10px;
+  
 }
 .section-form .form-contacto input {
   border: none;
@@ -77,7 +73,7 @@
 }
 #input-subject {
   grid-column: 1/ 3;
-  color: white;
+  color: var(--colorprincipal);
 }
 #input-textarea {
   background-color: rgba(250, 250, 250, 0.4);
@@ -85,7 +81,7 @@
   grid-column: 1 / 3;
   resize: none;
   border: none;
-  color: white;
+  color: var(--colorprincipal);
   border-radius: 5px;
 }
 #submit-usuario {
@@ -96,6 +92,8 @@
   border-radius: 5px;
   transition: transform .2s linear;
   cursor: pointer;
+  color: var(--colorprincipal);
+  font-weight: 800;
 }
 #submit-usuario:hover {
   animation: bounce-7 2.4s infinite;
