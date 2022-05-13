@@ -1,46 +1,44 @@
 <template>
 
-    <nav class="main-menu-section">
-
-        <ul class="navigation-index">
-            <li>
-                <div @click="isActive = !isActive"><i class="fa-solid fa-bars"></i></div>
-            </li>
-        </ul>
-
-        <ul class="navegation-menu menu-web" v-bind:class="{ 'menuHidden': isActive }">
-
-            <li>
-                <router-link to="/">Inicio</router-link>
-            </li>
-            <li>
-                <router-link to="/">Sobre mi</router-link>
-            </li>
-            <li>
-                <router-link to="/">Proyectos</router-link>
-            </li>
-            <li>
-                <router-link to="/curriculum">Currículum</router-link>
-            </li>
-            <li>
-                <router-link to="/contacto">Contacto</router-link>
-            </li>
-        </ul>
-    </nav>
-    <nav class="main-menu-subfooter">
-        <ul class="navegation-social menu-web" v-bind:class="{ 'navigationHidden': isActive }">
-            <li>
-                <router-link to="https://github.com/Martingago"><i class="fa-brands fa-github"></i></router-link>
-            </li>
-            <li>
-                <router-link to="/"><i class="fa-brands fa-linkedin"></i></router-link>
-            </li>
-            <li>
-                <router-link to="/"><i class="fa-brands fa-instagram"></i></router-link>
-            </li>
-        </ul>
-
-    </nav>
+    <div class="header">
+        <nav class="main-menu-section">
+            <ul class="navigation-index">
+                <li>
+                    <div @click="isActive = !isActive"><i class="fa-solid fa-bars"></i></div>
+                </li>
+            </ul>
+            <ul class="navegation-menu menu-web" v-bind:class="{ 'menuHidden': isActive }">
+                <li>
+                    <router-link to="/">Inicio</router-link>
+                </li>
+                <li>
+                    <router-link to="/">Sobre mi</router-link>
+                </li>
+                <li>
+                    <router-link to="/proyectos">Proyectos</router-link>
+                </li>
+                <li>
+                    <router-link to="/curriculum">Currículum</router-link>
+                </li>
+                <li>
+                    <router-link to="/contacto">Contacto</router-link>
+                </li>
+            </ul>
+        </nav>
+        <nav class="main-menu-subfooter">
+            <ul class="navegation-social menu-web" v-bind:class="{ 'navigationHidden': isActive }">
+                <li>
+                    <router-link to="https://github.com/Martingago"><i class="fa-brands fa-github"></i></router-link>
+                </li>
+                <li>
+                    <router-link to="/"><i class="fa-brands fa-linkedin"></i></router-link>
+                </li>
+                <li>
+                    <router-link to="/"><i class="fa-brands fa-instagram"></i></router-link>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
 
 </template>
@@ -53,9 +51,12 @@ let isActive = ref();
 </script>
 
 <style scoped>
+.header{
+    width: 100%;
+    height: 88px;
+}
 .main-menu-section {
     position: fixed;
-    top: 0;
     width: calc(100% - 40px);
     margin: 20px;
     display: grid;
@@ -182,6 +183,10 @@ let isActive = ref();
 @media screen and (max-width:600px) {
 
     /* Menu navegacion */
+    .header{
+        width: 100%;
+        height: 48px;
+    }
     .main-menu-section {
         position: fixed;
         top: 0;

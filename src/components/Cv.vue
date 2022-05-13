@@ -131,7 +131,6 @@ const cargarDatos = async () => {
     );
     data.value = await response.json();
     loading.value = true;
-    console.log(data);
   } catch (error) {
     console.log(`${error}`);
   }
@@ -314,14 +313,18 @@ hr {
 
 @media screen and (max-width: 600px) {
   .cv-main-section{
+    min-width: 200px;
     width: 95%;
+    padding: 10px;
+    margin:auto
+
   }
   .personal-info {
     grid-template-columns: auto;
     gap: 20px;
   }
   .personal-info .profile-img{
-    width: 70%;
+    width: 60%;
     margin: auto
   }
   .personal-info .contact-info{
@@ -332,6 +335,16 @@ hr {
     font-size: var(--textoparrafo);
     line-height: var(--textoparrafo);
   }
+  .formacion{
+    grid-template-columns: 33% 1fr  33%;
+    gap: 5px;
+    text-align: center;
+  }
+    .formacion .position, .formacion .company{
+      font-size: var(--textoreducido);
+      text-align: center;
+    }
+
 }
 
 </style>

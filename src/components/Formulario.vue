@@ -47,9 +47,7 @@
 ::placeholder {
   color: var(--colorprincipal);
 }
-.section-form {
-  margin: auto;
-}
+
 .section-form .form-contacto {
   display: grid;
   margin: auto;

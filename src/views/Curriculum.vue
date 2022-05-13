@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="section-cv">
     <Cv></Cv>
   </div>
 </template>

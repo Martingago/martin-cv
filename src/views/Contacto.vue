@@ -1,5 +1,7 @@
 <template>
-  <formulario></formulario>
+  <div class="section-contacto">
+    <formulario></formulario>
+  </div>
 </template>
 
 <script setup>
