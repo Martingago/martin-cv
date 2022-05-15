@@ -165,7 +165,7 @@ let isActive = ref();
     font-size: var(--textoparrafo);
     justify-content: center;
     align-items: center;
-    background-color: rgba(125, 125, 125, .7);
+    background-color: rgba(125, 125, 125, .4);
     backdrop-filter: blur(4px);
     transition: background-color .2s linear;
     font-size: 2.2rem;
