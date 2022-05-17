@@ -1,18 +1,18 @@
 <template>
 
-    <div class="header">
+    <div class="header" v-bind:class="{ 'movilMenu': isActive }">
         <nav class="main-menu-section">
             <ul class="navigation-index">
                 <li>
                     <div @click="isActive = !isActive"><i class="fa-solid fa-bars"></i></div>
                 </li>
             </ul>
-            <ul class="navegation-menu menu-web" v-bind:class="{ 'menuHidden': isActive }">
+            <ul class="navegation-menu">
                 <li>
                     <router-link to="/">Inicio</router-link>
                 </li>
                 <li>
-                    <router-link to="/">Sobre mi</router-link>
+                    <router-link to="/sobre-mi">Sobre mi</router-link>
                 </li>
                 <li>
                     <router-link to="/proyectos">Proyectos</router-link>
@@ -26,7 +26,7 @@
             </ul>
         </nav>
         <nav class="main-menu-subfooter">
-            <ul class="navegation-social menu-web" v-bind:class="{ 'navigationHidden': isActive }">
+            <ul class="navegation-social">
                 <li>
                     <router-link to="https://github.com/Martingago"><i class="fa-brands fa-github"></i></router-link>
                 </li>
@@ -51,10 +51,12 @@ let isActive = ref();
 </script>
 
 <style scoped>
-.header{
+.header {
     width: 100%;
     height: 88px;
+    transition: all .3s linear;
 }
+
 .main-menu-section {
     position: fixed;
     width: calc(100% - 40px);
@@ -108,6 +110,10 @@ let isActive = ref();
 }
 
 /* Menu navegación */
+.main-menu-section .navegation-menu {
+    transition: transform .3s linear;
+}
+
 .main-menu-section .navegation-menu li {
     display: flex;
     justify-content: center;
@@ -127,22 +133,6 @@ let isActive = ref();
     background-color: rgba(184, 64, 94, .8) !important;
 }
 
-
-.menu-web {
-    transition: all .3s linear;
-
-}
-
-.menuHidden {
-    transform: translateX(200%);
-    display: none;
-}
-
-.navigationHidden {
-    transform: translateX(-200%);
-    display: none;
-}
-
 /* SUB-FOOTER SOCIAL MEDIA */
 
 .main-menu-subfooter .navegation-social {
@@ -153,6 +143,7 @@ let isActive = ref();
     gap: .5rem;
     width: auto;
     margin: 20px;
+    transition: transform .3s linear;
 }
 
 .main-menu-subfooter .navegation-social li {
@@ -175,53 +166,87 @@ let isActive = ref();
     color: white;
     text-decoration: none;
 }
-.main-menu-subfooter .navegation-social li a:hover{
+
+.main-menu-subfooter .navegation-social li a:hover {
     background-color: rgba(214, 194, 127, .7);
 }
 
+/* Esconder menu en alta resolucion */
 
-@media screen and (max-width:600px) {
-
-    /* Menu navegacion */
-    .header{
-        width: 100%;
-        height: 48px;
-    }
-    .main-menu-section {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        margin: 5px auto;
+@media screen and (min-width:901px) {
+    .movilMenu .main-menu-section .navegation-menu {
+        transform: translateX(200%);
+        overflow: hidden;
     }
 
-    .main-menu-section .navigation-index {
+    .movilMenu .main-menu-subfooter .navegation-social {
+        transform: translateX(-200%);
+        overflow: hidden;
+    }
+}
+
+
+@media screen and (max-width:900px) {
+
+    .main-menu-section .navegation-menu {
+        opacity: 0;
         display: none;
     }
 
-    .main-menu-section .navegation-menu {
-        grid-column: 1 / 3;
-    }
-
-    .main-menu-section ul li a {
-        box-sizing: border-box;
-        font-size: var(--textoreducido);
-    }
-
-    /* Menu social media */
     .main-menu-subfooter .navegation-social {
+        display: none;
+    }
+
+    /* Menu desplegable movil*/
+    .header {
         position: fixed;
-        margin: 5px;
+        transition: all .3s linear;
     }
 
-    .navegation-social li {
-        width: auto !important;
-        height: auto !important;
+    .header .main-menu-section {
+        margin: 20px;
     }
 
-    .main-menu-subfooter .navegation-social li a i {
-        font-size: 1.5rem;
-        padding: .5rem
+    .movilMenu {
+        position: fixed;
+        background: rgb(255, 164, 5);
+        background: linear-gradient(324deg, rgba(255, 164, 5, 1) 0%, rgba(26, 251, 252, 1) 100%);
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 1fr auto;
+        height: 100vh;
+        z-index: 1;
+    }
+
+    .movilMenu .main-menu-section {
+        position: initial;
+        grid-template-columns: auto;
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+    }
+
+    .movilMenu .main-menu-section .navegation-menu {
+        transition: all .3s linear;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+    }
+
+    .movilMenu .main-menu-section .navegation-menu li:last-child a {
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .movilMenu .main-menu-subfooter .navegation-social {
+        position: initial;
+        display: flex;
+        margin-bottom: 3rem;
+        justify-content: center;
+    }
+
+    .movilMenu .main-menu-subfooter .navegation-social li {
+        width: 60px;
     }
 }
 </style>

@@ -141,14 +141,16 @@ cargarDatos();
 <style scoped>
 /* DISEÑO PERFIL */
 .cv-main-section {
-  margin: auto;
+  margin: 3rem auto;
   max-width: 794px;
   width: 90%;
   min-width: 400px;
-  background-color: wheat;
+  background-color: var(--colortransparencia);
   height: auto;
   padding: 15px 30px;
-  box-shadow: 5px 5px 10px black;
+  border-radius: 5px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 20px white;
 }
 
 .personal-info {
@@ -192,6 +194,8 @@ cargarDatos();
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .contact-info .telephone {

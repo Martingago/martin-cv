@@ -1,6 +1,6 @@
 <template>
-      <Navegador></Navegador>
-      <router-view />
+  <Navegador></Navegador>
+  <router-view />
 </template>
 
 <style>
@@ -8,12 +8,8 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  background: rgb(34, 193, 195);
-  background: linear-gradient(
-    153deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(252, 175, 8, 1) 100%
-  );
+  background: rgb(255, 164, 5);
+  background: linear-gradient(324deg, rgba(255, 164, 5, 1) 0%, rgba(26, 251, 252, 1) 100%);
 }
 
 #app {

@@ -13,8 +13,7 @@
       <h3>{{ proyecto.titulo }}</h3>
       <p>{{ proyecto.descripcion }}</p>
       <span class="btn-proyecto">
-        <button @click="activo = !activo; posicion = index">Informacion</button>
-        <button>Visitar sitio</button>
+        <button @click="activo = !activo; posicion = index; url= data[posicion].enlace" >Informacion</button>
       </span>
     </article>
 
@@ -25,10 +24,10 @@
         <h3>{{ data[posicion].titulo }} </h3>
         <span class="info-proyect">
           <p>{{ data[posicion].descripcion }}</p>
-          <img v-bind:src= "asa" alt="imagen proyecto">
+          <img :src="conseguirImagen(data[posicion].imagen)" alt="imagen proyecto">
         </span>
 
-        <router-link to="">Visitar</router-link>
+         <a class="a-style" @click="linkDownload(url)"> Visitar sitio</a>
       </div>
     </div>
   </div>
@@ -37,7 +36,7 @@
 </template>
 
 <script setup>
-
+  
 import { ref } from 'vue';
 let activo = ref();
 const loading = ref(false);
@@ -58,6 +57,19 @@ const cargarProyectos = async () => {
 }
 cargarProyectos();
 
+//Visitar enlaces
+let enlazame = (link) => {
+  return link
+}
+
+let linkDownload = (url) =>  {
+      window.open(url, '_blank') // Se abre una nueva ventana enlace externo
+    };
+
+let conseguirImagen = (src) => {
+return src
+}
+
 </script>
 
 <style scoped>
@@ -67,8 +79,8 @@ cargarProyectos();
   justify-content: center;
   grid-template-columns: repeat(auto-fill, minmax(300px, auto));
   grid-auto-flow: dense;
-  width: 80%;
-  min-width: 350px;
+  max-width: fit-content;
+  width: 90%;
   margin: auto;
   padding: 2rem;
   border-radius: 5px;
@@ -107,6 +119,7 @@ cargarProyectos();
   min-width: 300px;
   max-width: auto;
   background-color: var(--colortransparencia);
+  box-shadow: inset -2px 0 7px  white;
 }
 
 .block-proyecto:nth-child(4) {
@@ -118,6 +131,12 @@ cargarProyectos();
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+.btn-proyecto button{
+  cursor: pointer;
+}
+.btn-proyecto button:hover {
+  animation: bounce-7 2.4s infinite;
 }
 
 /* DESPLEGABLE INFO */
@@ -132,8 +151,8 @@ cargarProyectos();
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  background-color: rgba(255, 255, 255, .3);
-  backdrop-filter: blur(2px);
+  background-color: var(--colortransparencia);
+  backdrop-filter: blur(3px);
   overflow-y: hidden;
 }
 
@@ -151,6 +170,7 @@ cargarProyectos();
   border-radius: 5px;
   padding: 1rem 1.5rem;
   gap: 0 20px;
+  box-shadow: 4px 4px 10px gray;
 }
 
 .cerrar-btn {
@@ -158,11 +178,12 @@ cargarProyectos();
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .5rem;
+  padding: .4rem;
   top: 0;
   right: 0;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
+  
 }
 
 .desplegable-info h3 {
@@ -172,7 +193,7 @@ cargarProyectos();
 .info-proyect {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 30px;
 }
 
 .desplegable-info p {
@@ -187,7 +208,7 @@ cargarProyectos();
 }
 
 .desplegable-info a {
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -197,6 +218,25 @@ cargarProyectos();
   border-radius: 3px;
   border: 1px solid black;
   color: black;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 1px 1px 4px gray;
 }
+
+.desplegable-info a:hover {
+  animation: bounce-7 2.4s infinite;
+}
+
+@keyframes bounce-7 {
+        0%   { transform: scale(1,1)}
+        10%  { transform: scale(1.1,.9)}
+        30%  { transform: scale(.9,1.1); }
+        50%  { transform: scale(1.05,.95)}
+        57%  { transform: scale(1,1);}
+        64%  { transform: scale(1,1)}
+        100% { transform: scale(1,1)}
+    }
+
+
 </style>
 

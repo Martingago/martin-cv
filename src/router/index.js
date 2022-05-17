@@ -23,6 +23,13 @@ const routes = [
     component: function () {
       return import('@/views/Proyectos.vue')
     }
+  },
+  {
+    path: '/sobre-mi',
+    name: 'sobre mi',
+    component: function () {
+      return import('@/views/About.vue')
+    }
   }
 ]
 
