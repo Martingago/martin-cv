@@ -9,7 +9,7 @@
             </ul>
             <ul class="navegation-menu">
                 <li>
-                    <router-link to="/">Inicio</router-link>
+                    <router-link to="/inicio">Inicio</router-link>
                 </li>
                 <li>
                     <router-link to="/sobre-mi">Sobre mi</router-link>
@@ -28,13 +28,13 @@
         <nav class="main-menu-subfooter">
             <ul class="navegation-social">
                 <li>
-                    <router-link to="https://github.com/Martingago"><i class="fa-brands fa-github"></i></router-link>
+                    <a class="a-style" @click="linkDownload(socialMedia[0])"><i class="fa-brands fa-github"></i></a>
                 </li>
                 <li>
-                    <router-link to="/"><i class="fa-brands fa-linkedin"></i></router-link>
+                    <a class="a-style" @click="linkDownload(socialMedia[1])"><i class="fa-brands fa-linkedin"></i></a>
                 </li>
                 <li>
-                    <router-link to="/"><i class="fa-brands fa-instagram"></i></router-link>
+                    <a class="a-style" @click="linkDownload(socialMedia[2])"><i class="fa-brands fa-instagram"></i></a>
                 </li>
             </ul>
         </nav>
@@ -47,6 +47,10 @@
 import { ref } from 'vue';
 
 let isActive = ref();
+let  socialMedia = ["https://github.com/Martingago", "https://www.google.com/", "https://www.youtube.com/"];
+let linkDownload = (url) =>  {
+      window.open(url, '_blank') // Se abre una nueva ventana enlace externo
+    };
 
 </script>
 

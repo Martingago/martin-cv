@@ -12,23 +12,30 @@ const routes = [
   },
   {
     path: '/contacto',
-    name: 'contacto',
+    name: 'Contacto',
     component: function () {
       return import('@/views/Contacto.vue')
     }
   },
   {
     path: '/proyectos',
-    name: 'proyectos',
+    name: 'Proyectos',
     component: function () {
       return import('@/views/Proyectos.vue')
     }
   },
   {
     path: '/sobre-mi',
-    name: 'sobre mi',
+    name: 'Sobre mi',
     component: function () {
       return import('@/views/About.vue')
+    }
+  },
+  {
+    path: '/inicio',
+    name: 'Inicio',
+    component: function () {
+      return import('@/views/Inicio.vue')
     }
   }
 ]

@@ -157,6 +157,7 @@ return src
 }
 
 .ocultar-info {
+  display: none;
   width: 0;
   height: 0;
 }
