@@ -59,6 +59,7 @@ let linkDownload = (url) =>  {
     width: 100%;
     height: 88px;
     transition: all .3s linear;
+    z-index: 10;
 }
 
 .main-menu-section {

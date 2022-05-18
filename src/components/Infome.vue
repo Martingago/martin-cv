@@ -168,6 +168,9 @@
     margin: 4rem auto;
     padding: 0.5rem;
   }
+  .aboutme-card a{
+    margin: auto
+  }
   .aboutme-skills {
     grid-template-columns: auto;
     padding: 2rem;
