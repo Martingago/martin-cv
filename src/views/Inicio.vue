@@ -27,5 +27,8 @@ import ImageElementVue from "@/components/ImageElement.vue";
   .section-inicio .titulo-inicio{
     margin: auto;
   }
+  .section-inicio .section-image{
+    max-width: 500px;
+  }
 }
 </style>
