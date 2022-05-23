@@ -47,7 +47,10 @@
 ::placeholder {
   color: var(--colorprincipal);
 }
-
+.section-form{
+  margin: auto;
+  width: 100%;
+}
 .section-form .form-contacto {
   display: grid;
   margin: auto;
@@ -59,7 +62,7 @@
   font-size: var(--textoparrafo);
   background-color: rgba(250, 250, 250, 0.4);
   backdrop-filter: blur(3px);
-  box-shadow: 5px 5px 10px var(--colorprincipal);
+  box-shadow: 5px 5px 10px white;
   border-radius: 10px;
   
 }

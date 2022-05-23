@@ -1,12 +1,31 @@
 <template>
-  <welcome></welcome>
+  <div class="section-inicio">
+    <Welcome></Welcome>
+    <ImageElementVue></ImageElementVue>
+  </div>
 </template>
 
 <script setup>
-import Welcome from '@/components/Welcome.vue';
+import Welcome from "@/components/Welcome.vue";
+import ImageElementVue from "@/components/ImageElement.vue";
 </script>
 
 
 <style scoped>
-
+.section-inicio {
+  width: 95vw;
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+@media screen and (max-width: 1250px) {
+  .section-inicio {
+    grid-template-columns: auto;
+    gap: 2rem;
+  }
+  .section-inicio .titulo-inicio{
+    margin: auto;
+  }
+}
 </style>

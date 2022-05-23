@@ -1,7 +1,6 @@
 <template>
-    <div class="section-inicio">
         <div class="titulo-inicio">
-            <h1 @mouseover="addAnimation">
+            <h1 @mouseover="addAnimation" @mouseout="removeAnimation">
                 <span class="letter">H</span>
                 <span class="letter">O</span>
                 <span class="letter">L</span>
@@ -28,48 +27,36 @@
                 <span class="letter">T</span>
                 <span class="letter">I</span>
                 <span class="letter">N</span>
-
-
             </h1>
         </div>
-        <div class="imagen-titulo">
-            <img src="@/assets/img/imagen-sobremi.png" alt="">
-        </div>
 
-
-    </div>
 </template>
 
 <script setup>
 
-
 const addAnimation = e => {
     if (e.target.className === 'letter') {
-        e.target.classList.toggle("animacion")
+        e.target.classList.add("animacion")
     }
 }
 const removeAnimation = e => {
-    if (e.target.className === 'letter')
+    setTimeout(() => {
         e.target.classList.remove("animacion")
+    }, 1000); 
 }
 
 </script>
 
 <style scoped>
-.section-inicio {
-    width: 100%;
-    min-height: calc(100vh - 88px);
-    display: grid;
-    grid-template-columns: auto auto;
-}
 
 .titulo-inicio {
-    margin: auto;
+    width: max-content;
+    user-select: none;
+    overflow: hidden;
 }
-
 .letter {
     display: inline-block;
-    font-size: clamp(5rem, 4vw, 7rem);
+    font-size: clamp(2.5rem, 15vw, 5rem);
     font-weight: 900;
     border: 2px solid black;
     border-radius: 5px;
@@ -84,11 +71,11 @@ const removeAnimation = e => {
 }
 
 .imagen-titulo {
-    margin: auto
+    margin: auto;
+    user-select: none;
 }
 
 .animacion {
-    background-color: red;
     transform: rotateX(3deg);
     animation: flipAnimacion 1s linear;
 }
@@ -98,29 +85,29 @@ const removeAnimation = e => {
         transform: rotateY(0deg);
     }
 
+
+
     50% {
         transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(0deg)
     }
 }
 
 @media screen and (max-width:1250px) {
-    .section-inicio {
-        grid-template-columns: auto;
-    }
 
-    .section-inicio .letter,
-    .section-inicio .signo {
-        font-size: clamp(1.5rem, 6vw, 7rem);
+    
+    .titulo-inicio .letter,
+    .titulo-inicio .signo {
+        font-size: clamp(2rem, 5vw, 4rem);
     }
 }
 
 @media screen  and (max-width: 500px){
-    .titulo-inicio{
-        margin: 4rem auto;
-        padding: 16px 5px;
-    }
-    .section-inicio .letter{
-        font-size: 2.3rem;
+    
+    .titulo-inicio .letter{
+        font-size: clamp(1.4rem, 5vw, 3rem);
         padding: .1rem;
         margin: .1rem;
     }

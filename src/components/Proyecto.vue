@@ -20,14 +20,14 @@
 
     <div class="main-desplegable-info" v-bind:class="{ 'ocultar-info': !activo }">
       <div class="desplegable-info">
-        <span class="cerrar-btn" @click="activo = !activo"><i class="fa-solid fa-circle-xmark"></i></span>
+        <span class="cerrar-btn" @click="activo = !activo"><font-awesome-icon :icon="['fa' ,'circle-xmark']"></font-awesome-icon></span>
         <h3>{{ data[posicion].titulo }} </h3>
         <span class="info-proyect">
           <p>{{ data[posicion].descripcion }}</p>
-          <img :src="conseguirImagen(data[posicion].imagen)" alt="imagen proyecto">
+          <img :src="data[posicion].imagen" alt="imagen proyecto">
         </span>
 
-         <a class="a-style" @click="linkDownload(url)"> Visitar sitio</a>
+         <a class="a-style" :href="data[posicion].enlace" target="_blank"> Visitar sitio</a>
       </div>
     </div>
   </div>
@@ -57,18 +57,6 @@ const cargarProyectos = async () => {
 }
 cargarProyectos();
 
-//Visitar enlaces
-let enlazame = (link) => {
-  return link
-}
-
-let linkDownload = (url) =>  {
-      window.open(url, '_blank') // Se abre una nueva ventana enlace externo
-    };
-
-let conseguirImagen = (src) => {
-return src
-}
 
 </script>
 
@@ -238,6 +226,13 @@ return src
         100% { transform: scale(1,1)}
     }
 
-
+@media screen and (max-width:500px) {
+  .section-proyectos{
+    width: 95%;
+    margin: auto;
+    padding: 0;
+  }
+  
+}
 </style>
 

@@ -4,7 +4,7 @@
         <nav class="main-menu-section">
             <ul class="navigation-index">
                 <li>
-                    <div @click="isActive = !isActive"><i class="fa-solid fa-bars"></i></div>
+                    <div @click="isActive = !isActive"><font-awesome-icon :icon="['fa', 'bars']"></font-awesome-icon></div>
                 </li>
             </ul>
             <ul class="navegation-menu">
@@ -28,13 +28,13 @@
         <nav class="main-menu-subfooter">
             <ul class="navegation-social">
                 <li>
-                    <a class="a-style" @click="linkDownload(socialMedia[0])"><i class="fa-brands fa-github"></i></a>
+                    <a class="a-style" @click="linkDownload(socialMedia[0])"><font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon></a>
                 </li>
                 <li>
-                    <a class="a-style" @click="linkDownload(socialMedia[1])"><i class="fa-brands fa-linkedin"></i></a>
+                    <a class="a-style" @click="linkDownload(socialMedia[1])"><font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon></a>
                 </li>
                 <li>
-                    <a class="a-style" @click="linkDownload(socialMedia[2])"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="a-style" @click="linkDownload(socialMedia[2])"><font-awesome-icon :icon="['fab', 'instagram']"></font-awesome-icon></a>
                 </li>
             </ul>
         </nav>
