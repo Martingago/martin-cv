@@ -42,16 +42,17 @@
 
 <script setup>
 
-
 const addAnimation = e => {
     if (e.target.className === 'letter') {
-        e.target.classList.toggle("animacion")
-    }
-}
-const removeAnimation = e => {
-    if (e.target.className === 'letter')
+        e.target.classList.add("animacion");
+            
+        }
+    else if( e.target.classList.contains("animacion")){
         e.target.classList.remove("animacion")
-}
+    }
+    }
+
+
 
 </script>
 
@@ -114,16 +115,17 @@ const removeAnimation = e => {
     }
 }
 
-@media screen  and (max-width: 500px){
-    .titulo-inicio{
+@media screen and (max-width: 500px) {
+    .titulo-inicio {
         margin: 4rem auto;
         padding: 16px 5px;
     }
-    .section-inicio .letter{
+
+    .section-inicio .letter {
         font-size: 2.3rem;
         padding: .1rem;
         margin: .1rem;
     }
-    
+
 }
 </style>
