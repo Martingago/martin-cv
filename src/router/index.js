@@ -37,6 +37,13 @@ const routes = [
     component: function () {
       return import('@/views/Inicio.vue')
     }
+  },
+  {
+    path: '/firebase',
+    name: 'Firebase',
+    component: function() {
+      return import('@/views/CurriculumFirebase.vue')
+    }
   }
 ]
 

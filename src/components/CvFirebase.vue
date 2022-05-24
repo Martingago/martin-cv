@@ -1,11 +1,15 @@
 
 <template>
-  <div class="cv-main-section" v-if="loading">
+  <div class="cv-main-section">
+    <!-- <pre>
+      {{store.curriculum[0]["Fecha fin"] }}
+      {{store.cvdatos }}
+    </pre> -->
     <section class="personal-info">
       <div class="personal-description">
-        <h2>{{ data.perfil.firstName }} {{ data.perfil.secondName }}</h2>
-        <h3>{{ data.perfil.descripcion }}</h3>
-        <p>{{ data.perfil.about }}</p>
+        <h2>{{store.cvdatos[0].Nombre}} {{store.cvdatos[0].Apellidos}}</h2>
+        <h3>{{store.cvdatos[0].Descripcion}}</h3>
+        <p>{{store.cvdatos[0].About}}</p>
         <div class="languages">
           <img src="../assets/img/html.png" alt="icono-language-programacion">
           <img src="../assets/img/css-3.png" alt="icono-language-programacion">
@@ -20,8 +24,8 @@
         <img src="../assets/img/profile.png" alt="foto mia" />
       </div>
       <div class="contact-info">
-        <p class="telephone">{{ data.contacto.telephone }}</p>
-        <p class="email">{{ data.contacto.email }}</p>
+        <p class="telephone">{{ }}</p>
+        <p class="email">{{}}</p>
       </div>
     </section>
     <hr>
@@ -49,34 +53,34 @@
           <h4 class="position">Contrato de prácticas</h4>
           <p class="company">Comusys</p>
           <p class="when">Octubre 2020 - Diciembre 2020</p>
-          <p class="description">{{ data.experiencia.Actual.formacion }}</p>
+          <p class="description">{{}}</p>
         </div>
         <div class="description-responsabilities">
           <i class="fa-solid fa-caret-right"></i>
-          <p>{{ data.experiencia.Actual.responsabilidades.tarea }}</p>
+          <p>{{ }}</p>
           <i class="fa-solid fa-caret-right"></i>
-          <p>{{ data.experiencia.Actual.responsabilidades.tarea2 }}</p>
+          <p>{{ }}</p>
           <i class="fa-solid fa-caret-right"></i>
-          <p>{{ data.experiencia.Actual.responsabilidades.tarea3 }}</p>
+          <p>{{ }}</p>
           <i class="fa-solid fa-caret-right"></i>
-          <p>{{ data.experiencia.Actual.responsabilidades.tarea4 }}</p>
+          <p>{{ }}</p>
         </div>
       </div>
 
       <div class="experience-description">
         <div class="description-data">
           <h4 class="position">Contrato de prácticas</h4>
-          <p class="company">{{ data.experiencia.reciente.lugar }}</p>
+          <p class="company">{{ }}</p>
           <p class="when"> Abril 2018 - Junio 2018</p>
-          <p class="description">{{ data.experiencia.reciente.formacion }}</p>
+          <p class="description">{{  }}</p>
         </div>
         <div class="description-responsabilities">
           <i class="fa-solid fa-caret-right"></i>
-          <p>{{ data.experiencia.reciente.responsabilidades.tarea }}</p>
+          <p>{{  }}</p>
           <i class="fa-solid fa-caret-right"></i>
-          <p>{{ data.experiencia.reciente.responsabilidades.tarea2 }}</p>
+          <p>{{  }}</p>
           <i class="fa-solid fa-caret-right"></i>
-          <p>{{ data.experiencia.reciente.responsabilidades.tarea3 }}</p>
+          <p>{{  }}</p>
         </div>
       </div>
     </section>
@@ -97,8 +101,8 @@
       <div class="experience-description">
         <div class="description-data">
           <h4 class="position">Ciclo.sup Gestión de Ventas </h4>
-          <p class="company">{{ data.estudios.reciente.lugar }}</p>
-          <p class="when">{{ data.estudios.reciente.date }}</p>
+          <p class="company">{{ }}</p>
+          <p class="when">{{  }}</p>
         </div>
         <div class="description-responsabilities">
         </div>
@@ -106,8 +110,8 @@
       <div class="experience-description">
         <div class="description-data">
           <h4 class="position">Ciclo.sup Comercio Internacional</h4>
-          <p class="company">{{ data.estudios.previo.lugar }}</p>
-          <p class="when">{{ data.estudios.previo.date }}</p>
+          <p class="company">{{  }}</p>
+          <p class="when">{{  }}</p>
         </div>
         <div class="description-responsabilities">
 
@@ -116,26 +120,16 @@
     </section>
 
   </div>
-  <div  class="cv-main-section"  v-else>
-    dfdfdfdfdfd
-  </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import {useStoreDatosPersonales} from "@/store/datosPersonajes.js"
+import {ref} from 'vue'
 require('@/assets/css/cv.css')
-const loading = ref(false);
-let data = ref({});
-const cargarDatos = async () => {
-  try {
-    const response = await fetch(
-      "https://raw.githubusercontent.com/Martingago/lectura-json/main/dataCurriculum.json"
-    );
-    data.value = await response.json();
-    loading.value = true;
-  } catch (error) {
-    console.log(`${error}`);
-  }
-};
-cargarDatos();
+
+// const loading = ref(false)
+const store = useStoreDatosPersonales();
+store.setDatosCurriculum()
+
+
 </script>
