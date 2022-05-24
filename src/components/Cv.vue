@@ -116,13 +116,16 @@
     </section>
 
   </div>
-  <div  class="cv-main-section"  v-else>
-    dfdfdfdfdfd
-  </div>
+  <div v-else="loading">
+  <SkeletonCv></SkeletonCv>
+</div>
+  
 </template>
 
 <script setup>
 import { ref } from "vue";
+
+import SkeletonCv from '@/components/SkeletonCv.vue';
 require('@/assets/css/cv.css')
 const loading = ref(false);
 let data = ref({});
@@ -132,10 +135,14 @@ const cargarDatos = async () => {
       "https://raw.githubusercontent.com/Martingago/lectura-json/main/dataCurriculum.json"
     );
     data.value = await response.json();
-    loading.value = true;
+    setTimeout(() => {
+      loading.value = true;
+    }, 500);
+    
   } catch (error) {
     console.log(`${error}`);
   }
 };
 cargarDatos();
 </script>
+
