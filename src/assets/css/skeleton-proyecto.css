@@ -1,0 +1,41 @@
+.section-proyectos{
+    max-width: 90%;
+    margin: auto;
+    border-radius: 5px;
+    display: grid;
+   justify-content: center;
+    gap: 10px;
+    grid-template-columns: repeat(3, minmax(300px, 387px));
+    background-color: var(--colortransparencia)
+}
+.proyectos-informacion{
+    grid-row: 1 / 3;
+}
+.block-proyecto {
+    padding: 1.5rem 1rem;
+}
+.block-proyecto:nth-child(4) {
+    grid-row: span 2;
+}
+    .skeleton-text{
+        height: .9rem;
+    }
+
+@media screen and (max-width: 1110px) {
+    .section-proyectos{
+        max-width: 90%;
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+    
+}
+@media screen and (max-width: 762px) {
+    .section-proyectos{
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    .skeleton-circle{
+        width: 250px;
+        height: 250px;
+    }
+    
+}

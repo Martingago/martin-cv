@@ -15,7 +15,8 @@
   .personal-info {
     display: grid;
     grid-template-columns: 60% calc(40% - calc(clamp(1rem, 2vw, 6rem)));
-    gap: 0 calc(clamp(1rem,2vw, 6rem));
+    margin-bottom: 1.4rem;
+    gap: 1rem;
   }
   
   .personal-info .personal-description {
@@ -63,7 +64,9 @@
     font-weight: 900;
     padding: 5px 0;
   }
-  
+  .contact-info{
+    width: 100%;
+  }
   .contact-info .email {
     font-size: var(--textoreducido);
     line-height: var(--textoreducido);
@@ -93,7 +96,8 @@
   .experience {
     display: grid;
     grid-template-columns: auto;
-    gap: 30px;
+    margin-bottom: 1.4rem;
+    gap: 1rem;
   }
   
   .experience h2 {
@@ -200,7 +204,7 @@
     }
     .formacion{
       grid-template-columns: 33% 1fr  33%;
-      gap: 5px;
+      gap: 1rem;
       text-align: center;
     }
       .formacion .position, .formacion .company{

@@ -7,13 +7,21 @@
         <h3>{{ data.perfil.descripcion }}</h3>
         <p>{{ data.perfil.about }}</p>
         <div class="languages">
-          <img src="../assets/img/html.png" alt="icono-language-programacion">
-          <img src="../assets/img/css-3.png" alt="icono-language-programacion">
-          <img src="../assets/img/java-script.png" alt="icono-language-programacion">
-          <img src="../assets/img/github.png" alt="icono-language-programacion">
-          <img src="../assets/img/git.png" alt="icono-language-programacion">
-          <img src="../assets/img/vue.png" alt="icono-language-programacion">
-
+          <img src="../assets/img/html.png" alt="icono-language-programacion" />
+          <img
+            src="../assets/img/css-3.png"
+            alt="icono-language-programacion"
+          />
+          <img
+            src="../assets/img/java-script.png"
+            alt="icono-language-programacion"
+          />
+          <img
+            src="../assets/img/github.png"
+            alt="icono-language-programacion"
+          />
+          <img src="../assets/img/git.png" alt="icono-language-programacion" />
+          <img src="../assets/img/vue.png" alt="icono-language-programacion" />
         </div>
       </div>
       <div class="profile-img">
@@ -24,7 +32,7 @@
         <p class="email">{{ data.contacto.email }}</p>
       </div>
     </section>
-    <hr>
+    <hr />
 
     <section class="experience">
       <h2>Experiencia laboral</h2>
@@ -38,9 +46,12 @@
         </div>
         <div class="description-responsabilities">
           <i class="fa-solid fa-caret-right"></i>
-          <p>Formación en los lenguajes de HTML, CSS, y JS. Aprendizaje en el uso del Framework de VUE, adaptación a
-            trabajar en grupos de trabajo utilizando Github. Aprendizaje en Bases de datos (MySQL) y finalizando con el
-            desarrollo de una aplicacion web</p>
+          <p>
+            Formación en los lenguajes de HTML, CSS, y JS. Aprendizaje en el uso
+            del Framework de VUE, adaptación a trabajar en grupos de trabajo
+            utilizando Github. Aprendizaje en Bases de datos (MySQL) y
+            finalizando con el desarrollo de una aplicacion web
+          </p>
         </div>
       </div>
 
@@ -67,7 +78,7 @@
         <div class="description-data">
           <h4 class="position">Contrato de prácticas</h4>
           <p class="company">{{ data.experiencia.reciente.lugar }}</p>
-          <p class="when"> Abril 2018 - Junio 2018</p>
+          <p class="when">Abril 2018 - Junio 2018</p>
           <p class="description">{{ data.experiencia.reciente.formacion }}</p>
         </div>
         <div class="description-responsabilities">
@@ -81,27 +92,25 @@
       </div>
     </section>
 
-    <hr>
+    <hr />
 
     <section class="formacion">
       <h2>Formación</h2>
       <div class="experience-description">
         <div class="description-data">
           <h4 class="position">Curso DAW</h4>
-          <p class="company"> CERSIA empresa</p>
-          <p class="when"> Agosto 2021 - Agosto 2022</p>
+          <p class="company">CERSIA empresa</p>
+          <p class="when">Agosto 2021 - Agosto 2022</p>
         </div>
-        <div class="description-responsabilities">
-        </div>
+        <div class="description-responsabilities"></div>
       </div>
       <div class="experience-description">
         <div class="description-data">
-          <h4 class="position">Ciclo.sup Gestión de Ventas </h4>
+          <h4 class="position">Ciclo.sup Gestión de Ventas</h4>
           <p class="company">{{ data.estudios.reciente.lugar }}</p>
           <p class="when">{{ data.estudios.reciente.date }}</p>
         </div>
-        <div class="description-responsabilities">
-        </div>
+        <div class="description-responsabilities"></div>
       </div>
       <div class="experience-description">
         <div class="description-data">
@@ -109,24 +118,20 @@
           <p class="company">{{ data.estudios.previo.lugar }}</p>
           <p class="when">{{ data.estudios.previo.date }}</p>
         </div>
-        <div class="description-responsabilities">
-
-        </div>
+        <div class="description-responsabilities"></div>
       </div>
     </section>
-
   </div>
   <div v-else="loading">
-  <SkeletonCv></SkeletonCv>
-</div>
-  
+    <SkeletonCv></SkeletonCv>
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import SkeletonCv from "@/components/SkeletonCv.vue";
 
-import SkeletonCv from '@/components/SkeletonCv.vue';
-require('@/assets/css/cv.css')
+require("@/assets/css/cv.css");
 const loading = ref(false);
 let data = ref({});
 const cargarDatos = async () => {
@@ -138,7 +143,6 @@ const cargarDatos = async () => {
     setTimeout(() => {
       loading.value = true;
     }, 500);
-    
   } catch (error) {
     console.log(`${error}`);
   }

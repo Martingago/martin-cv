@@ -193,7 +193,7 @@
 /* Animacion modal */
 .modal-enter-active,
 .modal-leave-active {
-    transition: all .25s ease;
+    transition: all .5s ease;
 }
 
 .modal-enter-from,
