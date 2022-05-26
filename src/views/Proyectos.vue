@@ -9,11 +9,3 @@
 import Proyecto from '@/components/Proyecto.vue';
 
 </script>
-
-<style scoped>
-/* .main-section-proyectos{
-  width: 100%;
-  margin: auto;
-} */
-
-</style>

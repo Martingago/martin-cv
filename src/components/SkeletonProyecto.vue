@@ -1,5 +1,5 @@
 <template>
-  <div class="section-proyectos">
+  <div class="skeleton-proyectos">
     <div class="proyectos-informacion skeleton">
       <h3 class="skeleton-tittle-1"></h3>
       <p class="skeleton-text"></p>

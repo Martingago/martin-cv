@@ -50,11 +50,11 @@
     <section class="formacion">
       <h2>Formación</h2>
       <div class="cv-description" v-for="(estudios) in data.estudios.Formacion">
-        <div class="description-data">
+        
           <h4 class="position">{{ estudios.formacion }}</h4>
           <p class="company">{{ estudios.lugar }}</p>
           <p class="when">{{ estudios.fecha }}</p>
-        </div>
+        
       </div>
     </section>
   </div>
