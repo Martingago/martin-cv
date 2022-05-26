@@ -14,11 +14,12 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { faMugHot } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 
 
-library.add(faBars, faGithub, faLinkedin, faInstagram, faCode, faPen, faMugHot, faCircleXmark)
+library.add(faBars, faGithub, faLinkedin, faInstagram, faCode, faPen, faMugHot, faCircleXmark, faCircle)
 
 createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(createPinia()).use(router).mount("#app");
