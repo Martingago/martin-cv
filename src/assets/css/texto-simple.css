@@ -53,12 +53,11 @@
     margin: 4rem;
   }
   
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1080px) {
     .aboutme-card {
-      width: 100%;
-      max-width: 400px;
+      width: 90%;
+      max-width: 700px;
       min-width: auto;
-      margin: 4rem auto;
       padding: 0.5rem;
     }
     .aboutme-card a{

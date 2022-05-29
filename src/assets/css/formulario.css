@@ -3,7 +3,9 @@
   }
   .section-form{
     margin: auto;
+    position: relative;
     width: 100%;
+    height: 100%;
   }
   .section-form .form-contacto {
     display: grid;
@@ -69,6 +71,42 @@
   .section-form .form-contacto textarea:focus {
     outline: none;
   }
+
+/* Modal */
+.confirmation-contact {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
+  border-radius: 10px;
+  background-color: var(--colortransparencia);
+  box-shadow: 5px 5px 10px white;
+  transition: all .3s linear;
+  
+}
+  .confirmation-contact h3{
+    font-size: var(--textotitulo);
+  }
+  .confirmation-contact p{
+    font-size: var(--textoparrafo);
+  }
+  .confirmation-contact button{
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+
+  .oculto{
+    opacity: 0;
+  }
+
+
   @media screen and (max-width: 600px) {
       
       .section-form #input-name{

@@ -9,7 +9,7 @@
             </ul>
             <ul class="navegation-menu">
                 <li>
-                    <router-link to="/inicio">Inicio</router-link>
+                    <router-link to="/">Inicio</router-link>
                 </li>
                 <li>
                     <router-link to="/sobre-mi">Sobre mi</router-link>

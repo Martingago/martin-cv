@@ -2,7 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
  
-   
+  {
+    path: '/',
+    name: 'Inicio',
+    component: function () {
+      return import('@/views/Inicio.vue')
+    }
+  },
   {
     path: '/curriculum',
     name: 'curriculum',
@@ -32,17 +38,17 @@ const routes = [
     }
   },
   {
-    path: '/inicio',
-    name: 'Inicio',
-    component: function () {
-      return import('@/views/Inicio.vue')
-    }
-  },
-  {
     path: '/firebase',
     name: 'Firebase',
     component: function() {
       return import('@/views/CurriculumFirebase.vue')
+    }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'Error 404',
+    component: function(){
+      return import('@/components/PageNotFound.vue')
     }
   }
 ]
