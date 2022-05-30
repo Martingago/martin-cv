@@ -50,7 +50,14 @@ const routes = [
     component: function(){
       return import('@/components/PageNotFound.vue')
     }
-  }
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: function() {
+      return import('@/views/FormAdmin.vue')
+    }
+  },
 ]
 
 const router = createRouter({

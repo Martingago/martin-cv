@@ -12,7 +12,7 @@ export const useStoreDatosPersonales = defineStore("datosPersonales", {
   actions: {
     async setDatosCurriculum() {
       const formacionRef = collection(db, "formacion");
-      const cvDatosRef = collection(db, "cv-datos");
+      const cvDatosRef = collection(db, "perfil");
       let consulta = query(formacionRef);
       let resultado = await getDocs(consulta);
       resultado.forEach((fila) => {
