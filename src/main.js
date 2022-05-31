@@ -15,6 +15,9 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { faMugHot } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faKey } from "@fortawesome/free-solid-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -27,7 +30,10 @@ library.add(
   faPen,
   faMugHot,
   faCircleXmark,
-  faCircle
+  faCircle,
+  faUser,
+  faKey,
+  faGoogle
 );
 
 createApp(App)
