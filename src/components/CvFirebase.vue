@@ -1,17 +1,25 @@
 
 <template>
-<div class="cv-main-section">
-
+  <div class="cv-main-section">
     <section class="personal-info">
       <div class="personal-description">
-        <h2>Curriculum</h2>
-        <h3></h3>
-        <p></p>
+        <h2>{{ store.getNombreCompleto }}</h2>
+        <h3>{{ store.datosPersonales.descripcion }}</h3>
+        <p>{{ store.datosPersonales.about }}</p>
         <div class="languages">
           <img src="../assets/img/html.png" alt="icono-language-programacion" />
-          <img src="../assets/img/css-3.png" alt="icono-language-programacion" />
-          <img src="../assets/img/java-script.png" alt="icono-language-programacion" />
-          <img src="../assets/img/github.png" alt="icono-language-programacion" />
+          <img
+            src="../assets/img/css-3.png"
+            alt="icono-language-programacion"
+          />
+          <img
+            src="../assets/img/java-script.png"
+            alt="icono-language-programacion"
+          />
+          <img
+            src="../assets/img/github.png"
+            alt="icono-language-programacion"
+          />
           <img src="../assets/img/git.png" alt="icono-language-programacion" />
           <img src="../assets/img/vue.png" alt="icono-language-programacion" />
         </div>
@@ -20,8 +28,8 @@
         <img src="../assets/img/profile.png" alt="foto mia" />
       </div>
       <div class="contact-info">
-        <p class="telephone"></p>
-        <p class="email"></p>
+        <p class="telephone">{{ store.datosPersonales.telefono }}</p>
+        <p class="email">{{ store.datosPersonales.email }}</p>
       </div>
     </section>
 
@@ -29,17 +37,23 @@
 
     <section class="experience">
       <h2>Experiencia laboral</h2>
-      <div class="cv-description">
+      <div class="cv-description" v-for="(experiencia, index) in store.experiencia" :key="index">
         <div class="description-data">
-          <h4 class="position">{{data.formacion}}</h4>
-          <p class="company">{{data.lugar}}</p>
-          <p class="description">{{data.descripcion}}</p>
-          <p class="when">{{data.fechaInicio}}{{data.fechaFin}}</p>
+          <h4 class="position">{{ experiencia.puesto }}</h4>
+          <p class="company">{{ experiencia.lugar }}</p>
+          <p class="description">{{ experiencia.formacion }}</p>
+          <p class="when">
+            {{ getFecha(experiencia.fechaInicio) }} <br />
+            {{ getFecha(experiencia.fechaFin) }}
+          </p>
         </div>
         <div class="description-responsabilities">
-          <span class="responsability">
+          <span
+            class="responsability"
+            v-for="(responsabilidades, index) in experiencia.experiencia" :key="index"
+          >
             <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
-            <p></p>
+            <p>{{ responsabilidades }}</p>
           </span>
         </div>
       </div>
@@ -49,34 +63,29 @@
 
     <section class="formacion">
       <h2>Formación</h2>
-      <div class="cv-description">
-        
-          <h4 class="position">{{data.formacion}}</h4>
-          <p class="company">{{data.lugar}}</p>
-          <p class="when">{{data.fechaInicio}}{{}}</p>
-        
+      <div class="cv-description" v-for="formacion in store.formaciones" :key="formacion">
+        <h4 class="position">{{ formacion.formacion }}</h4>
+        <p class="company">{{ formacion.lugar }}</p>
+        <p class="when">
+          {{ getFecha(formacion.fechaInicio) }} <br />
+          {{ getFecha(formacion.fechaFin) }}
+        </p>
       </div>
     </section>
-
-</div>
+  </div>
 </template>
 
 <script setup>
-import {ref} from 'vue'
-import { db } from '@/hook/firebase.config';
-import { collection,getDocs } from 'firebase/firestore';
-require('@/assets/css/cv.css');
+// Librerias
+import { useStorePerfilCv } from "@/perfil";
+import { getFecha } from "@/hook/librerias";
+require("@/assets/css/cv.css");
 
-const data = ref({})
+// Arrancamos store
+const store = useStorePerfilCv();
 
-const leerDatos = async() => {
-  const querySnapshot = await getDocs(collection(db, "formacion"));
-querySnapshot.forEach((doc) => {
-   data.value = doc.data();
-   
-});
-}
-
-leerDatos();
-  
+// Cargamos datos
+store.setFormacion();
+store.setDatosPersonales();
+store.setExprerienciaLaboral();
 </script>

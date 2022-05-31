@@ -55,7 +55,7 @@ const routes = [
     path: '/admin',
     name: 'Admin',
     component: function() {
-      return import('@/views/FormAdmin.vue')
+      return import('@/views/admin/Admin.vue')
     }
   },
 ]

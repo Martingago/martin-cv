@@ -18,8 +18,20 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+library.add(
+  faBars,
+  faGithub,
+  faLinkedin,
+  faInstagram,
+  faCode,
+  faPen,
+  faMugHot,
+  faCircleXmark,
+  faCircle
+);
 
-
-library.add(faBars, faGithub, faLinkedin, faInstagram, faCode, faPen, faMugHot, faCircleXmark, faCircle)
-
-createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(createPinia()).use(router).mount("#app");
+createApp(App)
+  .component("font-awesome-icon", FontAwesomeIcon)
+  .use(createPinia())
+  .use(router)
+  .mount("#app");
