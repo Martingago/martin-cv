@@ -1,3 +1,5 @@
+//  Transforma timeStamp en fecha visible para el usuario
+
  export const getFecha = (timestamp) => {
     if (
       !timestamp ||

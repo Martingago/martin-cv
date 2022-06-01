@@ -1,3 +1,5 @@
+// Obtener informacion BBDD y mostrar en el CV
+
 import { defineStore } from "pinia";
 import { db } from "@/hook/firebase.config";
 import { doc, collection, query, getDocs, getDoc } from "firebase/firestore";
@@ -26,13 +28,11 @@ export const useStorePerfilCv = defineStore("idPerfil", {
 
       if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
-        //this.datosPersonales = docSnap.data()
         for (let indice in this.datosPersonales) {
           if (docSnap.data()[indice])
             this.datosPersonales[indice] = docSnap.data()[indice];
         }
       } else {
-        // doc.data() will be undefined in this case
         console.log("No such document!");
       }
     },

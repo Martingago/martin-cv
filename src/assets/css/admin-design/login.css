@@ -1,0 +1,183 @@
+.modal-login-user {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin: auto;
+    width: 90vw;
+    max-width: 900px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 5px;
+  }
+  .login-martin-cv {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, auto);
+    background-color: rgba(100, 100, 100, 0.3);
+    padding: 1rem;
+  }
+  .login-martin-cv .admin-img {
+    border-radius: 50%;
+    width: 70%;
+    margin: auto;
+  }
+  .login-martin-cv p {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+  }
+  
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .login {
+    padding: 1rem;
+  }
+  .login-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .admin-form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 2rem 1rem;
+    max-width: 350px;
+    min-width: 300px;
+    gap: 0.5rem;
+    border-radius: 5px;
+  }
+  
+  .admin-form ::placeholder {
+    color: rgba(100, 100, 100, 1);
+  }
+  
+  .admin-form svg {
+    margin: auto;
+    color: rgba(100, 100, 100, 1);
+    font-size: 1.5rem;
+    width: auto;
+  }
+  
+  .admin-form input[type="email"],
+  .admin-form input[type="password"] {
+    font-size: 1rem;
+    line-height: 1rem;
+    border: none;
+    background-color: transparent;
+    color: rgba(100, 100, 100, 1);
+    border-bottom: 0.3rem solid rgba(100, 100, 100, 0.3);
+    margin-bottom: 0.5rem;
+    transition: border 0.3s linear;
+  }
+  
+  .admin-form input[type="email"]:focus,
+  .admin-form input[type="password"]:focus {
+    outline: none;
+    border-bottom: 0.3rem solid rgba(100, 100, 100, 1);
+  }
+  
+  .admin-form input[type="email"]:required:valid,
+  .admin-form input[type="password"]:required:valid {
+    border-bottom: 0.3rem solid green;
+  }
+  
+  .admin-form input[type="email"]:hover,
+  .admin-form input[type="password"]:hover {
+    border-bottom: 0.3rem solid rgba(100, 100, 100, 1);
+  }
+  
+  .admin-form input[type="submit"] {
+    grid-column: 1/ 3;
+    width: fit-content;
+    margin: 1rem auto auto auto;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    background-color: rgba(100, 100, 100, 0.3);
+    cursor: pointer;
+    transition: all 0.3s linear;
+  }
+  
+  .admin-form input[type="submit"]:hover {
+    background-color: rgba(100, 100, 100, 1);
+    color: white;
+  }
+  /* Login social */
+  .login-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    align-items: center;
+  }
+  .login-google {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: rgba(100, 100, 100, 0.3);
+    transition: background-color 0.3s linear;
+    color: white;
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+  .login-google:hover {
+    background-color: rgba(100, 100, 100, 1);
+    outline: none;
+  }
+  .login-google:focus {
+    outline: none;
+  }
+  .login-google img {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translate(-50%, -50%);
+    padding: 0.25rem 0.5rem;
+    color: white;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .modal-login-user {
+      grid-template-columns: auto;
+      height: fit-content;
+      width: 90vw;
+      max-width: 500px;
+    }
+    .login h2,
+    .login-martin-cv h2 {
+      font-size: clamp(1.3rem, 2vw, 2rem);
+      line-height: clamp(1.3rem, 2vw, 2rem);
+    }
+    .login-martin-cv .admin-img {
+      margin: 1rem auto;
+      width: 60%;
+    }
+  
+    .login {
+      padding: 2rem 0;
+    }
+    .admin-form svg {
+      font-size: 1.5rem;
+    }
+    .admin-form input[type="email"],
+    .admin-form input[type="password"] {
+      font-size: 1rem;
+    }
+  }
