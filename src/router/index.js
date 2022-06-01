@@ -51,11 +51,19 @@ const routes = [
       return import('@/components/PageNotFound.vue')
     }
   },
+  // zona administrativa
   {
     path: '/admin',
     name: 'Admin',
     component: function() {
-      return import('@/views/admin/Admin.vue')
+      return import('@/views/admin/AdminIndex.vue')
+    }
+  },
+  {
+    path: '/adminlogin',
+    name: 'Admin Login',
+    component: function() {
+      return import('@/views/admin/AdminLogin.vue')
     }
   },
 ]

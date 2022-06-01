@@ -13,6 +13,8 @@
     --textoparrafo: clamp(1rem, 2vw, 1.2rem);
     --textoreducido: clamp(.75rem, 1.75vw, 1rem);
     --imagenesparrafo: clamp(2.5rem, 3vw, 6rem);
+
+    --tamañomenu: 200px;
 }
 
 body {

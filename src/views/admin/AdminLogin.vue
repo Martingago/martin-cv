@@ -19,7 +19,7 @@
       </div>
       <div class="login-social">
         <p>También puedes iniciar con:</p>
-        <button class="login-google" @click="cargarPopup()">
+        <button class="login-google" @click="autentificarGooglePopup">
           <img src="@/assets/img/google-logo.svg" alt="logotipo de google" />
           Continuar con Google
         </button>
@@ -44,6 +44,9 @@ const form = reactive({
 
 const autentificar = () => {
     store.signInEmail(form)
+}
+const autentificarGooglePopup = () => {
+    store.signInGooglePopup()
 }
 
 const desconectar = () => {

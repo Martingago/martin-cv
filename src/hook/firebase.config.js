@@ -1,7 +1,8 @@
 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import {getAuth } from "firebase/auth";
+import {getAuth, GoogleAuthProvider } from "firebase/auth";
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,12 +17,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-
-// Login usuario mediante correo electronico
+// Login para usuarios
 const auth = getAuth();
-
+const provider = new GoogleAuthProvider(app);
 
   export { db };
   export {auth}
+  export {provider}
 
