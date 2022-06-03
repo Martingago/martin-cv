@@ -3,13 +3,15 @@
     <MenuAdminVue></MenuAdminVue>
     <div class="elements-grid">
         <FormLaboralVue></FormLaboralVue>
-        <FormLaboralVue></FormLaboralVue>
+        <FormExperienciaVue></FormExperienciaVue>
     </div>
 
 </template>
 <script setup>
+import FormExperienciaVue from '@/components/admin/FormExperiencia.vue';
 import FormLaboralVue from '@/components/admin/FormLaboral.vue';
 import MenuAdminVue from '@/components/admin/MenuAdmin.vue';
+
 </script>
 
 <style>

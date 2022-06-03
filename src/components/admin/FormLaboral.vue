@@ -1,6 +1,7 @@
 <template>
   <section class="section-form">
     <form @submit.prevent="guardarDatos" class="form-contacto" action="#" method="POST" autocomplete="off">
+    <h2>Datos formacion</h2>
       <input
         type="text"
         name="formacion"
@@ -34,14 +35,14 @@
       <textarea
         id="input-descripcion"
         name="descripcion"
-        rows="10"
-        placeholder="descricion"
+        rows="2"
+        placeholder="Descricion"
         required
       ></textarea>
 
       <input
         type="submit"
-        value="enviar"
+        value="subir datos"
         name="send-usuario"
         id="submit-usuario"
       />
@@ -56,10 +57,19 @@ require('@/assets/css/formulario.css')
 <style scoped>
 .form-contacto {
   width: 90vw;
+  max-width: 500px;
   margin: auto;
   display: grid;
   grid-template-columns: auto 1fr;
+  background-color: rgba(150, 150, 150, .6);
+  padding: 1rem;
 }
+
+.form-contacto h2{
+  grid-column: 1 / 3;
+  text-align: center;
+}
+
 #input-formacion,
 #input-lugar {
   grid-column: 1 / 3;
@@ -83,6 +93,3 @@ require('@/assets/css/formulario.css')
 }
 </style>
 
-<script setup>
-
-</script>
