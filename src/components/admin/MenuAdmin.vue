@@ -51,6 +51,7 @@ const isActive = ref({})
     -webkit-box-shadow: 0px 5px 10px 5px #646464;
     box-shadow: 0px 3px 10px 3px #646464;
     transition: all .3s linear;
+    z-index: -1;
 }
 
 .admin-menu {
@@ -65,6 +66,7 @@ const isActive = ref({})
     background: radial-gradient(circle, rgba(255, 255, 255, 1) 47%, rgba(232, 232, 232, 1) 98%);
     -webkit-box-shadow: inset -5px 0px 10px -3px #3D3D3D;
     box-shadow: inset -1px 0px 7px -3px #3D3D3D;
+    
 }
 
 .admin-menu-var {
@@ -74,6 +76,7 @@ const isActive = ref({})
     width: 100%;
     height: 53px;
     transition: all .3s linear;
+    
     
 }
 
@@ -86,7 +89,8 @@ const isActive = ref({})
     gap: 1rem;
     padding: .5rem 1rem;
     background: rgb(169, 95, 228);
-    background: linear-gradient(90deg, rgba(169, 95, 228, 1) 0%, rgba(59, 202, 240, 1) 69%);
+    background: linear-gradient(90deg, rgba(169, 95, 228, .6) 0%, rgba(59, 202, 240, .6) 69%);
+    backdrop-filter: blur(5px);
 }
 
 .admin-menu-var .menu-btn {

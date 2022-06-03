@@ -29,7 +29,7 @@
 </template>
 
 <script>
-require('@/assets/css/formulario.css');
+require('@/assets/css/formulario.css')
 
 export default {
     name: 'App',
@@ -61,6 +61,9 @@ export default {
 </script>
 
 <style scoped>
+.section-form{
+    height: fit-content;
+}
 .form-contacto {
     width: 90vw;
     max-width: 500px;

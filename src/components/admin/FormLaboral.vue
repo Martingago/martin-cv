@@ -51,10 +51,13 @@
 </template>
 
 <script>
-require('@/assets/css/formulario.css')
+
 </script>
 
 <style scoped>
+.section-form{
+  height: fit-content;
+}
 .form-contacto {
   width: 90vw;
   max-width: 500px;
