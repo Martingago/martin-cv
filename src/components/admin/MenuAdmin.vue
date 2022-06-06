@@ -16,9 +16,9 @@
                         <font-awesome-icon :icon="['fa', 'bars']"></font-awesome-icon>
                     </button></li>
                 <li class="user-info"> <img class="user-profile-image" src="@/assets/img/profile.png" alt="profile">
-                    <p class="user-profile-name">Martin</p>
+                    <p class="user-profile-name">{{store.getEmailUser}}</p>
                 </li>
-                <li class="user-logout"><button class="logout">
+                <li class="user-logout"><button class="logout" @click="desconectar">
                         <font-awesome-icon :icon="['fa', 'arrow-right-from-bracket']"></font-awesome-icon> Cerrar sesión
                     </button></li>
             </ul>
@@ -29,6 +29,11 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useStoreUsers } from "@/store/users";
+const store = useStoreUsers()
+const desconectar = () => {
+  store.logout();
+};
 
 const isActive = ref({})
 

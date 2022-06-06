@@ -8,18 +8,9 @@
         <p>{{ store.datosPersonales.about }}</p>
         <div class="languages">
           <img src="../assets/img/html.png" alt="icono-language-programacion" />
-          <img
-            src="../assets/img/css-3.png"
-            alt="icono-language-programacion"
-          />
-          <img
-            src="../assets/img/java-script.png"
-            alt="icono-language-programacion"
-          />
-          <img
-            src="../assets/img/github.png"
-            alt="icono-language-programacion"
-          />
+          <img src="../assets/img/css-3.png" alt="icono-language-programacion" />
+          <img src="../assets/img/java-script.png" alt="icono-language-programacion" />
+          <img src="../assets/img/github.png" alt="icono-language-programacion" />
           <img src="../assets/img/git.png" alt="icono-language-programacion" />
           <img src="../assets/img/vue.png" alt="icono-language-programacion" />
         </div>
@@ -48,10 +39,7 @@
           </p>
         </div>
         <div class="description-responsabilities">
-          <span
-            class="responsability"
-            v-for="(responsabilidades, index) in experiencia.experiencia" :key="index"
-          >
+          <span class="responsability" v-for="(responsabilidades, index) in experiencia.experiencia" :key="index">
             <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
             <p>{{ responsabilidades }}</p>
           </span>
@@ -73,19 +61,47 @@
       </div>
     </section>
   </div>
+  <div v-if="isLoader">
+    {{ datosProfile.datosPersonales.nombre }}
+    <div v-if="error">
+    {{error.message}}
+  </div>
+  </div>
+  
 </template>
 
 <script setup>
 // Librerias
+import { ref } from "vue";
 import { useStorePerfilCv } from "@/perfil";
 import { getFecha } from "@/hook/librerias";
+import { useStoreProfile } from "@/store/profiles";
 require("@/assets/css/cv.css");
 
 // Arrancamos store
 const store = useStorePerfilCv();
 
+
 // Cargamos datos
 store.setFormacion();
 store.setDatosPersonales();
 store.setExprerienciaLaboral();
+
+const datosProfile = useStoreProfile();
+const isLoader = ref(false);
+const error = ref(false)
+
+const ejecutar = async () => {
+  try {
+    error.value = false
+    await datosProfile.conseguirDatos()
+    isLoader.value = true
+  } catch (e) {
+    console.log("error")
+    error.value = true
+  }
+
+}
+
+ejecutar()
 </script>
