@@ -27,7 +27,6 @@ export const useStorePerfilCv = defineStore("idPerfil", {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
         for (let indice in this.datosPersonales) {
           if (docSnap.data()[indice])
             this.datosPersonales[indice] = docSnap.data()[indice];
@@ -49,7 +48,6 @@ export const useStorePerfilCv = defineStore("idPerfil", {
       const q = query(collection(db, "experiencia"));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, "=>", doc.data());
         this.experiencia.push(doc.data());
       });
     },

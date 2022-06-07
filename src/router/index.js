@@ -61,7 +61,7 @@ const routes = [
   },
   {
     path: '/adminlogin',
-    name: 'Admin Login',
+    name: 'Admin-Login',
     component: function() {
       return import('@/views/admin/AdminLogin.vue')
     }

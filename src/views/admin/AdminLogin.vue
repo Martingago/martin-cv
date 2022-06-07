@@ -36,7 +36,10 @@
 <script setup>
 import { useStoreUsers } from "@/store/users";
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 require("@/assets/css/admin-design/login.css");
+
+const router = useRouter();
 
 const store = useStoreUsers();
 const form = reactive({
@@ -49,6 +52,7 @@ const autentificar = async () => {
   try {
     validacionError.value = false;
     await store.signInEmail(form);
+    router.push({name: 'Admin'})
   } catch (error) { 
     validacionError.value = error.message;
     console.log(error)
@@ -58,14 +62,23 @@ const autentificarGooglePopup = () => {
   store.signInGooglePopup();
 };
 
-const desconectar = () => {
+const desconectar =  async () => {
   store.logout();
 };
 
 
 </script>
 
-<style scoped>
+<style>
+
+#app{
+  grid-template-rows: auto;
+}
+.header{
+  display: none;
+}
+
+
 .user-data{
   width: 100%;
   height: 20px;

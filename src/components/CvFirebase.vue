@@ -7,12 +7,7 @@
         <h3>{{ store.datosPersonales.descripcion }}</h3>
         <p>{{ store.datosPersonales.about }}</p>
         <div class="languages">
-          <img src="../assets/img/html.png" alt="icono-language-programacion" />
-          <img src="../assets/img/css-3.png" alt="icono-language-programacion" />
-          <img src="../assets/img/java-script.png" alt="icono-language-programacion" />
-          <img src="../assets/img/github.png" alt="icono-language-programacion" />
-          <img src="../assets/img/git.png" alt="icono-language-programacion" />
-          <img src="../assets/img/vue.png" alt="icono-language-programacion" />
+          <img v-for="(imagen, index) in listaDeImagenes" :key="index" :src="imagen">
         </div>
       </div>
       <div class="profile-img">
@@ -61,47 +56,28 @@
       </div>
     </section>
   </div>
-  <div v-if="isLoader">
-    {{ datosProfile.datosPersonales.nombre }}
-    <div v-if="error">
-    {{error.message}}
-  </div>
-  </div>
-  
+
 </template>
 
 <script setup>
 // Librerias
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import { useStorePerfilCv } from "@/perfil";
 import { getFecha } from "@/hook/librerias";
-import { useStoreProfile } from "@/store/profiles";
+// imagenes
+import { listadoImagenes } from "@/hook/firebase.storage";
 require("@/assets/css/cv.css");
 
-// Arrancamos store
+
+const listaDeImagenes = ref([]);
+( async ()=> {
+  listaDeImagenes.value = await listadoImagenes()
+})()
+
 const store = useStorePerfilCv();
-
-
 // Cargamos datos
 store.setFormacion();
 store.setDatosPersonales();
 store.setExprerienciaLaboral();
 
-const datosProfile = useStoreProfile();
-const isLoader = ref(false);
-const error = ref(false)
-
-const ejecutar = async () => {
-  try {
-    error.value = false
-    await datosProfile.conseguirDatos()
-    isLoader.value = true
-  } catch (e) {
-    console.log("error")
-    error.value = true
-  }
-
-}
-
-ejecutar()
 </script>

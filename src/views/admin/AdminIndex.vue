@@ -1,15 +1,17 @@
 <template>
-    <span class="background-body"></span>
-    <MenuAdminVue></MenuAdminVue>
-    <div class="elements-grid">
-        <div class="formularios">
-            <FormLaboralVue></FormLaboralVue>
-            <FormExperienciaVue></FormExperienciaVue>
-            <FormPerfilVue></FormPerfilVue>
+    <div>
+        <span class="background-body"></span>
+        <MenuAdminVue></MenuAdminVue>
+        <div class="elements-grid">
+            <div class="formularios">
+                <FormLaboralVue></FormLaboralVue>
+                <FormExperienciaVue></FormExperienciaVue>
+                <FormPerfilVue></FormPerfilVue>
         
-        </div>
-        <div class="datos">
-            <TablaDatosVue></TablaDatosVue>
+            </div>
+            <div class="datos">
+                <TablaDatosVue></TablaDatosVue>
+            </div>
         </div>
     </div>
 

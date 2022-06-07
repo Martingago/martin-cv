@@ -30,13 +30,20 @@
 <script setup>
 import { ref } from 'vue';
 import { useStoreUsers } from "@/store/users";
+import { useRouter } from "vue-router";
+const router = useRouter();
+
 const store = useStoreUsers()
-const desconectar = () => {
-  store.logout();
+const desconectar =  () => {
+  try {
+    store.logout();
+    router.push({name:'Admin-Login'})
+  } catch (error) {
+    
+  }
 };
 
 const isActive = ref({})
-
 
 </script>
 
@@ -45,6 +52,7 @@ const isActive = ref({})
     width: 100%;
     overflow: hidden;
     height: 100px;
+    margin: auto;
 }
 .background-fixed{
     position: fixed;
@@ -123,7 +131,7 @@ const isActive = ref({})
     border-radius: 50%;
 }
 
-.admin-menu-var .user-info .user-profile-name {
+.admin-menu-var .user-info .user-profile-email {
     font-size: 1.2rem;
     line-height: 1.2rem;
     height: fit-content;
