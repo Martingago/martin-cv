@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 import { db } from "@/hook/firebase.config";
 import { doc, collection, query, getDocs, getDoc } from "firebase/firestore";
 
+// Informacion de mi CV
 export const useStorePerfilCv = defineStore("idPerfil", {
   state: () => {
     return {

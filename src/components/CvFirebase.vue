@@ -1,6 +1,6 @@
 
 <template>
-  <div class="cv-main-section">
+  <div class="cv-main-section" v-if="loader">
     <section class="personal-info">
       <div class="personal-description">
         <h2>{{ store.getNombreCompleto }}</h2>
@@ -56,22 +56,29 @@
       </div>
     </section>
   </div>
+  <div class="skeleton-loader" v-else="loader">
+    <SkeletonCvVue></SkeletonCvVue>
+  </div>
 
 </template>
 
 <script setup>
 // Librerias
 import { reactive, ref } from "vue";
-import { useStorePerfilCv } from "@/perfil";
+import { useStorePerfilCv } from "@/hook/dataCv.user";
 import { getFecha } from "@/hook/librerias";
+import SkeletonCvVue from "./SkeletonCv.vue";
 // imagenes
 import { listadoImagenes } from "@/hook/firebase.storage";
 require("@/assets/css/cv.css");
 
+const loader = ref(false)
 
 const listaDeImagenes = ref([]);
-( async ()=> {
+(async () => {
   listaDeImagenes.value = await listadoImagenes()
+    loader.value = true;
+
 })()
 
 const store = useStorePerfilCv();

@@ -66,7 +66,6 @@ const desconectar =  async () => {
   store.logout();
 };
 
-
 </script>
 
 <style>

@@ -1,13 +1,8 @@
 import { defineStore } from "pinia";
 import { auth, provider } from "@/hook/firebase.config";
-import {
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, } from "firebase/auth";
 
+// Credenciales de los usuarios
 export const useStoreUsers = defineStore("users", {
   state: () => {
     return {
