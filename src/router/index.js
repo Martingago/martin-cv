@@ -4,7 +4,10 @@ const routes = [
  
   {
     path: '/',
-    name: 'Inicio',
+    name: 'inicio',
+    meta: {
+      tittle: `Inicio`
+    },
     component: function () {
       return import('@/views/Inicio.vue')
     }
@@ -12,41 +15,56 @@ const routes = [
   {
     path: '/curriculum',
     name: 'curriculum',
+    meta: {
+      tittle: "Curriculum"
+    },
     component: function () {
       return import('@/views/Curriculum.vue')
     }
   },
   {
     path: '/contacto',
-    name: 'Contacto',
+    name: 'contacto',
+    meta: {
+      tittle: 'Contacto'
+    },
     component: function () {
       return import('@/views/Contacto.vue')
     }
   },
   {
     path: '/proyectos',
-    name: 'Proyectos',
+    name: 'proyectos',
+    meta: {
+      tittle: 'Proyectos'
+    },
     component: function () {
       return import('@/views/Proyectos.vue')
     }
   },
   {
     path: '/sobre-mi',
-    name: 'Sobre mi',
+    name: 'sobre-mi',
+    meta: {
+      tittle: 'Sobre mi'
+    },
     component: function () {
       return import('@/views/About.vue')
     }
   },
   {
     path: '/firebase',
-    name: 'Firebase',
+    name: 'firebase',
     component: function() {
       return import('@/views/CurriculumFirebase.vue')
     }
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'Error 404',
+    name: 'error-404',
+    meta: {
+      tittle: 'Error 404'
+    },
     component: function(){
       return import('@/components/PageNotFound.vue')
     }
@@ -54,14 +72,14 @@ const routes = [
   // zona administrativa
   {
     path: '/admin',
-    name: 'Admin',
+    name: 'admin',
     component: function() {
       return import('@/views/admin/AdminIndex.vue')
     }
   },
   {
     path: '/adminlogin',
-    name: 'Admin-Login',
+    name: 'admin-Login',
     component: function() {
       return import('@/views/admin/AdminLogin.vue')
     }
@@ -71,6 +89,10 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+router.beforeEach((to,from,next)=> {
+  window.document.title = to.meta.tittle ? to.meta.tittle :  'Martin Portfolio';
+  next();
 })
 
 export default router

@@ -37,7 +37,6 @@ export default {
         return {
             count: 1,
             values: {}
-
         }
     },
     methods: {
@@ -145,9 +144,3 @@ export default {
     padding: .15rem;
 }
 </style>
-
-<script setup>
-
-
-
-</script>

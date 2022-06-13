@@ -9,12 +9,14 @@
             <input type="number" name="numero" id="input-number" placeholder="Número de telefono" required>
             <input type="text" name="short-description" id="input-short-description" placeholder="Especialidad" required>
             <textarea id="input-descripcion" name="descripcion" rows="2" placeholder="Descricion" required></textarea>
+            <TheUploaderVue></TheUploaderVue>
             <input type="submit" value="subir datos" name="send-usuario" id="submit-usuario" />
         </form>
     </section>
 </template>
 
 <script setup>
+import TheUploaderVue from '../TheUploader.vue';
 
 </script>
 
@@ -38,18 +40,23 @@
 
 #input-nombre,
 #input-email,
+#input-apellido,
+#input-apellido2,
 #input-number,
-#input-short-description {
+#input-short-description,
+#cargar-img {
     grid-column: 1 / 3;
 }
 
 #input-descripcion {
     background-color: rgba(250, 250, 250, 0.4);
     padding: 5px;
-    grid-column: 1 / 3;
     resize: none;
     border: none;
     color: var(--colorprincipal);
     border-radius: 5px;
+    grid-column: 1/ 3
 }
+
+
 </style>

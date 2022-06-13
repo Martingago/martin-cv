@@ -3,15 +3,10 @@
         <span class="background-body"></span>
         <MenuAdminVue></MenuAdminVue>
         <div class="elements-grid">
-            <div class="formularios">
                 <FormLaboralVue></FormLaboralVue>
                 <FormExperienciaVue></FormExperienciaVue>
                 <FormPerfilVue></FormPerfilVue>
-        
-            </div>
-            <div class="datos">
-                <TablaDatosVue></TablaDatosVue>
-            </div>
+                <FormProyectoVue></FormProyectoVue>  
         </div>
     </div>
 
@@ -22,6 +17,8 @@ import FormLaboralVue from '@/components/admin/FormLaboral.vue';
 import MenuAdminVue from '@/components/admin/MenuAdmin.vue';
 import FormPerfilVue from '@/components/admin/FormPerfil.vue';
 import TablaDatosVue from '@/components/admin/TablaDatos.vue';
+import FormProyectoVue from '@/components/admin/FormProyecto.vue';
+
 
 </script>
 
@@ -47,11 +44,9 @@ import TablaDatosVue from '@/components/admin/TablaDatos.vue';
     padding: 2rem;
     display: grid;
     justify-content: center;
+    align-self: start;
+    align-items: start;
     gap: 2rem;
-    grid-template-columns: auto 1fr;
-}
-.formularios{
-    display: grid;
-    gap: 2rem;
+    grid-template-columns: auto auto;
 }
 </style>
