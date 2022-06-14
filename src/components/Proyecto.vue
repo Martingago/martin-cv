@@ -10,28 +10,17 @@
     </div>
 <!-- Bloques -->
     <article
-      class="block-proyecto"
-      v-for="(proyecto, index) in data"
-      v-bind:key="index"
-    >
-      <h3>{{ proyecto.titulo }}</h3>
-      <p>{{ proyecto.descripcion }}</p>
+      class="block-proyecto" v-for="(datos,index) in store.datos_proyecto" v-bind:key="index">
+      <h3>{{datos.nombre}}</h3>
+      <p>{{datos.descripcion_breve }}</p>
       <span class="btn-proyecto">
-        <button
-          @click="
-            isModalOpen = true;
-            posicion = index;
-            url = data[posicion].enlace;
-          "
-        >
-          Informacion
-        </button>
+        <button @click="isModalOpen = true; posicion = index"> Informacion </button>
       </span>
     </article>
 
     <!-- Modal -->
-
-    <teleport to="#modal">
+   
+    
       <transition name="modal">
         <div
           class="main-desplegable-background"
@@ -44,19 +33,15 @@
                 :icon="['fa', 'circle-xmark']"
               ></font-awesome-icon>
             </span>
-            <h3>{{ data[posicion].titulo }}</h3>
+            <h3>{{store.datos_proyecto[posicion].nombre}}</h3>
             <span class="info-proyect">
-              <p>{{ data[posicion].descripcion }}</p>
-              <img :src="data[posicion].imagen" alt="imagen proyecto" />
+              <p>{{store.datos_proyecto[posicion].descripcion}}</p>
+              <img :src="imagen(store.datos_proyecto[posicion].imagen_url)" alt="imagen proyecto" />
             </span>
-
-            <a class="a-style" :href="data[posicion].enlace" target="_blank">
-              Visitar sitio</a
-            >
           </div>
         </div>
       </transition>
-    </teleport>
+    
   </div>
   <div v-else="loading">
       <SkeletonProyecto></SkeletonProyecto>
@@ -66,28 +51,17 @@
 <script setup>
 import { ref } from "vue";
 import SkeletonProyecto from "@/components/SkeletonProyecto.vue";
+import {useStoreProyectos} from "@/store/proyectos";
 require("@/assets/css/proyecto.css");
 
-const loading = ref(false);
-let data = ref({});
-let posicion = 1;
+const store = useStoreProyectos()
 
-// Cargamos datos desde la base de datos
-const cargarProyectos = async () => {
-  try {
-    const response = await fetch(
-      "https://raw.githubusercontent.com/Martingago/lectura-json/main/dataProyectos.json"
-    );
-    data.value = await response.json();
-    setTimeout(() => {
-      loading.value = true;
-    }, 500);
-  } catch (error) {
-    console.log(`${error}`);
-  }
-};
-cargarProyectos();
+store.setDatosProyecto()
 
+const posicion = 0;
+
+
+const loading = ref(true);
 // Ventana modal
 const isModalOpen = ref(false);
 </script>

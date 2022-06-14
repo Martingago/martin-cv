@@ -194,12 +194,12 @@
 /* Animacion modal */
 .modal-enter-active,
 .modal-leave-active {
-    transition: all .3s ease;
+    transition: all .3s linear;
 }
 
 .modal-enter-from,
 .modal-leave-to {
     opacity: 0;
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
 }

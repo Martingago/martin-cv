@@ -1,24 +1,24 @@
 <template>
     <section class="section-form">
-        <form class="form-contacto">
+        <form class="form-contacto" @submit.prevent="subirDatos">
             <h2>Cargar Proyecto</h2>
             <span class="proyecto-identify">
-                <input type="text" name="nombre-proyecto" id="nombre-proyecto" placeholder="Nombre proyecto">
-                <input v-model="codigo" type="number" name="proyecto-id" id="proyecto-ID" placeholder="Código">
+                <input v-model.trim="form.nombre" type="text" name="nombre-proyecto" id="nombre-proyecto" placeholder="Nombre proyecto">
+                <input type="number" name="proyecto-id" id="proyecto-ID" placeholder="Código">
             </span>
-            <input type="text" name="descripcion-corta-proyecto" id="descripcion-corta-proyecto"
+            <input v-model="form.descripcion_breve" type="text" name="descripcion-corta-proyecto" id="descripcion-corta-proyecto"
                 placeholder="Descripción breve">
-            <textarea name="descripcion-proyecto" id="descripcion-proyecto" cols="30" rows="10"
+            <textarea v-model="form.descripcion" name="descripcion-proyecto" id="descripcion-proyecto" cols="30" rows="10"
                 placeholder="Descripcion del proyecto"></textarea>
-            
-            <input type="url" name="proyecto-url" id="proyecto-url" placeholder="Enlace web">
+
+            <input v-model="form.url" type="url" name="proyecto-url" id="proyecto-url" placeholder="Enlace web">
             <span class="proyecto-fecha-fin">
                 <label for="proyecto-fecha">Fecha finalización:</label>
-                <input type="date" name="proyecto-fecha" id="proyecto-fecha">
+                <input v-model="form.fecha" type="date" name="proyecto-fecha" id="proyecto-fecha">
             </span>
-                <TheUploader @emitirFichero="gestionarFichero"></TheUploader>
-
-            <button class="proyecto-btn" type="submit" @click.prevent="enviarImagenes" >Cargar Proyecto</button>
+            <TheUploader @emitirFichero="gestionarFichero"></TheUploader>
+            
+            <button class="proyecto-btn" type="submit">Cargar Proyecto</button>
         </form>
 
     </section>
@@ -26,24 +26,44 @@
 <script setup>
 import TheUploader from "@/components/TheUploader.vue";
 import { uploadImages } from "@/hook/firebase.storage";
-
+import {useStoreProyectos} from "@/store/proyectos";
+import {reactive} from "vue";
 require("@/assets/css/formulario.css");
 
-const store = uploadImages();
+const form = reactive({
+    nombre: "",
+    descripcion_breve: "",
+    descripcion: "",
+    enlace: "",
+    url: "",
+    fecha: "",
+    imagen_url: "",
 
+});
+
+const storeProyectos = useStoreProyectos();
+const storeImagenes = uploadImages();
+
+// Almacena provisionalmente las imagenes del usuario
 let imagenAlmacen = null;
 const gestionarFichero = imagen => {
     imagenAlmacen = imagen;
+
     console.log("guardando imagen")
     console.log(imagenAlmacen)
     return imagenAlmacen
-    //store.subirImagen(imagen)
 }
-
-const enviarImagenes = () => {
-    console.log("subiendo imagenes")
-    // store.subirImagen(imagenAlmacen)
-    console.log(this.codigo)
+// Sube datos al servidor
+const subirDatos = async () => {
+    try {
+        if(imagenAlmacen){
+            form.imagen_url = `proyectos-programacion/${form.nombre}/${imagenAlmacen.name}`;
+            storeImagenes.subirImagen(imagenAlmacen)
+        }
+        await storeProyectos.cargarProyecto("martin-proyectos", form)
+    } catch (error) {
+        console.log(ErrorEvent)
+    }
 }
 
 </script>
@@ -95,25 +115,28 @@ input[type="text"] {
     text-transform: uppercase;
 }
 
-.proyecto-identify{
+.proyecto-identify {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: .25rem
 }
-    #proyecto-ID{
-        width: 100px;
-    }
-.proyecto-fecha-fin{
+
+#proyecto-ID {
+    width: 100px;
+}
+
+.proyecto-fecha-fin {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: .5rem;
 }
-    .proyecto-fecha-fin label{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--colortransparencia);
-        border-radius: 5px;
-        padding: 0 .5rem;
-    }
+
+.proyecto-fecha-fin label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colortransparencia);
+    border-radius: 5px;
+    padding: 0 .5rem;
+}
 </style>

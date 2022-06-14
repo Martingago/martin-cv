@@ -18,8 +18,19 @@ export const listadoImagenes = async (
   );
 };
 
-// Subir imagenes al Storage
+export const cargarImagenes = async (uid) => {
+  const listRef = ref(storage, uid);
+  const resp = await listAll(listRef);
+  const {items } = resp;
+  return await Promise.all(
+    items.map((item) => {
+      return getDownloadURL(item)
+    })
+  )
+}
 
+
+// Subir imagenes al Storage
 export const uploadImages = defineStore("subirDatos", {
   state: () => {
     return {
@@ -37,3 +48,5 @@ export const uploadImages = defineStore("subirDatos", {
     },
   },
 });
+
+
