@@ -15,6 +15,8 @@ import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCircleChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faCircleChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 export const libraryIcons = () => { library.add(
   faBars,
@@ -30,6 +32,8 @@ export const libraryIcons = () => { library.add(
   faKey,
   faGoogle,
   faArrowRightFromBracket,
-  faPlus
+  faPlus,
+  faCircleChevronLeft,
+  faCircleChevronRight
 );
 }

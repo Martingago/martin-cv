@@ -12,8 +12,8 @@ import Proyecto from '@/components/Proyecto.vue';
 
 <style scoped>
 .main-section-proyectos{
-  max-width: 1500px;
-  width: 90%;
+  max-width: 1300px;
+  width: 95%;
   margin: auto;
 }
 

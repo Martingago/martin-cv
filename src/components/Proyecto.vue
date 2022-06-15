@@ -27,13 +27,25 @@
               <font-awesome-icon :icon="['fa', 'circle-xmark']"></font-awesome-icon>
             </span>
             <h3>{{ store.datos_proyecto[posicion].nombre }}</h3>
+
             <span class="info-proyect">
               <p>{{ store.datos_proyecto[posicion].descripcion }}</p>
-              <div class="proyecto-carrousel">
-                
-                <img v-for="(imagen, index) in carruselImagenes" :key="index" :src="imagen"></div>
+              <a @click="linkDownload(store.datos_proyecto[posicion].url)">Visitar sitio</a>
             </span>
-            <a @click="linkDownload(store.datos_proyecto[posicion].url)">Visitar sitio</a>
+
+            <div class="proyecto-carrousel">
+              <div class="carrousel-imagenes">
+                <font-awesome-icon :icon="['fa', 'circle-chevron-left']"></font-awesome-icon>
+                <img v-for="(imagen, index) in carruselImagenes" :key="index" :src="imagen">
+                <font-awesome-icon :icon="['fa', 'circle-chevron-right']"></font-awesome-icon>
+              </div>
+              <div class="posicion">
+                <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
+                <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
+                <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
+              </div>
+            </div>
+
           </div>
         </div>
       </transition>
