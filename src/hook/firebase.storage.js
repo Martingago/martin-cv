@@ -18,7 +18,20 @@ export const listadoImagenes = async (
   );
 };
 
+
+// función para obtener una sola imagen
+/**
+ * 
+ * @param {string} uid //devuelve un string con la url de la imagen 
+ * @returns 
+ */
+export const downloadURL  = async (uid = 'images/stars.jpg') => {
+  return await getDownloadURL(ref(storage, uid));
+}
+
+
 export const cargarImagenes = async (uid) => {
+  console.log(uid)
   const listRef = ref(storage, uid);
   const resp = await listAll(listRef);
   const {items } = resp;
@@ -38,9 +51,8 @@ export const uploadImages = defineStore("subirDatos", {
     };
   },
   actions: {
-    subirImagen(file) {
-      const fileRoute = `proyectos-programacion/${file.name}`
-      const storageRef = ref(storage, fileRoute);
+    subirImagen({ruta,file}) {
+      const storageRef = ref(storage, ruta);
       // 'file' comes from the Blob or File API
       uploadBytes(storageRef, file).then((snapshot) => {
         console.log("Uploaded a blob or file!");

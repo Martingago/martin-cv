@@ -58,7 +58,7 @@ const subirDatos = async () => {
     try {
         if(imagenAlmacen){
             form.imagen_url = `proyectos-programacion/${form.nombre}/${imagenAlmacen.name}`;
-            storeImagenes.subirImagen(imagenAlmacen)
+            storeImagenes.subirImagen({ruta: form.imagen_url, file: imagenAlmacen})
         }
         await storeProyectos.cargarProyecto("martin-proyectos", form)
     } catch (error) {

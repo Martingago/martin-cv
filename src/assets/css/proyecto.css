@@ -6,8 +6,8 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, auto));
     grid-auto-flow: dense;
     max-width: fit-content;
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    margin: 2rem;
     padding: 2rem;
     border-radius: 5px;
     gap: 10px;
@@ -98,7 +98,9 @@
 .desplegable-info {
     position: relative;
     display: grid;
-    max-width: 700px;
+    grid-template-rows: auto 1fr auto;
+    max-width: 900px;
+    height: 600px;
     width: 90%;
     background-color: white;
     border-radius: 5px;
@@ -126,7 +128,8 @@
 
 .info-proyect {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
 
@@ -135,13 +138,21 @@
     text-align: justify;
 }
 
-.desplegable-info img {
-    margin: auto;
+.proyecto-carrousel{
+    position: relative;
     width: 100%;
-    max-width: 320px;
+    height: 100%;
+    background-color: blue;
 }
+    .proyecto-carrousel img{
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        width: 100%;
+        transform: translate(50%, -50%);
+    }
 
-.desplegable-info a {
+.desplegable-info a{
     margin-top: 20px;
     display: flex;
     justify-content: center;

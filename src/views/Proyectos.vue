@@ -9,3 +9,19 @@
 import Proyecto from '@/components/Proyecto.vue';
 
 </script>
+
+<style scoped>
+.main-section-proyectos{
+  max-width: 1500px;
+  width: 90%;
+  margin: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .main-section-proyectos{
+    width: 100%;
+  }
+  
+}
+
+</style>
