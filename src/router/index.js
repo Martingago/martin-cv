@@ -13,16 +13,6 @@ const routes = [
     }
   },
   {
-    path: '/curriculum',
-    name: 'curriculum',
-    meta: {
-      tittle: "Curriculum"
-    },
-    component: function () {
-      return import('@/views/Curriculum.vue')
-    }
-  },
-  {
     path: '/contacto',
     name: 'contacto',
     meta: {
@@ -53,8 +43,11 @@ const routes = [
     }
   },
   {
-    path: '/firebase',
-    name: 'firebase',
+    path: '/curriculum',
+    name: 'curriculum',
+    meta: {
+      title: "Curriculum"
+    },
     component: function() {
       return import('@/views/CurriculumFirebase.vue')
     }

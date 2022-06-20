@@ -102,8 +102,6 @@ const linkDownload = (link) => {
   console.log(link)
 }
 
-
-
 </script>
 
 

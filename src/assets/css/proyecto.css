@@ -98,11 +98,10 @@
 .desplegable-info {
     position: relative;
     display: grid;
-    grid-template-columns: 40% 1fr;
-    gap:  1.5rem 3rem;
-    max-width: 1300px;
+    grid-template-columns: 1fr 1fr;
+    gap:  1.5rem 1rem;
     height: fit-content;
-    width: 90%;
+    width: min-content;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 1rem;
@@ -135,6 +134,7 @@
 
 .desplegable-info p {
     width: 100%;
+    min-width: 250px;
     text-align: justify;
 }
 
@@ -169,7 +169,8 @@
 
 .proyecto-carrousel .carrousel-imagenes{
     position: relative;
-    aspect-ratio: 1 / 1;
+    width: 500px;
+    height: 500px;
 }
 
 .proyecto-carrousel  .carrousel-imagenes .svg-inline--fa{
