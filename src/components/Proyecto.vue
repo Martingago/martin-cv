@@ -105,6 +105,10 @@ const linkDownload = (link) => {
   window.open(link, '_blank')
   console.log(link)
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2885df9da0bea0ab916d3a4cf3ae5e472f3166e8
 </script>
 
 
