@@ -98,10 +98,11 @@
 .desplegable-info {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap:  1.5rem 1rem;
+    grid-template-columns: auto auto;
+    gap:  1.5rem 2rem;
     height: fit-content;
-    width: min-content;
+    width: 90%;
+    max-width: fit-content;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 1rem;
@@ -129,12 +130,13 @@
 
 .info-proyect {
     display: grid;
+    min-width: 250px;
+    max-width: 350px;
     grid-template-rows: auto 1fr;
 }
 
 .desplegable-info p {
     width: 100%;
-    min-width: 250px;
     text-align: justify;
 }
 
