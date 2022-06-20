@@ -34,10 +34,10 @@ const form = reactive({
     nombre: "",
     descripcion_breve: "",
     descripcion: "",
-    enlace: "",
     url: "",
     fecha: "",
     imagen_url: "",
+    almacen_imagenes: "",
 
 });
 
@@ -57,6 +57,7 @@ const gestionarFichero = imagen => {
 const subirDatos = async () => {
     try {
         if(imagenAlmacen){
+            form.almacen_imagenes = `proyectos-programacion/${form.nombre}`
             form.imagen_url = `proyectos-programacion/${form.nombre}/${imagenAlmacen.name}`;
             storeImagenes.subirImagen({ruta: form.imagen_url, file: imagenAlmacen})
         }

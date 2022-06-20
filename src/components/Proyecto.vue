@@ -13,7 +13,7 @@
       <h3>{{ datos.nombre }}</h3>
       <p>{{ datos.descripcion_breve }}</p>
       <span class="btn-proyecto">
-        <button @click="handleModal(datos.imagen_url); posicion = index"> Informacion </button>
+        <button @click="handleModal(datos.imagen_url); posicion = index; almImg = store.datos_proyecto[posicion].almacen_imagenes"> Informacion </button>
       </span>
     </article>
 
@@ -26,7 +26,7 @@
             <span class="cerrar-btn" @click="isModalOpen = false">
               <font-awesome-icon :icon="['fa', 'circle-xmark']"></font-awesome-icon>
             </span>
-            <h3>{{ store.datos_proyecto[posicion].nombre }}</h3>
+            <h3>{{ store.datos_proyecto[posicion].nombre}}</h3>
 
             <span class="info-proyect">
               <p>{{ store.datos_proyecto[posicion].descripcion }}</p>
@@ -62,14 +62,17 @@ import { ref } from "vue";
 import SkeletonProyecto from "@/components/SkeletonProyecto.vue";
 import { useStoreProyectos } from "@/store/proyectos";
 import { downloadURL } from "@/hook/firebase.storage";
-import { listadoImagenes } from "@/hook/firebase.storage";
+import { cargarImagenes} from "@/hook/firebase.storage";
 require("@/assets/css/proyecto.css");
+
+
 // Ventana modal
 const isModalOpen = ref(false);
 const store = useStoreProyectos()
 const loading = ref(false);
 const uid = ref('');
 const posicion = 0;
+const almImg = ref('')
 let imagen = ref({})
 
 // Muestra el modal del proyecto, y carga su imagen correspondiente
@@ -87,13 +90,14 @@ store.setDatosProyecto()
   .catch(error => console.log(error));
 
 
-const storeImagenes = listadoImagenes();
-
+// Listado de imagenes del modal --- carrusel
+const storeImagenes = cargarImagenes();
 const carruselImagenes = ref([]);
-
-(async () => {
-  carruselImagenes.value = await listadoImagenes()
-})()
+const cargarArray =  async () => {
+  console.log(almImg._value)
+  carruselImagenes.value = await cargarImagenes(`${almImg._value}`)
+   
+}
 
 
 // Mostrar enlace a otra web
@@ -101,9 +105,6 @@ const linkDownload = (link) => {
   window.open(link, '_blank')
   console.log(link)
 }
-
-
-
 </script>
 
 

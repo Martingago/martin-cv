@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { cargarDatos } from "@/hook/firestore.db";
-import { obtenerDB } from "./bajarDatos";
+import { getData } from "@/hook/bajarDatos";
 
 export const useStoreProyectos = defineStore("formularios", {
   state: () => {
@@ -11,6 +11,7 @@ export const useStoreProyectos = defineStore("formularios", {
       enlace: null,
       fecha: null,
       imagen_url: null,
+      almacen_imagenes: null,
       datos_proyecto: []
     };
   },
@@ -20,7 +21,7 @@ export const useStoreProyectos = defineStore("formularios", {
     },
     async setDatosProyecto(){
         if(!this.datos_proyecto.length)
-          this.datos_proyecto = await obtenerDB("martin-proyectos")
+          this.datos_proyecto = await getData("martin-proyectos")
           return true;   
     }
   },

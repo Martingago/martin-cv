@@ -69,14 +69,14 @@ import { useStorePerfilCv } from "@/hook/dataCv.user";
 import { getFecha } from "@/hook/librerias";
 import SkeletonCvVue from "./SkeletonCv.vue";
 // imagenes
-import { listadoImagenes } from "@/hook/firebase.storage";
+import { cargarImagenes} from "@/hook/firebase.storage";
 require("@/assets/css/cv.css");
 
 const loader = ref(false)
 
 const listaDeImagenes = ref([]);
 (async () => {
-  listaDeImagenes.value = await listadoImagenes()
+  listaDeImagenes.value = await cargarImagenes("lenguajes-programacion")
     loader.value = true;
 
 })()
