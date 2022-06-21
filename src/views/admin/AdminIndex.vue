@@ -1,13 +1,18 @@
 <template>
-    <div>
+    <div class="section-admin-index">
         <span class="background-body"></span>
         <MenuAdminVue></MenuAdminVue>
+        <div>
+            <DatosProyectosVue></DatosProyectosVue>
+        </div>
         <div class="elements-grid">
+            <h2>Cargar datos </h2>
                 <FormLaboralVue></FormLaboralVue>
                 <FormExperienciaVue></FormExperienciaVue>
                 <FormPerfilVue></FormPerfilVue>
                 <FormProyectoVue></FormProyectoVue>  
         </div>
+        
     </div>
 
 </template>
@@ -16,13 +21,17 @@ import FormExperienciaVue from '@/components/admin/FormExperiencia.vue';
 import FormLaboralVue from '@/components/admin/FormLaboral.vue';
 import MenuAdminVue from '@/components/admin/MenuAdmin.vue';
 import FormPerfilVue from '@/components/admin/FormPerfil.vue';
-import TablaDatosVue from '@/components/admin/TablaDatos.vue';
 import FormProyectoVue from '@/components/admin/FormProyecto.vue';
+import DatosProyectosVue from '@/components/admin/DatosProyectos.vue';
 
 
 </script>
 
 <style>
+
+.section-admin-index{
+    margin-top: 45px;
+}
 .background-body {
     width: 100%;
     min-height: 100vw;
@@ -39,14 +48,18 @@ import FormProyectoVue from '@/components/admin/FormProyecto.vue';
 }
 
 .elements-grid {
-    margin-left: 200px;
-    width: calc(100% - 200px);
-    padding: 2rem;
+    width: 100%;
     display: grid;
     justify-content: center;
     align-self: start;
     align-items: start;
     gap: 2rem;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2, auto);
 }
+    .elements-grid h2{
+        text-align: center;
+        grid-column: 1 / 3;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
 </style>

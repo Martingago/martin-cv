@@ -11,21 +11,14 @@
         <div class="login-user">
           <form class="admin-form" @submit.prevent="autentificar" action="#" id="myForm">
             <font-awesome-icon :icon="['fa', 'user']"></font-awesome-icon>
-            <input v-model="form.email" type="email" placeholder="E-mail" id="email" required />
+            <input v-model.trim="form.email" type="email" placeholder="E-mail" id="email" required />
             <font-awesome-icon :icon="['fa', 'key']"></font-awesome-icon>
-            <input v-model="form.password" type="password" placeholder="Contraseña" id="contraseña" required />
+            <input v-model.trim="form.password" type="password" placeholder="Contraseña" id="contraseña" required />
             <span class="error-section">
-              <p v-if="validacionError" class="error-autentificacion">Error: {{validacionError}}</p>
+              <p v-if="validacionError" class="error-autentificacion">{{validacionError}}</p>
             </span>
             <input type="submit" value="Iniciar Sesión" :disabled="store.user===null?false:true" />
           </form>
-        </div>
-        <div class="login-social">
-          <p>También puedes iniciar con:</p>
-          <button class="login-google" @click="autentificarGooglePopup">
-            <img src="@/assets/img/google-logo.svg" alt="logotipo de google" :disabled="store.user===null?false:true"/>
-            Continuar con Google
-          </button>
         </div>
         <button class="user-disconnect" @click="desconectar">Desconectar</button>
       </div>
@@ -52,14 +45,10 @@ const autentificar = async () => {
   try {
     validacionError.value = false;
     await store.signInEmail(form);
-    router.push({name: 'Admin'})
+    router.push({name: 'admin'})
   } catch (error) { 
-    validacionError.value = error.message;
-    console.log(error)
+    validacionError.value = "Datos inicio sesión incorrectos";
   }
-};
-const autentificarGooglePopup = () => {
-  store.signInGooglePopup();
 };
 
 const desconectar =  async () => {

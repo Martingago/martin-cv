@@ -65,7 +65,7 @@
 <script setup>
 // Librerias
 import { reactive, ref } from "vue";
-import { useStorePerfilCv } from "@/hook/dataCv.user";
+// import { useStorePerfilCv } from "@/hook/dataCv.user";
 import { getFecha } from "@/hook/librerias";
 import SkeletonCvVue from "./SkeletonCv.vue";
 // imagenes

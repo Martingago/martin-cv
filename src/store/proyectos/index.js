@@ -1,28 +1,34 @@
 import { defineStore } from "pinia";
-import { cargarDatos } from "@/hook/firestore.db";
-import { getData } from "@/hook/bajarDatos";
+import { cargarDatosFirebase, obtenerDatosFirebase, eliminarDatosFirebase } from "@/hook/firestore.db";
+import { subirImagenStorage } from "@/hook/firebase.storage";
 
-export const useStoreProyectos = defineStore("formularios", {
+export const useStoreProyectos = defineStore("proyectos", {
   state: () => {
     return {
       nombre: null,
       descripcion_breve: null,
       descripcion: null,
-      enlace: null,
+      url: null,
       fecha: null,
-      imagen_url: null,
+      imagen_miniatura: null,
       almacen_imagenes: null,
       datos_proyecto: []
     };
   },
   actions: {
-    async cargarProyecto(uid, data) {
-      await cargarDatos(uid, data);
+    async subirProyecto(data) {
+      await cargarDatosFirebase("martin-proyectos", data);
     },
-    async setDatosProyecto(){
+    async bajarDatosProyecto(uid){
         if(!this.datos_proyecto.length)
-          this.datos_proyecto = await getData("martin-proyectos")
+          this.datos_proyecto = await obtenerDatosFirebase(uid)
           return true;   
+    },
+    async eliminarDatosProyecto(uid){
+      await eliminarDatosFirebase("martin-proyectos", uid)
+    },
+    async subirImagenProyecto({ruta, file}) {
+      await subirImagenStorage({ruta, file})
     }
   },
 });
