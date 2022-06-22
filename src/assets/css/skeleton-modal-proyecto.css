@@ -1,0 +1,28 @@
+.modal-body{
+    width: 900px;
+    display: grid;
+    grid-template-columns: auto auto;
+    height: 600px;
+    border-radius: 5px;
+    padding: 2rem;
+    gap: 2rem;
+}
+    .modal-body .modal-txt{
+        display: flex;
+        flex-direction: column;
+        gap: .75rem
+    }
+    .modal-body .modal-txt .skeleton-btn{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-body .modal-square{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+    }

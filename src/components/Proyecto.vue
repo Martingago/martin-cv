@@ -13,7 +13,7 @@
       <h3>{{ datos.nombre }}</h3>
       <p>{{ datos.descripcion_breve }}</p>
       <span class="btn-proyecto">
-        <button @click="handleModal(datos.imagen_url); posicion = index; almImg = store.datos_proyecto[posicion].almacen_imagenes"> Informacion </button>
+        <button @click="handleModal(datos.almacen_imagenes); posicion = index; almImg = store.datos_proyecto[posicion].almacen_imagenes"> Informacion </button>
       </span>
     </article>
 
@@ -21,9 +21,9 @@
 
     <teleport to="#modal">
       <transition name="modal">
-        <div class="main-desplegable-background" v-if="isModalOpen" @click.self="isModalOpen = false">
-          <div class="desplegable-info" ref="modal">
-            <span class="cerrar-btn" @click="isModalOpen = false">
+        <div class="main-desplegable-background" v-if="isModalOpen" @click.self="isModalOpen = false; modalCargado = false">
+          <div v-if="modalCargado" class="desplegable-info" ref="modal">
+            <span class="cerrar-btn" @click="isModalOpen = false; modalCargado= false">
               <font-awesome-icon :icon="['fa', 'circle-xmark']"></font-awesome-icon>
             </span>
             <h3>{{ store.datos_proyecto[posicion].nombre}}</h3>
@@ -36,7 +36,7 @@
             <div class="proyecto-carrousel">
               <div class="carrousel-imagenes">
                 <font-awesome-icon :icon="['fa', 'circle-chevron-left']"></font-awesome-icon>
-                <img v-for="(imagen, index) in carruselImagenes" :key="index" :src="imagen">
+                <img v-for="(imagen, index) in listaImagenes" :src="imagen" >
                 <font-awesome-icon :icon="['fa', 'circle-chevron-right']"></font-awesome-icon>
               </div>
               <div class="posicion">
@@ -45,24 +45,27 @@
                 <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
               </div>
             </div>
-
           </div>
+
+          <SkeletonModalProyecto v-else="modalCargado"></SkeletonModalProyecto>
         </div>
+
       </transition>
     </teleport>
 
+
   </div>
-  <div v-else="loading">
-    <SkeletonProyecto></SkeletonProyecto>
-  </div>
+    <SkeletonProyecto v-else="loading"></SkeletonProyecto>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import SkeletonProyecto from "@/components/SkeletonProyecto.vue";
+import SkeletonModalProyecto from "@/components/SkeletonModalProyecto.vue";
 import { useStoreProyectos } from "@/store/proyectos";
-import { downloadURL } from "@/hook/firebase.storage";
-import { cargarImagenes} from "@/hook/firebase.storage";
+import { obtenerColeccionImagenes, obtenerImagen } from "@/hook/firebase.storage";
+
+
 require("@/assets/css/proyecto.css");
 
 
@@ -73,31 +76,29 @@ const loading = ref(false);
 const uid = ref('');
 const posicion = 0;
 const almImg = ref('')
-let imagen = ref({})
 
 // Muestra el modal del proyecto, y carga su imagen correspondiente
+
+const modalCargado = ref(false)
+const listaImagenes = ref([]);
+
 const handleModal = async (url) => {
   isModalOpen.value = true;
   try {
-    uid.value = await downloadURL(url);
+    uid.value = await url;
+    listaImagenes.value =  await obtenerColeccionImagenes(uid.value);
+    modalCargado.value = true;
+
+    console.log(listaImagenes)
+
   } catch (error) {
     console.log(error)
   }
 
 }
-store.setDatosProyecto()
+store.bajarDatosProyecto("martin-proyectos")
   .then(() => { loading.value = true })
   .catch(error => console.log(error));
-
-
-// Listado de imagenes del modal --- carrusel
-const storeImagenes = cargarImagenes();
-const carruselImagenes = ref([]);
-const cargarArray =  async () => {
-  console.log(almImg._value)
-  carruselImagenes.value = await cargarImagenes(`${almImg._value}`)
-   
-}
 
 
 // Mostrar enlace a otra web

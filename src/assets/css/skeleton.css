@@ -20,6 +20,13 @@
     border-radius: 5px;
     background-color: white;
 }
+
+.skeleton-big-square {
+    width: 100%;
+    aspect-ratio: 1/ 1;
+    background-color: white;
+    border-radius: 5px;
+}
 .skeleton-circle{
     width: 300px;
     height: 300px;
@@ -71,6 +78,7 @@
 .skeleton-text:last-child {
     width: 80%;
 }
+
 @keyframes skeleton-background-loading {
     0% {
         background-color: hsl(200, 20%, 70%);

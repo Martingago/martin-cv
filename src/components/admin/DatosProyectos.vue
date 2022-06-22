@@ -32,7 +32,7 @@
                 <p>¿Seguno que quieres continuar?</p>
             </span>
             <span class="alerta-btn">
-                <button @click="eliminarProyecto()">Eliminar</button>
+                <button @click="eliminarProyecto">Eliminar</button>
                 <button @click="mostrar = false">Cancelar</button>
             </span>
         </div>
