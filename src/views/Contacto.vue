@@ -1,7 +1,7 @@
 <template>
   <div class="section-contacto">
     <div class="contacto">
-      <TextosimpleVue></TextosimpleVue>
+      <TextosimpleVue parrafo="Contactame si lo necesitas" titulo="Contactame"></TextosimpleVue>
       <Formulario></Formulario>
     </div>
     <BarraDatosVue></BarraDatosVue>

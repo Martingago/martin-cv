@@ -1,86 +1,6 @@
-/* Diseño sección */
-.section-proyectos {
-    position: relative;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(300px, auto));
-    /* grid-auto-flow: dense; */
-    max-width: fit-content;
-    width: 100%;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 5px;
-    gap: 10px;
-    background-color: var(--colortransparencia);
-}
-
-/* Tarjeta informacion */
-.proyectos-informacion {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-width: 300px;
-    max-width: auto;
-    grid-row: 1 / 3;
-    border-radius: 5px;
-    padding:1rem;
-    background-color: var(--colortransparencia);
-    transition: all .4s linear;
-}
-
-.proyectos-informacion img {
-    margin: 0 auto;
-    width: 90%;
-    max-width: 350px;
-    border-radius: 50%;
-    text-align: center;
-}
-
-/* Tarjeta proyecto */
-.block-proyecto {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    padding: 1rem;
-    border-radius: 5px;
-    min-width: 300px;
-    max-width: auto;
-    background-color: var(--colortransparencia);
-    box-shadow: inset -2px 0 7px white;
-}
-
-.block-proyecto:nth-child(4) {
-    grid-row: span 2;
-}
-
-.btn-proyecto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-proyecto button {
-    cursor: pointer;
-}
-
-.btn-proyecto button:hover {
-    animation: bounce-7 2.4s infinite;
-}
-
-@media screen and (max-width:500px) {
-    .section-proyectos {
-        width: 95%;
-        margin: auto;
-        padding: 0;
-    }
-
-}
-
-
 /* DESPLEGABLE INFO */
 
-/* .main-desplegable-background {
+.main-desplegable-background {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -140,7 +60,7 @@
     text-align: justify;
 }
 
-.desplegable-info a{
+.desplegable-info .btn-visitar{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,14 +78,12 @@
     box-shadow: 1px 1px 4px gray;
 }
 
-.desplegable-info a:hover {
+.desplegable-info .btn-visitar:hover {
     animation: bounce-7 2.4s infinite;
-} */
+}
 
 /* Carrusel */
-
-
-/* .proyecto-carrousel{
+.proyecto-carrousel{
     display: grid;
     gap: .5rem;
     align-items: center;
@@ -173,8 +91,8 @@
 
 .proyecto-carrousel .carrousel-imagenes{
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 }
 
 .proyecto-carrousel  .carrousel-imagenes .svg-inline--fa{
@@ -194,13 +112,14 @@
         left: 0%;
         transform: translate(50%, -50%);
     }
-    .proyecto-carrousel img{
+    .proyecto-carrousel .image-carrusel{
         position: absolute;
         top: 50%;
         right: 50%;
-        width: 100%;
+        width: inherit;
+        height: inherit;
         transform: translate(50%, -50%);
-        background-color: var(--colortransparencia);
+        background-size: cover;
         border-radius: 5px;
     }
 .proyecto-carrousel .posicion{
@@ -209,6 +128,10 @@
     justify-content: center;
     gap: .75rem;
     margin: .2rem;
+}
+.proyecto-carrousel .posicion .posicion-carrusel{
+    border: none;
+    color: black
 }
     .proyecto-carrousel .posicion svg{
         font-size: 1rem;
@@ -243,10 +166,10 @@
     100% {
         transform: scale(1, 1)
     }
-} */
+}
 
 /* Animacion modal */
-/* .modal-enter-active,
+.modal-enter-active,
 .modal-leave-active {
     transition: all .3s linear;
 }
@@ -261,4 +184,8 @@
     .info-proyect{
         grid-template-columns: 1fr;
     }
-} */
+}
+
+.oculto{
+    display: none;
+}

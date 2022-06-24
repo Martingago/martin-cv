@@ -19,7 +19,7 @@
 
     <!-- Modal -->
 
-    <teleport to="#modal">
+    <!-- <teleport to="#modal">
       <transition name="modal">
         <div class="main-desplegable-background" v-if="isModalOpen" @click.self="isModalOpen = false; modalCargado = false">
           <div v-if="modalCargado" class="desplegable-info" ref="modal">
@@ -51,7 +51,7 @@
         </div>
 
       </transition>
-    </teleport>
+    </teleport> -->
 
 
   </div>

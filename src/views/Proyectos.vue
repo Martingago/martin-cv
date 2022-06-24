@@ -3,10 +3,15 @@
       <Proyecto></Proyecto>
       <div id="modal"></div>
   </div>
+  <div>
+    <ModalWindow></ModalWindow>
+  </div>
 </template>
 
 <script setup>
 import Proyecto from '@/components/Proyecto.vue';
+import ModalWindow from '@/components/ModalWindow.vue';
+
 
 </script>
 
