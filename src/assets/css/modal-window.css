@@ -13,13 +13,14 @@
     background-color: var(--colortransparencia);
     backdrop-filter: blur(3px);
     overflow-y: hidden;
+    z-index: 2;
 }
 
 .desplegable-info {
     position: relative;
     display: grid;
     grid-template-columns: auto auto;
-    gap:  1.5rem 2rem;
+    gap:  1rem 2rem;
     height: fit-content;
     width: 90%;
     max-width: fit-content;
@@ -48,51 +49,83 @@
     line-height: 2rem;
 }
 
-.info-proyect {
+/* Informacion proyecto */
+.modulo-informacion-proyecto{
     display: grid;
-    min-width: 250px;
-    max-width: 350px;
     grid-template-rows: auto 1fr;
+    max-width: 600px;
+    max-height: 800px;
 }
+.modulo-informacion-proyecto .informacion-proyecto-selector{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 100%;
+    gap: .5rem;  
+}
+    .modulo-informacion-proyecto .informacion-proyecto-selector .proyecto-selector-btn{
+        text-decoration: none;
+        color: black;
+        background-color: lightgray;
+        padding: .5rem;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .modulo-informacion-proyecto .btn-proyecto-info{
+        display: grid;
+        grid-template-columns:  auto auto;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .desplegable-info .btn-proyecto-info .btn-visitar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        width: 150px;
+        height: fit-content;
+        margin: 2rem auto auto auto;
+        text-decoration: none;
+        padding: .25rem 1rem;
+        border-radius: 3px;
+        border: 1px solid black;
+        color: black;
+        cursor: pointer;
+        background-color: white;
+        box-shadow: 1px 1px 4px gray;
+    }
+    
+    .desplegable-info .btn-proyecto-info .btn-visitar:hover {
+        animation: bounce-7 2.4s infinite;
+    }
+
+    .modulo-informacion-proyecto .informacion-proyecto{
+        padding: 1rem;
+        background-color: rgb(233, 232, 232);
+        font-size: 1.2rem;
+        height: 650px;
+        overflow-x: hidden; 
+    }
 
 .desplegable-info p {
     width: 100%;
     text-align: justify;
 }
 
-.desplegable-info .btn-visitar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    width: fit-content;
-    height: fit-content;
-    margin: 2rem auto;
-    text-decoration: none;
-    padding: .25rem 1rem;
-    border-radius: 3px;
-    border: 1px solid black;
-    color: black;
-    cursor: pointer;
-    background-color: white;
-    box-shadow: 1px 1px 4px gray;
-}
-
-.desplegable-info .btn-visitar:hover {
-    animation: bounce-7 2.4s infinite;
-}
-
 /* Carrusel */
 .proyecto-carrousel{
     display: grid;
+    grid-template-rows: auto 1fr;
     gap: .5rem;
     align-items: center;
 }
 
 .proyecto-carrousel .carrousel-imagenes{
     position: relative;
-    width: 600px;
-    height: 600px;
+    width: 694px;
+    height: 694px;
 }
 
 .proyecto-carrousel  .carrousel-imagenes .svg-inline--fa{
@@ -112,7 +145,7 @@
         left: 0%;
         transform: translate(50%, -50%);
     }
-    .proyecto-carrousel .image-carrusel{
+    .proyecto-carrousel .image-carrusel, .image-container{
         position: absolute;
         top: 50%;
         right: 50%;
@@ -168,24 +201,10 @@
     }
 }
 
-/* Animacion modal */
-.modal-enter-active,
-.modal-leave-active {
-    transition: all .3s linear;
-}
-.modal-enter-from,
-.modal-leave-to {
-    opacity: 0;
-    width: 0px;
-    height: 0px;
-}
-
 @media screen and (max-width: 900px) {
     .info-proyect{
         grid-template-columns: 1fr;
     }
 }
 
-.oculto{
-    display: none;
-}
+
