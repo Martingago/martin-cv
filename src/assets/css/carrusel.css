@@ -1,0 +1,75 @@
+/* Carrusel */
+.proyecto-carrousel{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    align-items: center;
+    margin: auto;
+}
+
+.proyecto-carrousel .carrousel-imagenes{
+    position: relative;
+    width: 700px;
+    height: 700px;
+}
+
+.proyecto-carrousel  .carrousel-imagenes .svg-inline--fa{
+    position: absolute;
+    top: 50%;
+    color: var(--colorprincipal);
+    font-size: 2rem;
+    z-index: 2;
+    cursor: pointer;
+    color: rgba(125, 125, 125, .4);
+}
+    .proyecto-carrousel  .carrousel-imagenes .fa-circle-chevron-right{
+        right: 0%;
+        transform: translate(-50%, -50%);
+    }
+    .proyecto-carrousel  .carrousel-imagenes .fa-circle-chevron-left{
+        left: 0%;
+        transform: translate(50%, -50%);
+    }
+    .proyecto-carrousel .image-carrousel{
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        width: inherit;
+        height: inherit;
+        transform: translate(50%, -50%);
+        background-size: cover;
+        border-radius: 5px;
+    }
+.proyecto-carrousel .posicion{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: .75rem;
+    margin: .2rem;
+}
+.proyecto-carrousel .posicion .posicion-carrusel{
+    border: none;
+    color: black
+}
+    .proyecto-carrousel .posicion svg{
+        font-size: 1rem;
+    }
+
+@media screen and (max-width: 1350px) {
+    .proyecto-carrousel .carrousel-imagenes{
+        width: 500px;
+        height: 500px;
+    }  
+}
+@media screen and (max-width: 620px) {
+    .proyecto-carrousel .carrousel-imagenes{
+        width: 400px;
+        height: 400px;
+    } 
+}
+@media screen and (max-width: 470px) {
+    .proyecto-carrousel .carrousel-imagenes{
+        width: 300px;
+        height: 300px;
+    }
+}

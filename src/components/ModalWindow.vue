@@ -8,6 +8,7 @@
 
             <div class="modulo-informacion-proyecto">
                 <nav class="informacion-proyecto-selector">
+                    <a href="#" class="proyecto-selector-btn selector-btn-images">Previsualizar</a>
                     <a href="#" class="proyecto-selector-btn" @click="mostrarDatos(index)"
                         v-for="(titulo, index) in titulo_descripcion" :key="index">{{ titulo }}</a>
                 </nav>
@@ -21,22 +22,7 @@
                 </span>
             </div>
 
-            <div class="proyecto-carrousel">
-                <div class="carrousel-imagenes">
-                    <font-awesome-icon @click="posicion--; limitar()" :icon="['fa', 'circle-chevron-left']">
-                    </font-awesome-icon>
-                    <div class="image-carrusel" v-for="(imagen, index) in imagenes" :key="index"
-                        v-show="index == posicion" :style="`background-image:url(${imagen})`"> </div>
-                    <font-awesome-icon @click="posicion++; limitar()" :icon="['fa', 'circle-chevron-right']">
-                    </font-awesome-icon>
-                </div>
-                <div class="posicion">
-                    <a class="posicion-carrusel" href="#" v-for="(i, index) in imagenes.length" :key="i"
-                        @click="moverSlider(i)">
-                        <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
-                    </a>
-                </div>
-            </div>
+            <Carrusel></Carrusel>
         </article>
         <SkeletonModalProyectoVue v-else="cargando"></SkeletonModalProyectoVue>
 
@@ -47,6 +33,7 @@
 <script setup>
 import SkeletonModalProyectoVue from "./SkeletonModalProyecto.vue";
 import { ref } from "vue";
+import Carrusel from "./Carrusel.vue";
 require("@/assets/css/modal-window.css");
 
 const props = defineProps({
@@ -70,7 +57,7 @@ const props = defineProps({
     },
     informacion_descripcion: {
         type: Array,
-        default: ["Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam ",
+        default: ["Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa",
             "Segundo Incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?",
             "Tercero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil"]
     },
@@ -83,11 +70,6 @@ const props = defineProps({
         default: "https://github.com/Martingago"
     },
 
-    imagenes: {
-        type: Array,
-        default: ["https://firebasestorage.googleapis.com/v0/b/dfdd-227d8.appspot.com/o/Default%2Fimagen-default.jpg?alt=media&token=aaffd26b-ce22-4d59-a175-fef6d133a19f",
-            "https://firebasestorage.googleapis.com/v0/b/dfdd-227d8.appspot.com/o/lenguajes-programacion%2Fhtml.png?alt=media&token=e06a6f1e-8c03-46b2-aa59-ddb821c76bfd"],
-    }
 })
 
 // Mostrar datos

@@ -22,12 +22,13 @@
     grid-template-columns: auto auto;
     gap:  1rem 2rem;
     height: fit-content;
-    width: 90%;
-    max-width: fit-content;
+    width: fit-content;
+    max-width: 90%;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 1rem;
     box-shadow: 4px 4px 10px gray;
+    overflow: hidden;
 }
 
 .cerrar-btn {
@@ -49,22 +50,24 @@
     line-height: 2rem;
 }
 
+
 /* Informacion proyecto */
 .modulo-informacion-proyecto{
     display: grid;
-    grid-template-rows: auto 1fr;
-    max-width: 600px;
-    max-height: 800px;
+    grid-template-columns: auto;
+    max-width: 650px;
 }
 .modulo-informacion-proyecto .informacion-proyecto-selector{
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    display: flex;
     width: 100%;
     gap: .5rem;  
 }
+
+/* Botones mini-menu */
     .modulo-informacion-proyecto .informacion-proyecto-selector .proyecto-selector-btn{
         text-decoration: none;
         color: black;
+        width: 100%;
         background-color: lightgray;
         padding: .5rem;
         border-top-right-radius: 5px;
@@ -72,6 +75,10 @@
         font-size: 1.2rem;
         text-align: center;
     }
+    .selector-btn-images{
+        display: none;
+    }
+
     .modulo-informacion-proyecto .btn-proyecto-info{
         display: grid;
         grid-template-columns:  auto auto;
@@ -86,7 +93,7 @@
         justify-self: center;
         width: 150px;
         height: fit-content;
-        margin: 2rem auto auto auto;
+        margin: 1rem auto;
         text-decoration: none;
         padding: .25rem 1rem;
         border-radius: 3px;
@@ -97,15 +104,19 @@
         box-shadow: 1px 1px 4px gray;
     }
     
+    
     .desplegable-info .btn-proyecto-info .btn-visitar:hover {
         animation: bounce-7 2.4s infinite;
     }
+
+/* Tablas de datos */
 
     .modulo-informacion-proyecto .informacion-proyecto{
         padding: 1rem;
         background-color: rgb(233, 232, 232);
         font-size: 1.2rem;
         height: 650px;
+        width: 100%;
         overflow-x: hidden; 
     }
 
@@ -113,64 +124,6 @@
     width: 100%;
     text-align: justify;
 }
-
-/* Carrusel */
-.proyecto-carrousel{
-    display: grid;
-    grid-template-rows: auto 1fr;
-    gap: .5rem;
-    align-items: center;
-}
-
-.proyecto-carrousel .carrousel-imagenes{
-    position: relative;
-    width: 694px;
-    height: 694px;
-}
-
-.proyecto-carrousel  .carrousel-imagenes .svg-inline--fa{
-    position: absolute;
-    top: 50%;
-    color: var(--colorprincipal);
-    font-size: 2rem;
-    z-index: 2;
-    cursor: pointer;
-    color: rgba(125, 125, 125, .4);
-}
-    .proyecto-carrousel  .carrousel-imagenes .fa-circle-chevron-right{
-        right: 0%;
-        transform: translate(-50%, -50%);
-    }
-    .proyecto-carrousel  .carrousel-imagenes .fa-circle-chevron-left{
-        left: 0%;
-        transform: translate(50%, -50%);
-    }
-    .proyecto-carrousel .image-carrusel, .image-container{
-        position: absolute;
-        top: 50%;
-        right: 50%;
-        width: inherit;
-        height: inherit;
-        transform: translate(50%, -50%);
-        background-size: cover;
-        border-radius: 5px;
-    }
-.proyecto-carrousel .posicion{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: .75rem;
-    margin: .2rem;
-}
-.proyecto-carrousel .posicion .posicion-carrusel{
-    border: none;
-    color: black
-}
-    .proyecto-carrousel .posicion svg{
-        font-size: 1rem;
-    }
-
-
 @keyframes bounce-7 {
     0% {
         transform: scale(1, 1)
@@ -201,10 +154,64 @@
     }
 }
 
-@media screen and (max-width: 900px) {
-    .info-proyect{
-        grid-template-columns: 1fr;
+@media screen and (max-width: 1350px) {
+    .modulo-informacion-proyecto .informacion-proyecto{
+        height: 456px;
     }
+    
+}
+@media screen and (max-width: 1080px) {
+    .desplegable-info{
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto 1fr;
+        width: 90vw;
+        height: 90vh;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    .desplegable-info h3{
+        grid-column: auto;
+    }
+
+    .proyecto-carrousel{
+        grid-row: 2 / 3;
+    }
+    .modulo-informacion-proyecto{
+        max-width: 100%;
+    }
+    .modulo-informacion-proyecto .informacion-proyecto{
+        height: auto;
+    }
+    .modulo-informacion-proyecto .btn-proyecto-info{
+        grid-row: 1 / 2;
+    }  
 }
 
+@media screen and (max-width: 550px) {
+    .desplegable-info{
+        width: 100%;
+        max-width: 95%;
+        padding: .5rem;
+        grid-template-rows: auto auto auto 1fr;
+    }
+    .modulo-informacion-proyecto .informacion-proyecto-selector{
+        font-size: 1rem;
+    }
+    .modulo-informacion-proyecto .informacion-proyecto{
+        width: 100%;
+        font-size: 1.1rem;
+    }
+    .desplegable-info .btn-proyecto-info{
+        width: 100%;
+        gap: .5rem;
+    }
+    .desplegable-info .btn-proyecto-info .btn-visitar{
+        width: fit-content;
+    }
+    .modulo-informacion-proyecto .informacion-proyecto-selector .proyecto-selector-btn{
+        padding: .25rem;
+        font-size: 1rem;
+    }
+
+}
 
