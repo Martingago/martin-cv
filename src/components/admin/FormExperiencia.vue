@@ -1,146 +1,98 @@
 <template>
     <section class="section-form">
-        <form @submit.prevent="guardarDatos" class="form-contacto" action="#" method="POST" autocomplete="off">
+        <form @submit.prevent="guardarDatos" class="form-experiencia" action="#" method="POST" autocomplete="off">
             <h2>Datos Experiencia Laboral</h2>
-            <input type="text" name="puesto" id="input-puesto" placeholder="Puesto" required />
+            <input v-model.trim="form.puesto" type="text" name="puesto" id="input-puesto" placeholder="Puesto"
+                required />
 
-            <input type="text" name="lugar" id="input-lugar" placeholder="Lugar" required />
-            <label for="fechaInicio">Fecha inicio</label>
-            <input type="date" name="fechaInicio" id="input-fechaInicio" placeholder="Fecha inicio" required />
+            <input v-model.trim="form.lugar_trabajo" type="text" name="lugar" id="input-lugar" placeholder="Lugar"
+                required />
+            <input v-model.trim="form.contrato" type="text" name="contrato" id="input-contrato" placeholder="Contrato"
+                required />
+            <span class="experiencia-fecha">
+                <label for="fechaInicio">Fecha inicio</label>
+                <input v-model.trim="form.fecha_inicio" type="date" name="fechaInicio" id="input-fechaInicio"
+                    placeholder="Fecha inicio" required />
+            </span>
 
-            <label for="fechaFin">Fecha fin</label>
-            <input type="date" name="fechaFin" id="input-fechaFin" placeholder="Fecha inicio" required />
+            <span class="experiencia-fecha">
+                <label for="fechaFin">Fecha fin</label>
+                <input v-model.trim="form.fecha_fin" type="date" name="fechaFin" id="input-fechaFin"
+                    placeholder="Fecha inicio" required />
+            </span>
 
-            <textarea id="input-descripcion" name="short-descripcion" rows="2" placeholder="Descricion breve"></textarea>
-            
-            <div class="form-control" v-for="key in count" :key="key">
-                <input class="input-responsabilidad" type="text" name="responsabilidad" placeholder="Responsabilidad"
-                    v-model="values['responsabilidad' + key]">
-                    <font-awesome-icon :icon="['fa', 'plus']" @click="remove"></font-awesome-icon>
+            <textarea v-model.trim="form.descripcion_breve" id="input-descripcion" name="short-descripcion" rows="2"
+                placeholder="Descricion breve"></textarea>
+
+            <div class="form-control" v-for="(index) in count" :key="index">
+                <input :v-model.trim="form.responsabilidades" class="input-responsabilidad" type="text"
+                    name="responsabilidad" :placeholder="'Responsabilidad ' + index">
+                <font-awesome-icon :icon="['fa', 'plus']" @click="remove"></font-awesome-icon>
             </div>
 
-            <button class="btn-add" @click="add">
+            <div class="btn-add" @click="add">
                 <font-awesome-icon :icon="['fa', 'plus']"></font-awesome-icon>
-            </button>
+            </div>
 
-            <input type="submit" value="subir datos" name="send-usuario" id="submit-usuario" @click="submit"/>
+            <input type="submit" value="subir datos" name="send-usuario" id="submit-usuario" @click="guardarExperiencia">
         </form>
     </section>
 </template>
 
-<script>
-require('@/assets/css/formulario.css')
+<script setup>
+import { reactive, ref } from 'vue';
+import { storeExperienciaCv } from "@/store/cv/experiencia-cv";
+require('@/assets/css/admin-design/formExperiencia.css');
 
-export default {
-    name: 'App',
-    data: function () {
-        return {
-            count: 1,
-            values: {}
-        }
-    },
-    methods: {
-        add: function () {
-            this.count++;
-        },
-        remove: function () {
-            this.count--;
+const storeExperiencia = storeExperienciaCv()
 
-        },
-        submit: function () {
-            for (var key of Object.keys(this.values)) {
-                console.log(key + " -> " + this.values[key])
-            }
-        }
+const count = ref(1);
 
+const form = reactive({
+    puesto: "",
+    lugar_trabajo: "",
+    contrato: "",
+    fecha_inicio: "",
+    fecha_fin: "",
+    descripcion_breve: "",
+    responsabilidades: []
+})
+const reset = () => {
+    form.puesto = "",
+        form.lugar_trabajo = "",
+        form.contrato = "",
+        form.fecha_inicio = "",
+        form.fecha_fin = "",
+        form.descripcion_breve = "",
+        form.responsabilidades = []
+}
 
+const add = () => {
+    count.value++
+}
+const remove = () => {
+    count.value--
+}
+
+// Guarda en un array los datos que experiencia que ha introducido el usuario
+const guardarExperiencia = () => {
+    form.responsabilidades = []
+    const responsabilidad = document.querySelectorAll(".input-responsabilidad")
+    for(let i=0; i<responsabilidad.length; i++){
+        form.responsabilidades.push(responsabilidad[i].value)
     }
+}
+
+const guardarDatos = async () => {
+    try {
+        await storeExperiencia.subirDatosExperiencia(form)
+        console.log(form)
+        console.log("subiendo datos")
+        // reset()
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
 </script>
-
-<style scoped>
-.section-form{
-    height: fit-content;
-}
-.form-contacto {
-    width: 90vw;
-    max-width: 500px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    background-color: rgba(150, 150, 150, .6);
-    padding: 1rem;
-}
-
-.form-contacto h2 {
-    grid-column: 1 / 3;
-    text-align: center;
-}
-
-#input-puesto,
-#input-lugar
-{
-    grid-column: 1 / 3;
-}
-
-.form-contacto label {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    background-color: var(--colortransparencia);
-    border-radius: 5px;
-    padding: 0 1rem;
-}
-
-#input-descripcion {
-    background-color: rgba(250, 250, 250, 0.4);
-    padding: 5px;
-    grid-column: 1 / 3;
-    resize: none;
-    border: none;
-    color: var(--colorprincipal);
-    border-radius: 5px;
-}
-
-#input-responsabilidad {
-    width: 100%;
-}
-
-.form-control{
-    grid-column: 1 / 3;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-}
-    .form-control svg{
-        transform: rotateZ(45deg);
-        color: white;
-        background-color: red;
-        font-size: 2rem;
-        width: 26px;
-        height: 26px;
-        padding: .15rem;
-        cursor: pointer;
-        border-radius: 50%;
-        margin-left: .5rem;
-    }
-
-.btn-add {
-    grid-column: 1 / 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    border: none;
-    background-color: rgba(250, 250, 250, 0.4);
-    border-radius: 50%;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-.btn-add svg {
-    padding: .15rem;
-}
-</style>

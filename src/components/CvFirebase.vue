@@ -23,18 +23,18 @@
 
     <section class="experience">
       <h2>Experiencia laboral</h2>
-      <div class="cv-description" v-for="(experiencia, index) in store.experiencia" :key="index">
+      <div class="cv-description" v-for="(experiencia, index) in storeExperiencia.experiencia" :key="index">
         <div class="description-data">
           <h4 class="position">{{ experiencia.puesto }}</h4>
-          <p class="company">{{ experiencia.lugar }}</p>
-          <p class="description">{{ experiencia.formacion }}</p>
+          <p class="company">{{ experiencia.lugar_trabajo }}</p>
+          <p class="description">{{ experiencia.contrato }}</p>
           <p class="when">
-            {{ getFecha(experiencia.fechaInicio) }} <br />
-            {{ getFecha(experiencia.fechaFin) }}
+            {{experiencia.fecha_inicio }} <br />
+            {{experiencia.fecha_fin }}
           </p>
         </div>
         <div class="description-responsabilities">
-          <span class="responsability" v-for="(responsabilidades, index) in experiencia.experiencia" :key="index">
+          <span class="responsability" v-for="(responsabilidades, index) in experiencia.responsabilidades" :key="index">
             <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
             <p>{{ responsabilidades }}</p>
           </span>
@@ -64,27 +64,31 @@
 
 <script setup>
 // Librerias
-import { reactive, ref } from "vue";
-// import { useStorePerfilCv } from "@/hook/dataCv.user";
+import {ref } from "vue";
+import { useStorePerfilCv } from "@/store/cv/dataCv.user";
+import { storeExperienciaCv } from "@/store/cv/experiencia-cv";
 import { getFecha } from "@/hook/librerias";
 import SkeletonCvVue from "./SkeletonCv.vue";
-// imagenes
-import { cargarImagenes} from "@/hook/firebase.storage";
+import { obtenerColeccionImagenes } from "@/hook/firebase.storage";
 require("@/assets/css/cv.css");
 
-const loader = ref(false)
+const loader = ref(false);
+const store = useStorePerfilCv();
+const storeExperiencia = storeExperienciaCv();
 
 const listaDeImagenes = ref([]);
 (async () => {
-  listaDeImagenes.value = await cargarImagenes("lenguajes-programacion")
+  listaDeImagenes.value = await obtenerColeccionImagenes("lenguajes-programacion")
     loader.value = true;
 
 })()
 
-const store = useStorePerfilCv();
+storeExperiencia.bajarDatosExperiencia()
+
+
 // Cargamos datos
+
 store.setFormacion();
 store.setDatosPersonales();
-store.setExprerienciaLaboral();
 
 </script>

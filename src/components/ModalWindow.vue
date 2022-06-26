@@ -8,7 +8,6 @@
 
             <div class="modulo-informacion-proyecto">
                 <nav class="informacion-proyecto-selector">
-                    <a href="#" class="proyecto-selector-btn selector-btn-images">Previsualizar</a>
                     <a href="#" class="proyecto-selector-btn" @click="mostrarDatos(index)"
                         v-for="(titulo, index) in titulo_descripcion" :key="index">{{ titulo }}</a>
                 </nav>
@@ -21,8 +20,8 @@
                     <a class="btn-visitar" :href="codigo_fuente" target="_blank">Github</a>
                 </span>
             </div>
-
             <Carrusel></Carrusel>
+
         </article>
         <SkeletonModalProyectoVue v-else="cargando"></SkeletonModalProyectoVue>
 

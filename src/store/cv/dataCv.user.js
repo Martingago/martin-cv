@@ -3,6 +3,7 @@
 import { defineStore } from "pinia";
 import { db } from "@/hook/firebase.config";
 import { doc, collection, query, getDocs, getDoc } from "firebase/firestore";
+import { obtenerColeccionImagenes } from "@/hook/firebase.storage";
 
 // Informacion de mi CV
 export const useStorePerfilCv = defineStore("idPerfil", {
@@ -19,7 +20,6 @@ export const useStorePerfilCv = defineStore("idPerfil", {
         about: "sobre mi",
         descripcion: "puesto",
       },
-      experiencia: [],
     };
   },
   actions: {
@@ -52,6 +52,9 @@ export const useStorePerfilCv = defineStore("idPerfil", {
         this.experiencia.push(doc.data());
       });
     },
+    async setImagenes(uid) {
+      await obtenerColeccionImagenes(uid)
+    }
   },
   getters: {
     getNombreCompleto(state) {

@@ -75,10 +75,6 @@
         font-size: 1.2rem;
         text-align: center;
     }
-    .selector-btn-images{
-        display: none;
-    }
-
     .modulo-informacion-proyecto .btn-proyecto-info{
         display: grid;
         grid-template-columns:  auto auto;
@@ -115,9 +111,11 @@
         padding: 1rem;
         background-color: rgb(233, 232, 232);
         font-size: 1.2rem;
-        height: 650px;
+        height: 656px;
         width: 100%;
         overflow-x: hidden; 
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
     }
 
 .desplegable-info p {
