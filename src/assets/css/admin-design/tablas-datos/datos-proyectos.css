@@ -1,0 +1,98 @@
+/* Tabla datos */
+.proyectos-data-info {
+    width: 100%;
+    border: none;
+    background-color: black;
+}
+.tittle-proyectos-info {
+    width: 100%;
+    background-color: gray;
+    color: white;
+    border: none;
+}
+
+.data-proyectos-info {
+    width: 100%;
+    background-color: white;
+    padding:0;
+    margin: 0;
+}
+
+.data-proyectos-info:nth-child(odd) {
+    background-color: lightgray;
+}
+
+.data-fecha{
+    text-align: center;
+    width: 100px;
+}
+.options-proyecto {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Diseños generales */
+.experiencia-icon{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center ;
+    font-size: .7rem;
+    padding: 0 .25rem;
+}
+
+
+
+/* popup eliminar proyecto */
+
+.alerta-eliminar-proyecto {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(181, 182, 181, 0.377);
+    backdrop-filter: blur(5px);
+    z-index: 2;
+}
+
+.alerta-container {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(196, 84, 84);
+    border-radius: 5px;
+    margin: auto;
+    padding: 1rem;
+}
+
+.alerta-container h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+.alerta-container .alerta-txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+    .alerta-container .alerta-txt .proyecto-nombre{
+        font-weight: 800;
+    }
+
+.alerta-container .alerta-btn {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}

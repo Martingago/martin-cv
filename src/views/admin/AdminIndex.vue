@@ -4,6 +4,7 @@
         <MenuAdminVue></MenuAdminVue>
         <div>
             <DatosProyectosVue></DatosProyectosVue>
+            <DatosExperienciaVue></DatosExperienciaVue>
         </div>
         <div class="elements-grid">
             <h2>Cargar datos </h2>
@@ -22,7 +23,8 @@ import FormLaboralVue from '@/components/admin/FormLaboral.vue';
 import MenuAdminVue from '@/components/admin/MenuAdmin.vue';
 import FormPerfilVue from '@/components/admin/FormPerfil.vue';
 import FormProyectoVue from '@/components/admin/FormProyecto.vue';
-import DatosProyectosVue from '@/components/admin/DatosProyectos.vue';
+import DatosProyectosVue from '@/components/admin/tablas-datos/DatosProyectos.vue';
+import DatosExperienciaVue from '@/components/admin/tablas-datos/DatosExperiencia.vue';
 
 
 </script>

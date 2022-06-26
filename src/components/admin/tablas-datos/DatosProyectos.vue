@@ -13,7 +13,7 @@
             <td>{{ proyecto.nombre }}</td>
             <td>{{ proyecto.descripcion_breve }}</td>
             <td>{{ proyecto.descripcion }}</td>
-            <td>{{ proyecto.fecha }}</td>
+            <td class="data-fecha">{{ proyecto.fecha }}</td>
             <td>{{ proyecto.url }}</td>
             <td>{{ proyecto.imagen_miniatura }}</td>
             <td>
@@ -43,6 +43,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useStoreProyectos } from '@/store/proyectos';
+require("@/assets/css/admin-design/tablas-datos/datos-proyectos.css")
 const store = useStoreProyectos()
 store.bajarDatosProyecto("martin-proyectos");
 
@@ -64,97 +65,5 @@ const eliminarProyecto = async () => {
         mostrar.value = false;
     }
 }
-
-
-
 </script>
-
-<style scoped>
-.alerta-eliminar-proyecto {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(181, 182, 181, 0.377);
-    backdrop-filter: blur(5px);
-    z-index: 2;
-}
-
-.alerta-container {
-    position: fixed;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    width: fit-content;
-    height: fit-content;
-    background-color: rgb(196, 84, 84);
-    border-radius: 5px;
-    margin: auto;
-    padding: 1rem;
-}
-
-.alerta-container h2 {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 2rem;
-}
-
-.alerta-container .alerta-txt {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-}
-    .alerta-container .alerta-txt .proyecto-nombre{
-        font-weight: 800;
-    }
-
-.alerta-container .alerta-btn {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.proyectos-data-info {
-    width: 100%;
-    border: none;
-}
-
-.proyectos-data-info td {
-    border-left: 2px solid black;
-    border-bottom: 2px solid black;
-}
-
-.tittle-proyectos-info {
-    width: 100%;
-    background-color: gray;
-    color: white;
-    border: none;
-}
-
-.data-proyectos-info {
-    width: 100%;
-    background-color: white;
-    padding: 0;
-    margin: 0;
-}
-
-.data-proyectos-info:nth-child(odd) {
-    background-color: lightgray;
-}
-
-.options-proyecto {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-</style>
 
