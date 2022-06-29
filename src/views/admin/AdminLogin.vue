@@ -30,7 +30,7 @@
 import { useStoreUsers } from "@/store/users";
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
-require("@/assets/css/admin-design/login.css");
+require("@/assets/css/admin-design/index/login.css");
 
 const router = useRouter();
 

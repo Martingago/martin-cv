@@ -3,7 +3,7 @@
         <tr class="tittle-proyectos-info">
             <td>Experiencia</td>
             <td>Lugar trabajo</td>
-            <td>contrato</td>
+            <td>Contrato</td>
             <td>Descripcion breve</td>
             <td>Fecha inicio</td>
             <td>Fecha fin</td>
@@ -22,7 +22,7 @@
             </tr>
             <td>
                 <span class="options-proyecto">
-                    <font-awesome-icon :icon="['fa', 'trash']" @click="handleDelete({id:proyecto.idCollection , name: `${proyecto.nombre}` })"></font-awesome-icon>
+                    <font-awesome-icon :icon="['fa', 'trash']" @click="handleDelete({id:experiencia.idCollection , name: `${experiencia.puesto}`, lugar: `${experiencia.lugar_trabajo}` })"></font-awesome-icon>
                     <font-awesome-icon :icon="['fa', 'pen']"></font-awesome-icon>
                 </span>
             </td>
@@ -32,11 +32,11 @@
         <div class="alerta-container">
             <h2>Atencion</h2>
             <span class="alerta-txt">
-                <p>!El proyecto: <span class="proyecto-nombre">{{nombre}}</span> será eliminado de forma permanente!</p>
+                <p>La experiencia: <span class="proyecto-nombre">{{nombre}}</span> será eliminado de forma permanente!</p>
                 <p>¿Seguno que quieres continuar?</p>
             </span>
             <span class="alerta-btn">
-                <button @click="eliminarProyecto">Eliminar</button>
+                <button @click="eliminarExperiencia">Eliminar</button>
                 <button @click="mostrar = false">Cancelar</button>
             </span>
         </div>
@@ -58,16 +58,16 @@ const mostrar = ref(false)
 
 const nombre = ref("");
 let itemDelete = null;
-const handleDelete = ({id, name}) => {
+const handleDelete = ({id, name, lugar}) => {
     itemDelete = id;
     mostrar.value = true
-    nombre.value = name;
+    nombre.value = name + " en " + lugar;
 
 }
 
-const eliminarProyecto = async () => {
+const eliminarExperiencia = async () => {
     if (itemDelete) {
-        await store.eliminarDatosProyecto(itemDelete)
+        await storeExperiencia.eliminarDatosExperiencia(itemDelete)
         mostrar.value = false;
     }
 }

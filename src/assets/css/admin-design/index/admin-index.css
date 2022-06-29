@@ -1,0 +1,30 @@
+.section-admin-index{
+    margin-top: 45px;
+}
+.background-body {
+    width: 100%;
+    min-height: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: rgb(238, 238, 238);
+    background: linear-gradient(137deg, rgba(238, 238, 238, 1) 22%, rgba(200, 200, 200, 1) 88%);
+    z-index: -1;
+}
+
+.header {
+    display: none;
+}
+
+.btn-add-datos-admin{
+    margin: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    background: rgb(169, 95, 228);
+    color: white;
+    transition: transform .3s linear;
+}
+    .btn-add-datos-admin:hover{
+        transform: scale(1.1);
+    }

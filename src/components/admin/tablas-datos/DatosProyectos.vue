@@ -4,8 +4,11 @@
             <td>Proyecto</td>
             <td>Descripción Breve</td>
             <td>Descripción</td>
+            <td>Desarrollo</td>
+            <td>Conclusiones</td>
             <td>Fecha</td>
             <td>Enlace</td>
+            <td>Github</td>
             <td>Imagenes</td>
             <td>Ajustes</td>
         </tr>
@@ -13,8 +16,11 @@
             <td>{{ proyecto.nombre }}</td>
             <td>{{ proyecto.descripcion_breve }}</td>
             <td>{{ proyecto.descripcion }}</td>
+            <td>{{proyecto.desarrollo}}</td>
+            <td>{{proyecto.conclusiones}}</td>
             <td class="data-fecha">{{ proyecto.fecha }}</td>
             <td>{{ proyecto.url }}</td>
+            <td>{{proyecto.github}}</td>
             <td>{{ proyecto.imagen_miniatura }}</td>
             <td>
                 <span class="options-proyecto">
@@ -54,6 +60,7 @@ const nombre = ref("");
 let itemDelete = null;
 const handleDelete = ({id, name}) => {
     itemDelete = id;
+    console.log(itemDelete)
     mostrar.value = true
     nombre.value = name;
 

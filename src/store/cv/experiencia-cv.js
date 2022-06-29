@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { cargarDatosFirebase, obtenerDatosFirebase } from "@/hook/firestore.db";
+import { cargarDatosFirebase, obtenerDatosFirebase, eliminarDatosFirebase } from "@/hook/firestore.db";
 
 export const storeExperienciaCv = defineStore("experiencia", {
     state: () => {
@@ -13,6 +13,9 @@ export const storeExperienciaCv = defineStore("experiencia", {
         },
         async bajarDatosExperiencia() {
             this.experiencia = await obtenerDatosFirebase("experiencia")
+        },
+        async eliminarDatosExperiencia(uid) {
+            await eliminarDatosFirebase("experiencia", uid)
         }
     }
 })
