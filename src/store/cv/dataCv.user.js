@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 import { db } from "@/hook/firebase.config";
 import { doc, collection, query, getDocs, getDoc } from "firebase/firestore";
 import { obtenerColeccionImagenes } from "@/hook/firebase.storage";
+import { cargarDatosFirebase, eliminarDatosFirebase } from "@/hook/firestore.db";
 
 // Informacion de mi CV
 export const useStorePerfilCv = defineStore("idPerfil", {
@@ -41,15 +42,28 @@ export const useStorePerfilCv = defineStore("idPerfil", {
       const q = query(collection(db, "formacion"));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        this.formaciones.push(doc.data());
+        this.formaciones.push({
+          idCollection: doc.id,
+          ...doc.data()});
       });
     },
+    async cargarDatosFormacion(uid){
+      await cargarDatosFirebase("formacion", uid)
+    },
+    async eliminarDatosFormacion(uid){
+      await eliminarDatosFirebase("formacion", uid)
+    },
+
+
     async setExprerienciaLaboral() {
-      this.experiencia = [];
       const q = query(collection(db, "experiencia"));
       const querySnapshot = await getDocs(q);
+      this.experiencia = [];
       querySnapshot.forEach((doc) => {
-        this.experiencia.push(doc.data());
+        this.experiencia.push({
+          idCollection: doc.id,
+          ...doc.data()
+        });
       });
     },
     async setImagenes(uid) {

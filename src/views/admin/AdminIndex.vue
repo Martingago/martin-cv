@@ -4,6 +4,8 @@
         <MenuAdminVue></MenuAdminVue>
         <GestionDatosExperienciaVue></GestionDatosExperienciaVue>
         <GestionDatosProyectosVue></GestionDatosProyectosVue>
+        <GestionDatosLaboralVue></GestionDatosLaboralVue>
+
         
     </div>
 
@@ -13,6 +15,7 @@ import { ref } from 'vue';
 import MenuAdminVue from '@/components/admin/index/MenuAdmin.vue';
 import GestionDatosExperienciaVue from "@/components/admin/index/GestionDatosExperiencia.vue";
 import GestionDatosProyectosVue from '@/components/admin/index/GestionDatosProyectos.vue';
+import GestionDatosLaboralVue from '@/components/admin/index/GestionDatosLaboral.vue';
 
 
 

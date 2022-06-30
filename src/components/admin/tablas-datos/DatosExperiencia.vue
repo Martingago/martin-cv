@@ -62,7 +62,6 @@ const handleDelete = ({id, name, lugar}) => {
     itemDelete = id;
     mostrar.value = true
     nombre.value = name + " en " + lugar;
-
 }
 
 const eliminarExperiencia = async () => {
