@@ -1,11 +1,11 @@
 
 <template>
   <div class="cv-main-section" v-if="loader">
-    <section class="personal-info">
+    <section class="personal-info" v-for="(datosPersonales, index) in store.datosPersonales">
       <div class="personal-description">
-        <h2>{{ store.getNombreCompleto }}</h2>
-        <h3>{{ store.datosPersonales.descripcion }}</h3>
-        <p>{{ store.datosPersonales.about }}</p>
+        <h2>{{datosPersonales.nombre}} {{datosPersonales.primer_apellido}} {{datosPersonales.segundo_apellido}}</h2>
+        <h3>{{ datosPersonales.descripcion_breve }}</h3>
+        <p>{{ datosPersonales.descripcion }}</p>
         <div class="languages">
           <img v-for="(imagen, index) in listaDeImagenes" :key="index" :src="imagen">
         </div>
@@ -14,8 +14,8 @@
         <img src="../assets/img/profile.png" alt="foto mia" />
       </div>
       <div class="contact-info">
-        <p class="telephone">{{ store.datosPersonales.telefono }}</p>
-        <p class="email">{{ store.datosPersonales.email }}</p>
+        <p class="telephone">{{datosPersonales.telefono }}</p>
+        <p class="email">{{datosPersonales.email }}</p>
       </div>
     </section>
 
@@ -74,8 +74,8 @@ require("@/assets/css/cv.css");
 
 const loader = ref(false);
 const store = useStorePerfilCv();
-const storeExperiencia = storeExperienciaCv();
 
+const storeExperiencia = storeExperienciaCv();
 const listaDeImagenes = ref([]);
 (async () => {
   listaDeImagenes.value = await obtenerColeccionImagenes("lenguajes-programacion")
@@ -83,11 +83,11 @@ const listaDeImagenes = ref([]);
 
 })()
 
-storeExperiencia.bajarDatosExperiencia()
+
 
 
 // Cargamos datos
-
+storeExperiencia.bajarDatosExperiencia()
 store.setFormacion();
 store.setDatosPersonales();
 

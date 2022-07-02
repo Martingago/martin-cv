@@ -11,6 +11,7 @@
 import { ref } from 'vue';
 import DatosProyectosVue from '@/components/admin/tablas-datos/DatosProyectos.vue';
 import FormProyectoVue from '../formularios/FormProyecto.vue';
+require("@/assets/css/admin-design/index/admin-index.css")
 
 
 

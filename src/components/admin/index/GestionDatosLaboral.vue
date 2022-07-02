@@ -8,6 +8,7 @@
 import { ref } from 'vue';
 import FormLaboral from "@/components/admin/formularios/FormLaboral.vue";
 import DatosLaboralVue from "@/components/admin/tablas-datos/DatosLaboral.vue";
+require("@/assets/css/admin-design/index/admin-index.css")
 
 const cargarDatos = ref(false)
 

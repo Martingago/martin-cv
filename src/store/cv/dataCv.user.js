@@ -11,32 +11,30 @@ export const useStorePerfilCv = defineStore("idPerfil", {
   state: () => {
     return {
       formaciones: [],
-      datosPersonales: {
-        nombre: "nombre",
-        apellido1: "apellido",
-        apellido2: "apellido",
-        nacimiento: null,
-        telefono: "telefono",
-        email: "email",
-        about: "sobre mi",
-        descripcion: "puesto",
-      },
+      datosPersonales: []
     };
   },
   actions: {
+    // Perfil
     async setDatosPersonales() {
-      const docRef = doc(db, "perfil", "7xygBNTdtxd1ffR9fK2D");
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        for (let indice in this.datosPersonales) {
-          if (docSnap.data()[indice])
-            this.datosPersonales[indice] = docSnap.data()[indice];
-        }
-      } else {
-        console.log("No such document!");
-      }
+      this.datosPersonales = []
+      const q = query(collection(db, "perfil"));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        this.datosPersonales.push({
+          idCollection: doc.id,
+          ...doc.data()});
+      });
     },
+    async cargarDatosPersonales(uid){
+      await cargarDatosFirebase("perfil", uid)
+    },
+
+    async eliminarDatosPerfil(uid){
+      await eliminarDatosFirebase("perfil", uid)
+    },
+
+    //Formacion
     async setFormacion() {
       this.formaciones = [];
       const q = query(collection(db, "formacion"));
@@ -72,7 +70,7 @@ export const useStorePerfilCv = defineStore("idPerfil", {
   },
   getters: {
     getNombreCompleto(state) {
-      return `${state.datosPersonales.nombre} ${state.datosPersonales.apellido1} ${state.datosPersonales.apellido2}`;
+      return `${state.datosPersonales.nombre} ${state.datosPersonales.primer_apellido} ${state.datosPersonales.segundo_apellido}`;
     },
   },
 });
