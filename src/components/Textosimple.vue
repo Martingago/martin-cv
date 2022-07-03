@@ -4,7 +4,7 @@
         <p>
           {{parrafo}}
         </p>
-        <router-link to="/contacto">{{boton}}</router-link>
+        <router-link :to="redirect">{{boton}}</router-link>
       </div>
 </template>
 
@@ -13,15 +13,19 @@ require('@/assets/css/texto-simple.css')
 const props = defineProps({
   titulo: {
       type: String,
-      default: "Soy un desarrollador Front-End. Contratenme, necesito comer",
+      default: `Soy Martín, un desarrollador Front-end. Contratenme, necesito comer`,
   },
   parrafo: {
       type: String,
-      default: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis neque vero laboriosam esse ullam similique ratione, impedit provident accusantium autem."
+      default: "Mi nombre es Martín, soy un desarrollador Front-end, apasionado de la maquetación y el diseño. Deando aprender y evolucionar como programador"
   },
   boton: {
       type: String,
-      default: "Visitar"
+      default: "Contacto"
+  },
+  redirect: {
+    type: String,
+    default: "/contacto"
   }
 })
 </script>

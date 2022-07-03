@@ -47,12 +47,12 @@
 
 <script setup>
 import { reactive, ref } from 'vue';
-import { storeExperienciaCv } from "@/store/cv/experiencia-cv";
+import { useStorePerfilCv } from '@/store/cv/dataCv.user';
 require('@/assets/css/admin-design/formularios/form-admin.css');
 
 
 // Acciones de carga de datos del formulario
-const storeExperiencia = storeExperienciaCv()
+const storeExperiencia = useStorePerfilCv()
 const count = ref(1);
 const form = reactive({
     puesto: "",

@@ -46,11 +46,11 @@
 
 <script setup>
 import { ref } from 'vue';
-import { storeExperienciaCv } from '@/store/cv/experiencia-cv';
+import { useStorePerfilCv } from '@/store/cv/dataCv.user';
 
 require("@/assets/css/admin-design/tablas-datos/datos-proyectos.css");
 
-const storeExperiencia = storeExperienciaCv()
+const storeExperiencia = useStorePerfilCv()
 storeExperiencia.bajarDatosExperiencia()
 
 

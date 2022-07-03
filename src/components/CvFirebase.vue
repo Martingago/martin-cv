@@ -7,7 +7,7 @@
         <h3>{{ datosPersonales.descripcion_breve }}</h3>
         <p>{{ datosPersonales.descripcion }}</p>
         <div class="languages">
-          <img v-for="(imagen, index) in listaDeImagenes" :key="index" :src="imagen">
+          <img v-for="(imagen, index) in store.imagenesLenguajes" :key="index" :src="imagen">
         </div>
       </div>
       <div class="profile-img">
@@ -23,7 +23,7 @@
 
     <section class="experience">
       <h2>Experiencia laboral</h2>
-      <div class="cv-description" v-for="(experiencia, index) in storeExperiencia.experiencia" :key="index">
+      <div class="cv-description" v-for="(experiencia, index) in store.experiencia" :key="index">
         <div class="description-data">
           <h4 class="position">{{ experiencia.puesto }}</h4>
           <p class="company">{{ experiencia.lugar_trabajo }}</p>
@@ -66,29 +66,20 @@
 // Librerias
 import {ref } from "vue";
 import { useStorePerfilCv } from "@/store/cv/dataCv.user";
-import { storeExperienciaCv } from "@/store/cv/experiencia-cv";
 import { getFecha } from "@/hook/librerias";
 import SkeletonCvVue from "./SkeletonCv.vue";
-import { obtenerColeccionImagenes } from "@/hook/firebase.storage";
 require("@/assets/css/cv.css");
 
 const loader = ref(false);
 const store = useStorePerfilCv();
 
-const storeExperiencia = storeExperienciaCv();
-const listaDeImagenes = ref([]);
-(async () => {
-  listaDeImagenes.value = await obtenerColeccionImagenes("lenguajes-programacion")
-    loader.value = true;
-
-})()
-
-
-
-
 // Cargamos datos
-storeExperiencia.bajarDatosExperiencia()
+store.bajarDatosExperiencia();
 store.setFormacion();
 store.setDatosPersonales();
+
+store.setImagenes("lenguajes-programacion")
+.then(() => { loader.value = true })
+  .catch(error => console.log(error));
 
 </script>

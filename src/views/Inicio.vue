@@ -2,12 +2,15 @@
   <div class="section-inicio">
     <Welcome></Welcome>
     <ImageElementVue></ImageElementVue>
+    <!-- <CircleImages></CircleImages> -->
   </div>
 </template>
 
 <script setup>
 import Welcome from "@/components/Welcome.vue";
 import ImageElementVue from "@/components/ImageElement.vue";
+import CircleImages from "@/components/CircleImages.vue";
+
 </script>
 
 

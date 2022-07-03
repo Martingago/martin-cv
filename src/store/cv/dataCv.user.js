@@ -4,14 +4,16 @@ import { defineStore } from "pinia";
 import { db } from "@/hook/firebase.config";
 import { doc, collection, query, getDocs, getDoc } from "firebase/firestore";
 import { obtenerColeccionImagenes } from "@/hook/firebase.storage";
-import { cargarDatosFirebase, eliminarDatosFirebase } from "@/hook/firestore.db";
+import { cargarDatosFirebase, eliminarDatosFirebase, obtenerDatosFirebase } from "@/hook/firestore.db";
 
 // Informacion de mi CV
 export const useStorePerfilCv = defineStore("idPerfil", {
   state: () => {
     return {
       formaciones: [],
-      datosPersonales: []
+      datosPersonales: [],
+      experiencia: [],
+      imagenesLenguajes: []
     };
   },
   actions: {
@@ -23,14 +25,16 @@ export const useStorePerfilCv = defineStore("idPerfil", {
       querySnapshot.forEach((doc) => {
         this.datosPersonales.push({
           idCollection: doc.id,
-          ...doc.data()});
+          ...doc.data()
+        });
       });
     },
-    async cargarDatosPersonales(uid){
-      await cargarDatosFirebase("perfil", uid)
+    async cargarDatosPersonales(uid) {
+      if (!this.datosPersonales.length)
+        await cargarDatosFirebase("perfil", uid)
     },
 
-    async eliminarDatosPerfil(uid){
+    async eliminarDatosPerfil(uid) {
       await eliminarDatosFirebase("perfil", uid)
     },
 
@@ -42,30 +46,33 @@ export const useStorePerfilCv = defineStore("idPerfil", {
       querySnapshot.forEach((doc) => {
         this.formaciones.push({
           idCollection: doc.id,
-          ...doc.data()});
-      });
-    },
-    async cargarDatosFormacion(uid){
-      await cargarDatosFirebase("formacion", uid)
-    },
-    async eliminarDatosFormacion(uid){
-      await eliminarDatosFirebase("formacion", uid)
-    },
-
-
-    async setExprerienciaLaboral() {
-      const q = query(collection(db, "experiencia"));
-      const querySnapshot = await getDocs(q);
-      this.experiencia = [];
-      querySnapshot.forEach((doc) => {
-        this.experiencia.push({
-          idCollection: doc.id,
           ...doc.data()
         });
       });
     },
+    async cargarDatosFormacion(uid) {
+      if (!this.formaciones.length)
+        await cargarDatosFirebase("formacion", uid)
+    },
+    async eliminarDatosFormacion(uid) {
+      await eliminarDatosFirebase("formacion", uid)
+    },
+    //Experiencia laboral
+
+    async subirDatosExperiencia(data) {
+      await cargarDatosFirebase("experiencia", data)
+    },
+    async bajarDatosExperiencia() {
+      if (!this.experiencia.length)
+        this.experiencia = await obtenerDatosFirebase("experiencia")
+    },
+    async eliminarDatosExperiencia(uid) {
+      await eliminarDatosFirebase("experiencia", uid)
+    },
+    //Obtener imagenes de los lenguajes de programación
     async setImagenes(uid) {
-      await obtenerColeccionImagenes(uid)
+      if(!this.imagenesLenguajes.length)
+      this.imagenesLenguajes = await obtenerColeccionImagenes(uid)
     }
   },
   getters: {

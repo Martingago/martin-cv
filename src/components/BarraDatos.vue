@@ -2,10 +2,8 @@
   <div class="aboutme-skills">
       <article class="skills-block">
         <font-awesome-icon :icon="['fa', 'code']"></font-awesome-icon>
-        <h4>{{titulo}}</h4>
-        <p>
-          {{parrafo}}
-        </p>
+        <h4>Objetivos</h4>
+        <p>En lo referente a lo profesional, actualmente busco mejorar mis capacidades de programación: mejores prácticas, código eficiente, diseños adaptados al usuario, aprender otros lenguajes de programación, en general evolucionar y no quedarme estancado.</p>
       </article>
       <article class="skills-block">
         <font-awesome-icon :icon="['fa', 'pen']"></font-awesome-icon>

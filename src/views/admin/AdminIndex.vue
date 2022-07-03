@@ -2,10 +2,10 @@
     <div class="section-admin-index">
         <span class="background-body"></span>
         <MenuAdminVue ></MenuAdminVue>
-        <GestionDatosPersonalesVue v-if="index == 1"></GestionDatosPersonalesVue> 
-        <GestionDatosExperienciaVue v-if="index == 2"></GestionDatosExperienciaVue>
-        <GestionDatosLaboralVue v-if="index == 3"></GestionDatosLaboralVue>
-        <GestionDatosProyectosVue v-if="index == 4"></GestionDatosProyectosVue>
+        <GestionDatosPersonalesVue></GestionDatosPersonalesVue> 
+        <GestionDatosExperienciaVue></GestionDatosExperienciaVue>
+        <GestionDatosLaboralVue></GestionDatosLaboralVue>
+        <GestionDatosProyectosVue></GestionDatosProyectosVue>
         
               
     </div>

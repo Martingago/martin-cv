@@ -2,17 +2,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
     min-width: 400px;
-    max-width: 500px;
+    max-width: 600px;
     margin: auto;
     padding: 2rem;
   }
   
   .aboutme-card h2 {
     padding: 1rem 0;
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    text-transform: capitalize;
+    font-size: 2.6rem;
+    line-height: 2.6rem;
     text-align: left;
   }
   
@@ -56,12 +56,19 @@
   
   @media screen and (max-width: 1080px) {
     .aboutme-card {
-      width: 90%;
-      max-width: 700px;
+      width: 95%;
+      max-width: 600px;
       min-width: auto;
       padding: 0.5rem;
+      margin: auto;
     }
+
+    .aboutme-card p, .aboutme-card h2{
+      padding: .25rem 0;
+    }
+
     .aboutme-card a{
-      margin: auto
+      margin: 1rem auto auto auto;
+      font-size: 1.1rem;
     }
     }

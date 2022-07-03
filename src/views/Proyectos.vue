@@ -4,7 +4,7 @@
       <div id="modal"></div>
   </div>
   <div>
-    <ModalWindow></ModalWindow>
+    <!-- <ModalWindow></ModalWindow> -->
   </div>
 </template>
 
