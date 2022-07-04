@@ -20,7 +20,7 @@
                     <a class="btn-visitar" :href="codigo_fuente" target="_blank">Github</a>
                 </span>
             </div>
-            <Carrusel></Carrusel>
+            <Carrusel :imagenes="imagenes_proyecto"></Carrusel>
 
         </article>
         <SkeletonModalProyectoVue v-else="cargando"></SkeletonModalProyectoVue>
@@ -42,11 +42,15 @@ const props = defineProps({
     },
     cargando: {
         type: Boolean,
-        default: true
+        default: false
     },
     titulo_proyecto: {
         type: String,
         default: "Titulo proyecto"
+    },
+    imagenes_proyecto: {
+        type: Array,
+        default: []
     },
     titulo_descripcion: {
         type: Array,
@@ -56,9 +60,9 @@ const props = defineProps({
     },
     informacion_descripcion: {
         type: Array,
-        default: ["Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?Primero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa",
-            "Segundo Incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil, oluptate praesentium vero atque laboriosam est cum magnam, officiis soluta magni culpa, omnis dolorem. Dolorem?",
-            "Tercero Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis  labore, incidunt ullam doloremque quibusdam blanditiis voluptatum, facilis necessitatibus ratione assumenda soluta eum. nihil"]
+        default: ["Texto de prueba 01",
+            "Texto de prueba 02",
+            "texto de prueba 03"]
     },
     enlace: {
         type: String,

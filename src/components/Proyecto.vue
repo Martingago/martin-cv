@@ -13,46 +13,19 @@
       <h3>{{ datos.nombre }}</h3>
       <p>{{ datos.descripcion_breve }}</p>
       <span class="btn-proyecto">
-        <button @click="handleModal(datos.almacen_imagenes); posicion = index; almImg = store.datos_proyecto[posicion].almacen_imagenes"> Informacion </button>
+        <button @click="handleModal(datos)"> Informacion </button>
       </span>
     </article>
 
     <!-- Modal -->
-
-    <!-- <teleport to="#modal">
-      <transition name="modal">
-        <div class="main-desplegable-background" v-if="isModalOpen" @click.self="isModalOpen = false; modalCargado = false">
-          <div v-if="modalCargado" class="desplegable-info" ref="modal">
-            <span class="cerrar-btn" @click="isModalOpen = false; modalCargado= false">
-              <font-awesome-icon :icon="['fa', 'circle-xmark']"></font-awesome-icon>
-            </span>
-            <h3>{{ store.datos_proyecto[posicion].nombre}}</h3>
-
-            <span class="info-proyect">
-              <p>{{ store.datos_proyecto[posicion].descripcion }}</p>
-              <a @click="linkDownload(store.datos_proyecto[posicion].url)">Visitar sitio</a>
-            </span>
-
-            <div class="proyecto-carrousel">
-              <div class="carrousel-imagenes">
-                <font-awesome-icon :icon="['fa', 'circle-chevron-left']"></font-awesome-icon>
-                <img v-for="(imagen, index) in listaImagenes" :src="imagen" >
-                <font-awesome-icon :icon="['fa', 'circle-chevron-right']"></font-awesome-icon>
-              </div>
-              <div class="posicion">
-                <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
-                <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
-                <font-awesome-icon :icon="['fa', 'circle']"></font-awesome-icon>
-              </div>
-            </div>
-          </div>
-
-          <SkeletonModalProyecto v-else="modalCargado"></SkeletonModalProyecto>
-        </div>
-
-      </transition>
-    </teleport> -->
-
+    <ModalWindow v-if="isModalOpen"
+    :cargando="loadingFicha"
+    :titulo_proyecto="datosProyecto.nombre"
+    :informacion_descripcion="ArrayDescripciones"
+    :enlace="datosProyecto.url"
+    :codigo_fuente="datosProyecto.github"
+    :imagenes_proyecto="listaImagenes"
+    ></ModalWindow>
 
   </div>
     <SkeletonProyecto v-else="loading"></SkeletonProyecto>
@@ -63,37 +36,29 @@ import { ref } from "vue";
 import SkeletonProyecto from "@/components/SkeletonProyecto.vue";
 import { useStoreProyectos } from "@/store/proyectos";
 import { obtenerColeccionImagenes, obtenerImagen } from "@/hook/firebase.storage";
-
-
+import ModalWindow from "./ModalWindow.vue";
 require("@/assets/css/proyecto.css");
 
 
-// Ventana modal
+
 const isModalOpen = ref(false);
 const store = useStoreProyectos()
 const loading = ref(false);
-const uid = ref('');
+
 const posicion = 0;
-const almImg = ref('')
+
 
 // Muestra el modal del proyecto, y carga su imagen correspondiente
 
-const modalCargado = ref(false)
+const datosProyecto = ref({});
+const ArrayDescripciones = ref([])
 const listaImagenes = ref([]);
 
-const handleModal = async (url) => {
+const handleModal = async (datos) => {
+    cargarDatosProyecto(datos)
+    cargarDatosImagenesProyecto(datos)
   isModalOpen.value = true;
-  try {
-    uid.value = await url;
-    listaImagenes.value =  await obtenerColeccionImagenes(uid.value);
-    modalCargado.value = true;
-
-    console.log(listaImagenes)
-
-  } catch (error) {
-    console.log(error)
-  }
-
+  
 }
 store.bajarDatosProyecto("martin-proyectos")
   .then(() => { loading.value = true })
@@ -105,6 +70,38 @@ const linkDownload = (link) => {
   window.open(link, '_blank')
   console.log(link)
 }
+
+/**
+ * Funcion que permite cargar la información del proyecto acorde a la solicitud del usuario
+ * @param {Objet} datos objeto en el que se incluye TODA la información relacionada con el Proyecto.
+ * De las imagenes se obtiene su dirección en firebase. Es necesaria otra función para mostrarlas 
+ */
+const cargarDatosProyecto = (datos) => {
+  datosProyecto.value = {};
+  ArrayDescripciones.value = []
+  datosProyecto.value = datos
+  ArrayDescripciones.value = [datosProyecto.value.descripcion, datosProyecto.value.desarrollo, datosProyecto.value.conclusiones]
+}
+
+const uid = ref('');
+
+let loadingFicha = ref(false)
+const cargarDatosImagenesProyecto = async (datos) => {
+try {
+  loadingFicha.value = false
+  listaImagenes.value = []
+    uid.value =  datos.almacen_imagenes;
+    listaImagenes.value =  await obtenerColeccionImagenes(uid.value);
+    loadingFicha.value = true;
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+
+
 </script>
 
 
