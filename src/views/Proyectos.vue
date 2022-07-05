@@ -1,10 +1,6 @@
 <template>
   <div class="main-section-proyectos">
       <Proyecto></Proyecto>
-      <div id="modal"></div>
-  </div>
-  <div>
-   
   </div>
 </template>
 

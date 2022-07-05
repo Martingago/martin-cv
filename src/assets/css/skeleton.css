@@ -22,7 +22,6 @@
 }
 
 .skeleton-big-square {
-    width: 100%;
     aspect-ratio: 1/ 1;
     background-color: white;
     border-radius: 5px;
@@ -33,6 +32,12 @@
     border-radius: 50%;
     background-color: white;
     margin: 1rem auto;
+}
+.skeleton-little-circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
 }
 
 .skeleton-tittle {

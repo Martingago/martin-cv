@@ -48,6 +48,7 @@
     grid-column: 1 / 3;
     font-size: 2rem;
     line-height: 2rem;
+    width: calc(100% - 40px);
 }
 
 
@@ -194,6 +195,9 @@
     }
     .modulo-informacion-proyecto .informacion-proyecto-selector{
         font-size: 1rem;
+    }
+    .cerrar-btn {
+        margin: .5rem;
     }
     .modulo-informacion-proyecto .informacion-proyecto{
         width: 100%;
