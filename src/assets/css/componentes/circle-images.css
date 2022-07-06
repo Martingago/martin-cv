@@ -1,0 +1,74 @@
+.circle-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+    width: 600px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    position: relative;
+    animation: rotacion-container 20s linear infinite;
+    margin: 1rem;
+}
+   
+
+.circle-container .imagen-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   animation: rotacion-elemento 20s linear infinite;
+}
+
+/* Ajuste horizontal */
+.circle-container .imagen-container:nth-child(1),
+.circle-container .imagen-container:nth-child(5){
+    margin-left: 2rem;
+}
+.circle-container .imagen-container:nth-child(2),
+.circle-container .imagen-container:nth-child(6){
+    margin-right: 2rem;
+}
+/* Elementos segunda fila */
+.circle-container .imagen-container:nth-child(3){
+    margin-right: calc(100% - (100px + 1rem));
+}
+.circle-container .imagen-container:nth-child(4){
+    margin-left: calc(100% - (100px + 1rem));
+}
+
+.img-centrada{
+    position: absolute;
+    animation: rotacion-elemento 20s linear infinite;
+    width: 320px;
+}
+
+@keyframes rotacion-container {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotacion-elemento {
+    100%{transform: rotate(-360deg);}
+}
+
+.img-tecnologia{
+    z-index: 2;
+    border-radius: 50%;
+    width: 70px;
+    transition: all 1s linear;
+}
+    .animacion-lenguajes{
+        transform: rotateY(360deg);
+    }
+.img-background{
+    width: 100px;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 2px  2px 5px 0px black;
+}

@@ -21,6 +21,7 @@ import CircleImages from "@/components/CircleImages.vue";
   margin: auto;
   display: grid;
   grid-template-columns: auto auto;
+  overflow: hidden;
 }
 @media screen and (max-width: 1250px) {
   .section-inicio {

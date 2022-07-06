@@ -11,12 +11,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    overflow: hidden;
 }
 
-@media screen and (max-width: 1080px) { 
+@media screen and (max-width: 1200px) { 
     .about-me-info{
         width: 100%;
         grid-template-columns: 1fr;
+    }
+    .about-me-info .circle-container{
+        margin: auto;
     }
 }
 @media screen and (max-width: 600px) {
