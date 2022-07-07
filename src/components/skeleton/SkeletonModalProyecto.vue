@@ -58,6 +58,6 @@
     </div>
 </template>
 <script setup>
-require("@/assets/css/skeleton.css")
-require("@/assets/css/skeleton-modal-proyecto.css")
+require("@/assets/css/skeleton/skeleton.css")
+require("@/assets/css/skeleton/skeleton-modal-proyecto.css")
 </script>

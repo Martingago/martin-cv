@@ -156,6 +156,6 @@
 
 <script setup>
 require('@/assets/css/cv.css');
-require('@/assets/css/skeleton.css');
+require('@/assets/css/skeleton/skeleton.css');
 </script>
 

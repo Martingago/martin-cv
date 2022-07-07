@@ -104,6 +104,6 @@
 </template>
 
 <script setup>
-require('@/assets/css/skeleton.css');
-require ('@/assets/css/skeleton-proyecto.css');
+require('@/assets/css/skeleton/skeleton.css');
+require ('@/assets/css/skeleton/skeleton-proyecto.css');
 </script>

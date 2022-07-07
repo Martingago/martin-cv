@@ -67,19 +67,22 @@
 import {ref } from "vue";
 import { useStorePerfilCv } from "@/store/cv/dataCv.user";
 import { getFecha } from "@/hook/librerias";
-import SkeletonCvVue from "./SkeletonCv.vue";
+import SkeletonCvVue from "@/components/skeleton/SkeletonCv.vue";
 require("@/assets/css/cv.css");
 
 const loader = ref(false);
 const store = useStorePerfilCv();
 
 // Cargamos datos
-store.bajarDatosExperiencia();
-store.setFormacion();
-store.setDatosPersonales();
 
-store.setImagenes("lenguajes-programacion")
-.then(() => { loader.value = true })
-  .catch(error => console.log(error));
+const cargaDatos = async() => {
+  await store.bajarDatosExperiencia();
+  await store.bajarDatosFormacion();
+  await store.bajarDatosPersonales();
+  await store.setImagenes("lenguajes-programacion")
+  loader.value = true
+}
+
+cargaDatos()
 
 </script>

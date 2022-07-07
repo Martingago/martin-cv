@@ -40,6 +40,12 @@
     background-color: white;
 }
 
+.skeleton-square-animation{
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    animation: skeleton-background-loading 1s linear infinite alternate;
+}
+
 .skeleton-tittle {
     width: 35%;
     height: 1.75rem;

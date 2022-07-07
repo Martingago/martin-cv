@@ -8,12 +8,14 @@
         <img class="img-centrada" src="@/assets/img/imagen-sobremi.png" alt="persona sentada escritorio">
     </div>
 
-
+    <SkeletonCircleImagesVue v-else="imagenesCargadas"></SkeletonCircleImagesVue>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { useStorePerfilCv } from '@/store/cv/dataCv.user';
+import SkeletonCircleImagesVue from './skeleton/SkeletonCircleImages.vue';
+
 require("@/assets/css/componentes/circle-images.css");
 
 const imagenesCargadas = ref(false)

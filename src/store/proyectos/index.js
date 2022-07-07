@@ -15,7 +15,6 @@ export const useStoreProyectos = defineStore("proyectos", {
     async bajarDatosProyecto(uid){
         if(!this.datos_proyecto.length)
           this.datos_proyecto = await obtenerDatosFirebase(uid)
-          console.log(this.datos_proyecto)
           return true;   
     },
     async eliminarDatosProyecto(uid){

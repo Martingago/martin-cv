@@ -30,7 +30,7 @@
 
 </template>
 <script setup>
-import SkeletonModalProyectoVue from "./SkeletonModalProyecto.vue";
+import SkeletonModalProyectoVue from "@/components/skeleton/SkeletonModalProyecto.vue";
 import { ref } from "vue";
 import Carrusel from "./Carrusel.vue";
 require("@/assets/css/modal-window.css");

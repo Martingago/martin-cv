@@ -53,7 +53,6 @@ const reset = () => {
 const guardarFormacion = async() => {
 try {
   await storeFormacion.cargarDatosFormacion(form)
-  console.log(form)
   reset()
 } catch (error) {
   

@@ -33,7 +33,7 @@
 
 <script setup>
 import { ref } from "vue";
-import SkeletonProyecto from "@/components/SkeletonProyecto.vue";
+import SkeletonProyecto from "@/components/skeleton/SkeletonProyecto.vue";
 import { useStoreProyectos } from "@/store/proyectos";
 import { obtenerColeccionImagenes, obtenerImagen } from "@/hook/firebase.storage";
 import ModalWindow from "./ModalWindow.vue";

@@ -60,7 +60,6 @@ const nombre = ref("");
 let itemDelete = null;
 const handleDelete = ({id, name}) => {
     itemDelete = id;
-    console.log(itemDelete)
     mostrar.value = true
     nombre.value = name;
 

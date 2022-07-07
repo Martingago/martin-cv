@@ -53,7 +53,7 @@ import { useStorePerfilCv } from "@/store/cv/dataCv.user";
 import {ref} from 'vue'
 require("@/assets/css/admin-design/tablas-datos/datos-proyectos.css");
 const storePersonal = useStorePerfilCv();
-storePersonal.setDatosPersonales();
+storePersonal.bajarDatosPersonales();
 
 const mostrar = ref(false)
 
@@ -64,8 +64,6 @@ const handleDelete = ({id, name}) => {
     itemDelete = id;
     mostrar.value = true
     nombre.value = name;
-    console.log(itemDelete)
-
 }
 
 const eliminarPerfil = async () => {

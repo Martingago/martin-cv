@@ -19,7 +19,4 @@ import GestionDatosProyectosVue from '@/components/admin/index/GestionDatosProye
 import GestionDatosLaboralVue from '@/components/admin/index/GestionDatosLaboral.vue';
 import GestionDatosPersonalesVue from '@/components/admin/index/GestionDatosPersonales.vue';
 
-
-const index = ref(1);
-
 </script>

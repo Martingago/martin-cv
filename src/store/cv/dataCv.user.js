@@ -2,7 +2,6 @@
 
 import { defineStore } from "pinia";
 import { db } from "@/hook/firebase.config";
-import { doc, collection, query, getDocs, getDoc } from "firebase/firestore";
 import { obtenerColeccionImagenes } from "@/hook/firebase.storage";
 import { cargarDatosFirebase, eliminarDatosFirebase, obtenerDatosFirebase } from "@/hook/firestore.db";
 
@@ -18,20 +17,13 @@ export const useStorePerfilCv = defineStore("idPerfil", {
   },
   actions: {
     // Perfil
-    async setDatosPersonales() {
-      this.datosPersonales = []
-      const q = query(collection(db, "perfil"));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        this.datosPersonales.push({
-          idCollection: doc.id,
-          ...doc.data()
-        });
-      });
+    async bajarDatosPersonales() {
+      if(!this.datosPersonales.length)
+      this.datosPersonales = await obtenerDatosFirebase("perfil")
     },
-    async cargarDatosPersonales(uid) {
-      if (!this.datosPersonales.length)
-        await cargarDatosFirebase("perfil", uid)
+    async cargarDatosPersonales(data) {
+        await cargarDatosFirebase("perfil", data)
+        return true
     },
 
     async eliminarDatosPerfil(uid) {
@@ -39,20 +31,13 @@ export const useStorePerfilCv = defineStore("idPerfil", {
     },
 
     //Formacion
-    async setFormacion() {
-      this.formaciones = [];
-      const q = query(collection(db, "formacion"));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        this.formaciones.push({
-          idCollection: doc.id,
-          ...doc.data()
-        });
-      });
+    async bajarDatosFormacion() {
+      if(!this.formaciones.length)
+      this.formaciones = await obtenerDatosFirebase("formacion")
     },
-    async cargarDatosFormacion(uid) {
-      if (!this.formaciones.length)
-        await cargarDatosFirebase("formacion", uid)
+    async cargarDatosFormacion(data) {
+        await cargarDatosFirebase("formacion", data)
+        return true
     },
     async eliminarDatosFormacion(uid) {
       await eliminarDatosFirebase("formacion", uid)
@@ -65,6 +50,7 @@ export const useStorePerfilCv = defineStore("idPerfil", {
     async bajarDatosExperiencia() {
       if (!this.experiencia.length)
         this.experiencia = await obtenerDatosFirebase("experiencia")
+        return true
     },
     async eliminarDatosExperiencia(uid) {
       await eliminarDatosFirebase("experiencia", uid)
