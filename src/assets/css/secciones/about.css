@@ -2,7 +2,7 @@
     width: 100%;
     min-height: calc(100vh - 88px);
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto auto;
 }
 .about-me-info {
     margin: auto;
@@ -15,9 +15,13 @@
 }
 
 @media screen and (max-width: 1200px) { 
+    .about-me-section{
+        gap: 1rem;
+    }
     .about-me-info{
         width: 100%;
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
     .about-me-info .circle-container{
         margin: auto;

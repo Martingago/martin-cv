@@ -22,6 +22,6 @@
 .section-image img {
   display: flex;
   width: 100%;
-  padding: 2rem;
+  /* padding: 2rem; */
 }
 </style>

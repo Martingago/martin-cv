@@ -29,13 +29,13 @@
             <nav class="main-menu-subfooter">
                 <ul class="navegation-social">
                     <li>
-                        <a class="a-style"><font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon></a>
+                        <a class="a-style" href="https://github.com/Martingago" target="_blank"><font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon></a>
                     </li>
                     <li>
-                        <a class="a-style"><font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon></a>
+                        <a class="a-style" href="https://www.linkedin.com/in/mart%C3%ADn-gago-chor%C3%A9n-6b1814241/" target="_blank"><font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon></a>
                     </li>
                     <li>
-                        <a class="a-style"><font-awesome-icon :icon="['fab', 'instagram']"></font-awesome-icon></a>
+                        <a class="a-style" href="https://www.twitch.tv/" target="_blank"><font-awesome-icon :icon="['fab', 'instagram']"></font-awesome-icon></a>
                     </li>
                 </ul>
             </nav>

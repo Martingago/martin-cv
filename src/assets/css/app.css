@@ -11,7 +11,7 @@
     
     --textotitulo: clamp(1.4rem, 3vw, 2rem);
     --textosubtitulo: clamp(1.2rem, 2vw, 1.4rem);
-    --textoparrafo: clamp(1rem, 2vw, 1.5rem);
+    --textoparrafo: clamp(1rem, 2vw, 1.2rem);
     --textoreducido: clamp(.75rem, 1.75vw, 1rem);
     --imagenesparrafo: clamp(2.5rem, 3vw, 6rem);
 
@@ -31,4 +31,10 @@ body {
     display: grid;
     min-height: 100vh;
     grid-template-rows: auto 1fr;
+  }
+
+  @media screen and (max-width: 1080px) {
+    #app{
+      align-items: flex-start;   
+    }
   }

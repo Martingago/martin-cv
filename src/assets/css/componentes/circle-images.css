@@ -45,7 +45,8 @@
 .img-centrada{
     position: absolute;
     animation: rotacion-elemento 20s linear infinite;
-    width: 320px;
+    width: 60%;
+    z-index: 0;
 }
 
 @keyframes rotacion-container {
@@ -60,7 +61,7 @@
 .img-tecnologia{
     z-index: 2;
     border-radius: 50%;
-    width: 70px;
+    width: 70%;
     transition: all 1s linear;
 }
     .animacion-lenguajes{
@@ -71,4 +72,32 @@
     position: absolute;
     border-radius: 50%;
     box-shadow: 2px  2px 5px 0px black;
+}
+
+@media screen and (max-width:650px) {
+    .circle-container{
+        width: 90%;
+    }
+    .circle-container .imagen-container{
+        width: 70px;
+        z-index: 1;
+    }
+
+
+    .circle-container .imagen-container:nth-child(1),
+.circle-container .imagen-container:nth-child(5){
+    margin-left: 1.5rem;
+}
+.circle-container .imagen-container:nth-child(2),
+.circle-container .imagen-container:nth-child(6){
+    margin-right: 1.5rem;
+}
+/* Elementos segunda fila */
+.circle-container .imagen-container:nth-child(3){
+    margin-right: calc(100% - 70px);
+}
+.circle-container .imagen-container:nth-child(4){
+    margin-left: calc(100% - 70px);
+}
+
 }

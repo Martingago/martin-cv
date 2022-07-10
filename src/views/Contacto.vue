@@ -13,31 +13,6 @@
 import Formulario from "../components/Formulario.vue"
 import TextosimpleVue from "@/components/Textosimple.vue";
 import BarraDatosVue from "@/components/BarraDatos.vue";
+require("@/assets/css/secciones/contacto.css")
 </script>
 
-<style scoped>
-.section-contacto{
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 1fr auto;
-  gap: 3rem;
-}
-
-.contacto{
-  width: 90vw;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-@media screen and (max-width: 1080px) {
-  .contacto{
-    grid-template-columns: auto;
-    margin: auto;
-  }
-}
-
-</style>

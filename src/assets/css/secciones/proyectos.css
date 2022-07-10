@@ -1,0 +1,13 @@
+.main-section-proyectos{
+    max-width: 1300px;
+    width: 95%;
+    margin: auto;
+  }
+  
+  @media screen and (max-width: 1080px) {
+    .main-section-proyectos{
+      margin: 0;
+      width: 100%;
+    }
+    
+  }

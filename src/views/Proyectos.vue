@@ -6,21 +6,6 @@
 
 <script setup>
 import Proyecto from '@/components/Proyecto.vue';
+require("@/assets/css/secciones/proyectos.css")
 
 </script>
-
-<style scoped>
-.main-section-proyectos{
-  max-width: 1300px;
-  width: 95%;
-  margin: auto;
-}
-
-@media screen and (max-width: 700px) {
-  .main-section-proyectos{
-    width: 100%;
-  }
-  
-}
-
-</style>
