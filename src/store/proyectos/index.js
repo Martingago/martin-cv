@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { cargarDatosFirebase, obtenerDatosFirebase, eliminarDatosFirebase } from "@/hook/firestore.db";
-import { subirImagenStorage} from "@/hook/firebase.storage";
+import { subirImagenStorage, eliminarImagenStorage} from "@/hook/firebase.storage";
 
 export const useStoreProyectos = defineStore("proyectos", {
   state: () => {
@@ -23,5 +23,8 @@ export const useStoreProyectos = defineStore("proyectos", {
     async subirImagenProyecto({ruta, file}) {
       await subirImagenStorage({ruta, file})
     },
+    async eliminarImagenesProyecto(uid){
+      await eliminarImagenStorage("proyectos-programacion/" ,uid)
+    }
   },
 });

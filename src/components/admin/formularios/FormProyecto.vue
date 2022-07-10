@@ -88,6 +88,8 @@ const subirNuevoProyecto = async () => {
         await storeProyectos.subirProyecto(form)
         console.log("subiendo datos")
         reset();
+        $emit('cerrarProyecto')
+        
     } catch (error) {
         console.log(ErrorEvent)
     }

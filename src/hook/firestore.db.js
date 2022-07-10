@@ -1,5 +1,5 @@
 import { db } from "./firebase.config";
-import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
 
 
 /**
@@ -36,7 +36,6 @@ export const obtenerDatosFirebase = async (uid) => {
   return temporal;
 }
 
-
 /**
  * 
  * @param {string} collection nombre de la colección en la cual queremos borrar el elemento
@@ -44,4 +43,14 @@ export const obtenerDatosFirebase = async (uid) => {
  */
 export const eliminarDatosFirebase = async (collection, uid) => {
   await deleteDoc(doc(db,collection,uid))
+}
+/**
+ * 
+ * @param {string} collection nombre de la colección en la que vamos a efectuar la actualización
+ * @param {string} uid código del documento que vamos a modificar
+ * @param {object} data objeto que contiene toda la información actualizada
+ */
+export const actualizarDatosFirebase = async (collection, uid, data) => {
+  await updateDoc(doc(db,collection,uid), data)
+
 }

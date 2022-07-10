@@ -49,6 +49,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useStoreProyectos } from '@/store/proyectos';
+
 require("@/assets/css/admin-design/tablas-datos/datos-proyectos.css")
 const store = useStoreProyectos()
 store.bajarDatosProyecto("martin-proyectos");
@@ -60,6 +61,7 @@ const nombre = ref("");
 let itemDelete = null;
 const handleDelete = ({id, name}) => {
     itemDelete = id;
+    console.log(id)
     mostrar.value = true
     nombre.value = name;
 
@@ -68,6 +70,7 @@ const handleDelete = ({id, name}) => {
 const eliminarProyecto = async () => {
     if (itemDelete) {
         await store.eliminarDatosProyecto(itemDelete)
+        // await store.eliminarImagenesProyecto(nombre.value)
         mostrar.value = false;
     }
 }

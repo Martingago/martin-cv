@@ -1,5 +1,5 @@
 import { storage } from "./firebase.config";
-import { ref, getDownloadURL, listAll, uploadBytes } from "firebase/storage";
+import { ref, getDownloadURL, listAll, uploadBytes, deleteObject } from "firebase/storage";
 
 
 // función para obtener una sola imagen
@@ -39,6 +39,10 @@ export const subirImagenStorage = async ({ruta, file}) => {
   uploadBytes(storageRef, file).then((snapshot) => {
     console.log("Uploaded a blob or file!");
   });
+}
+
+export const eliminarImagenStorage = async (collection, uid) => {
+  await deleteObject(ref(storage, collection, uid))
 }
 
 
