@@ -1,40 +1,54 @@
 @font-face {
-	font-family: montserrat;
-	src: url('../font/Montserrat-Medium.ttf')
-	}
+  font-family: montserrat;
+  src: url('../font/Montserrat-Medium.ttf')
+}
 
-:root{
-    --colorprincipal: rgba(27, 26, 26, 1);
-    --colortransparencia: rgba(250, 250, 250, 0.4);
-    --colormenu: rgba(125, 125, 125, .7);
+:root {
+  --colorprincipal: rgba(27, 26, 26, 1);
+  --colortransparencia: rgba(250, 250, 250, 0.4);
+  --colormenu: rgba(125, 125, 125, .7);
+  --colormenu-hover: rgba(214, 194, 127, .7);
+  --colormenu-active: rgba(184, 64, 94, .8);
+  --color-background: linear-gradient(324deg, rgba(255, 164, 5, 1) 0%, rgba(26, 251, 252, 1) 100%);
+  --color-primary-text: rgba(0, 0, 0, 1);
+  --color-secondary-text: rgba(255, 255, 255, 1);
 
-    
-    --textotitulo: clamp(1.4rem, 3vw, 2rem);
-    --textosubtitulo: clamp(1.2rem, 2vw, 1.4rem);
-    --textoparrafo: clamp(1rem, 2vw, 1.2rem);
-    --textoreducido: clamp(.75rem, 1.75vw, 1rem);
-    --imagenesparrafo: clamp(2.5rem, 3vw, 6rem);
+  --textotitulo: clamp(1.4rem, 3vw, 2rem);
+  --textosubtitulo: clamp(1.2rem, 2vw, 1.4rem);
+  --textoparrafo: clamp(1rem, 2vw, 1.2rem);
+  --textoreducido: clamp(.75rem, 1.75vw, 1rem);
+  --imagenesparrafo: clamp(2.5rem, 3vw, 6rem);
 
-    --tamañomenu: 200px;
+}
+
+.dark-mode {
+  --colortransparencia: rgba(120, 120, 120, 0.6);
+  --color-background: linear-gradient(121deg, rgba(24, 10, 82, 1) 0%, rgba(77, 185, 178, 1) 96%);
+  --colormenu: rgba(30, 30, 30, .7);
+  --colormenu-hover: rgba(146, 130, 78, 0.7);
+  --colormenu-active: rgba(116, 40, 59, 0.8);
+  --color-primary-text: rgba(255,255,255, 1);
+  --color-secondary-text: rgba(0,0,0, 1)
 }
 
 body {
-    font-family: montserrat;
-    scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
-    background: rgb(255, 164, 5);
-    background: linear-gradient(324deg, rgba(255, 164, 5, 1) 0%, rgba(26, 251, 252, 1) 100%);
-  }
-  
-  #app {
-    display: grid;
-    min-height: 100vh;
-    grid-template-rows: auto 1fr;
-  }
+  font-family: montserrat;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background: rgb(255, 164, 5);
+  background: var(--color-background);
 
-  @media screen and (max-width: 1080px) {
-    #app{
-      align-items: flex-start;   
-    }
+}
+
+#app {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr;
+}
+
+@media screen and (max-width: 1080px) {
+  #app {
+    align-items: flex-start;
   }
+}

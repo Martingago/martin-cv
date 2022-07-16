@@ -9,6 +9,7 @@
     -webkit-box-shadow: inset 0px 78px 15px -74px rgba(255, 252, 255, 1);
     -moz-box-shadow: inset 0px 78px 15px -74px rgba(255, 252, 255, 1);
     box-shadow: inset 0px 78px 15px -74px rgba(255, 252, 255, 1);
+    transition: all .3s linear;
   }
   
   .skills-block {
@@ -28,17 +29,20 @@
   
   .skills-block svg {
     font-size: 2.5rem;
+    color: var(--color-primary-text);
   }
   
   .skills-block h4 {
     margin: .5rem auto;
     font-size: 1.2rem;
+    color: var(--color-primary-text)
   }
   
   .skills-block p {
     margin: 0 auto;
     font-size: var(--textoparrafo);
     line-height: 1.5rem;
+    color: var(--color-primary-text)
   }
   
   .skills-block p {

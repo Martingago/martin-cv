@@ -41,7 +41,7 @@
         height: 100vh;
         padding-bottom: 20vh;
         background-color: rgb(255, 164, 5);
-        background: linear-gradient(324deg, rgba(255, 164, 5, 1) 0%, rgba(26, 251, 252, 1) 100%);
+        background: var(--color-background);
     }
 
     
@@ -161,7 +161,7 @@
         height: 100%;
         font-size: var(--textoparrafo);
         padding: 10px 0;
-        background-color: rgba(125, 125, 125, .7);
+        background-color: var(--colormenu);
         backdrop-filter: blur(4px);
         transition: background-color .3s linear;
     }
@@ -177,7 +177,7 @@
         height: 58px;
         font-size: var(--textoparrafo);
         padding: 10px 0;
-        background-color: rgba(125, 125, 125, .7);
+        background-color: var(--colormenu);
         backdrop-filter: blur(4px);
         font-size: 2rem;
         padding: .5rem 1rem;
@@ -198,15 +198,15 @@
     }
 
     .main-menu-section .navegation-menu li a:hover {
-        background-color: rgba(214, 194, 127, .7);
+        background-color: var(--colormenu-hover);
     }
 
     .main-menu-section ul li .router-link-exact-active {
-        background-color: rgba(184, 64, 94, .8);
+        background-color: var(--colormenu-active);
     }
 
     .main-menu-section ul li .router-link-exact-active:hover {
-        background-color: rgba(184, 64, 94, .8);
+        background-color: var(--colormenu-active);
     }
 
     /* SUB-FOOTER SOCIAL MEDIA */
@@ -234,7 +234,7 @@
         font-size: var(--textoparrafo);
         justify-content: center;
         align-items: center;
-        background-color: rgba(125, 125, 125, .4);
+        background-color: var(--colormenu);
         backdrop-filter: blur(4px);
         transition: background-color .2s linear;
         font-size: 2.2rem;
@@ -246,7 +246,7 @@
     }
 
     .main-menu-subfooter .navegation-social li a:hover {
-        background-color: rgba(214, 194, 127, .7);
+        background-color: var(--colormenu-hover);
     }
 
 

@@ -24,7 +24,7 @@
     height: fit-content;
     width: fit-content;
     max-width: 90%;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--color-secondary-text);
     border-radius: 5px;
     padding: 1rem;
     box-shadow: 4px 4px 10px gray;
@@ -67,9 +67,9 @@
 /* Botones mini-menu */
     .modulo-informacion-proyecto .informacion-proyecto-selector .proyecto-selector-btn{
         text-decoration: none;
-        color: black;
+        color: var(--color-primary-text);
         width: 100%;
-        background-color: lightgray;
+        background-color: var(--colormenu);
         padding: .5rem;
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
@@ -110,7 +110,7 @@
 
     .modulo-informacion-proyecto .informacion-proyecto{
         padding: 1rem;
-        background-color: rgb(233, 232, 232);
+        background-color: var(--colormenu);
         font-size: 1.2rem;
         height: 656px;
         width: 100%;

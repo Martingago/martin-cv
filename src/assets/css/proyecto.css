@@ -12,6 +12,8 @@
     border-radius: 5px;
     gap: 10px;
     background-color: var(--colortransparencia);
+    color: var(--color-primary-text);
+    transition: all .3s linear;
 }
 
 /* Tarjeta informacion */
@@ -27,7 +29,6 @@
     border-radius: 5px;
     padding:1rem;
     background-color: var(--colortransparencia);
-    transition: all .4s linear;
 }
 
 .proyectos-informacion img {

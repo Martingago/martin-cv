@@ -10,6 +10,8 @@
     border-radius: 5px;
     border: 1px solid white;
     box-shadow: 5px 5px 20px white;
+    color: var(--color-primary-text);
+    transition: all .3s linear;
   }
   
   .personal-info {
