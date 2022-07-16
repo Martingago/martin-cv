@@ -9,7 +9,7 @@
         z-index: 999;
         transition: background-color .3s linear;
     }
-    .navigation-index li div {
+    .navigation-index li button {
         position: fixed;
         display: flex;
         justify-content: center;
@@ -23,7 +23,9 @@
         border-radius: 5px;
         backdrop-filter: blur(4px);
         cursor: pointer;
+        border: none;
         z-index: 999;
+        transition: all .3s linear;
     }
     .navegation-menu{
        display: none;
@@ -39,12 +41,10 @@
         grid-template-rows: 1fr auto;
         width: 100vw;
         height: 100vh;
-        padding-bottom: 20vh;
         background-color: rgb(255, 164, 5);
         background: var(--color-background);
+        transition: all .3s linear;
     }
-
-    
 
     /* Boton de inicio */
     .expanded-movile-menu .main-menu-section .navigation-index {
@@ -52,7 +52,7 @@
         height: fit-content;
     }
 /* Boton MENU */
-.expanded-movile-menu .navigation-index li div {
+.expanded-movile-menu .navigation-index li button {
     position: relative;
 }
 
@@ -66,6 +66,7 @@
         margin: auto;
         border-radius: 5px;
         overflow: hidden;
+        transition: all .3s linear;
     }
    
     .expanded-movile-menu .main-menu-section .navegation-menu li{
@@ -84,20 +85,18 @@
         text-decoration: none;
         background-color: var(--colormenu);
         border-radius: 5px;
+        transition: all .3s linear;
     }
     .expanded-movile-menu .main-menu-section .navegation-menu li .router-link-exact-active{
         background-color: rgba(184, 64, 94, .8);
     }
 
-
-
 /*  Menu Footer */
 .expanded-movile-menu .main-menu-subfooter {
-    display: flex;
-    width: 100vw;
-    height: fit-content;
+    display: grid;
+    grid-template-rows: auto auto;
+    width: 100%;
     margin: auto;
-    overflow: hidden;
 }
 
 .expanded-movile-menu .main-menu-subfooter .navegation-social {
@@ -107,6 +106,7 @@
     width: inherit;
     gap: 1rem;
     margin: auto;
+    padding-bottom: 2.5rem;
 }
 
 .expanded-movile-menu .main-menu-subfooter .navegation-social li a {
@@ -120,7 +120,41 @@
     color: white;
     background-color: var(--colormenu);
     border-radius: 5px;
+    transition: all .3s linear;
 }
+
+/* toggle dark-mode */
+
+.toggle-dark-mode-nav{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    transition: all .5s linear;
+}
+    .toggle-dark-mode-nav li{
+        width: 60px;
+        height: 48px;
+        margin: 20px;
+    }
+    .toggle-dark-mode-nav li button{
+        width: inherit;
+        height: inherit;
+        border: none;
+        background-color: var(--colormenu);
+        backdrop-filter: blur(4px);
+        border-radius: 5px;
+        font-size: 2.2rem;
+        color: white;
+        cursor: pointer;
+        transition: all .3s linear;
+    }
+    .toggle-dark-mode-nav li button:hover{
+        background-color: var(--colormenu-hover);
+    }
+    .toggle-dark-mode-nav li button svg{
+        transition: all .2s linear;
+    }
+
 }
 
 @media screen and (min-width:1081px) {
@@ -167,7 +201,7 @@
     }
 
     /* Boton principal menu */
-    .main-menu-section .navigation-index li div {
+    .main-menu-section .navigation-index li button {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -180,9 +214,11 @@
         background-color: var(--colormenu);
         backdrop-filter: blur(4px);
         font-size: 2rem;
+        border: none;
         padding: .5rem 1rem;
         border-radius: 5px;
-        cursor: pointer
+        cursor: pointer;
+        transition: all .3s linear;
     }
 
     /* Menu navegación */
@@ -211,11 +247,10 @@
 
     /* SUB-FOOTER SOCIAL MEDIA */
 
-
     .main-menu-subfooter .navegation-social {
         display: grid;
         width: fit-content;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: repeat(3, auto);
         position: fixed;
         bottom: 0;
         gap: .5rem;
@@ -248,6 +283,37 @@
     .main-menu-subfooter .navegation-social li a:hover {
         background-color: var(--colormenu-hover);
     }
+    /* toggle dark mode */
+    .toggle-dark-mode-nav{
+        position: fixed;
+        display: grid;
+        bottom: 20px;
+        right: 20px;
+        margin: 20px;
+        transition: all .5s linear;
+    }
+        .toggle-dark-mode-nav li{
+            width: 60px;
+            height: 48px;
+        }
+        .toggle-dark-mode-nav li button{
+            width: inherit;
+            height: inherit;
+            border: none;
+            background-color: var(--colormenu);
+            backdrop-filter: blur(4px);
+            border-radius: 5px;
+            font-size: 2.2rem;
+            color: white;
+            cursor: pointer;
+            transition: all .3s linear;
+        }
+        .toggle-dark-mode-nav li button:hover{
+            background-color: var(--colormenu-hover);
+        }
+        .toggle-dark-mode-nav li button svg{
+            transition: all .2s linear;
+        }
 
 
 /* boton menu  */
@@ -264,6 +330,9 @@
     }
 .expanded-movile-menu .navegation-social{
     transform: translateX(-400%);
+}
+.expanded-movile-menu .toggle-dark-mode-nav{
+    transform: translateX(400%);
 }
 
 }

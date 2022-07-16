@@ -18,6 +18,8 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faCircleChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faCircleChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
 export const libraryIcons = () => { library.add(
   faBars,
@@ -37,5 +39,7 @@ export const libraryIcons = () => { library.add(
   faCircleChevronLeft,
   faCircleChevronRight,
   faTrash,
+  faSun,
+  faMoon
 );
 }

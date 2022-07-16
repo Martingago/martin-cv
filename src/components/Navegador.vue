@@ -5,9 +5,9 @@
             <nav class="main-menu-section">
                 <ul class="navigation-index">
                     <li>
-                        <div>
+                        <button>
                             <font-awesome-icon @click="isActive = !isActive" :icon="['fa', 'bars']"></font-awesome-icon>
-                        </div>
+                        </button>
                     </li>
                 </ul>
                 <ul class="navegation-menu">
@@ -25,11 +25,6 @@
                     </li>
                     <li>
                         <router-link @click="cerrarMenu" to="/contacto">Contacto</router-link>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <div @click="toggleDarkMode">Noche</div>
                     </li>
                 </ul>
             </nav>
@@ -52,6 +47,14 @@
                         </a>
                     </li>
                 </ul>
+                <ul class="toggle-dark-mode-nav">
+                    <li>
+                        <button @click="toggleDarkMode">
+                            <font-awesome-icon v-if="darkMode" :icon="['fa', 'sun']"></font-awesome-icon>
+                            <font-awesome-icon v-else="darkMode" :icon="['fa', 'moon']"></font-awesome-icon>
+                        </button>
+                    </li>
+                </ul>
             </nav>
         </div>
     </div>
@@ -68,10 +71,11 @@ const darkMode = ref(false);
 const toggleDarkMode = () => {
     darkMode.value = !darkMode.value
     if(darkMode.value){
+        darkMode.value = true
         body.classList.add('dark-mode')}
     else{
+        darkMode.value = false
         body.classList.remove('dark-mode');
-        console.log("a")
     }
 
 }
