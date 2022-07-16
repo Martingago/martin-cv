@@ -5,8 +5,8 @@
             <nav class="main-menu-section">
                 <ul class="navigation-index">
                     <li>
-                        <button>
-                            <font-awesome-icon @click="isActive = !isActive" :icon="['fa', 'bars']"></font-awesome-icon>
+                        <button @click="isActive = !isActive">
+                            <font-awesome-icon :icon="['fa', 'bars']"></font-awesome-icon>
                         </button>
                     </li>
                 </ul>

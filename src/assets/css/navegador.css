@@ -137,6 +137,9 @@
         margin: 20px;
     }
     .toggle-dark-mode-nav li button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: inherit;
         height: inherit;
         border: none;
@@ -210,7 +213,6 @@
         width: 58px;
         height: 58px;
         font-size: var(--textoparrafo);
-        padding: 10px 0;
         background-color: var(--colormenu);
         backdrop-filter: blur(4px);
         font-size: 2rem;
@@ -297,6 +299,9 @@
             height: 48px;
         }
         .toggle-dark-mode-nav li button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: inherit;
             height: inherit;
             border: none;
