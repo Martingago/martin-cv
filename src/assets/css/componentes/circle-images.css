@@ -30,8 +30,9 @@
 
 .onpause {
     animation: none;
-    transition: all .3s linear;
 }
+
+
 
 .contenedor-imagenes .onpause {
     animation: none;

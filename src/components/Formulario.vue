@@ -9,7 +9,7 @@
         <input type="submit" value="enviar" name="send-usuario" id="submit-usuario" @click="confirmation = true" />
       </form>
     </div>
-    <div v-if="confirmation" class="confirmation-contact">
+    <div v-bind:class="{confirmationAnimation: confirmation}" class="confirmation-contact">
         <h3>!GENIAL!</h3>
         <p>Tu mensaje se ha enviado con éxito</p>
         <button @click="confirmation = false">Volver</button>

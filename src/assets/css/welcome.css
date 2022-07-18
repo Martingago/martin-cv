@@ -13,7 +13,7 @@
     margin: .2rem;
     padding: .3rem;
     opacity: 0;
-    transition: opacity .2s linear;
+    transition: opacity 1.5s linear;
 }
 
 .signo {
@@ -21,7 +21,7 @@
     font-size: clamp(5rem, 4vw, 7rem);
     color: var(--color-primary-text);
     opacity: 0;
-    transition: opacity .2s linear;
+    transition: opacity 1.5s linear;
 
 }
 
@@ -36,7 +36,7 @@
 
 .display {
     opacity: 1;
-    animation: flipAnimacion .7s linear;
+    animation: flipAnimacion .6s linear;
 }
 
 @keyframes flipAnimacion {
