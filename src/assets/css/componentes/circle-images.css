@@ -77,8 +77,12 @@
 .img-tecnologia {
     width: 80%;
     border-radius: 50%;
-    z-index: 2
+    z-index: 2;
+    transition:  all .3s linear;
 }
+
+
+
 
 /* Contenedor de imagenes */
 /* 1 */
@@ -264,6 +268,10 @@
     .imagen-container:nth-child(6) {
         transform: rotate(calc(360deg / 6 * 6)) translateX(calc(100px + 12vw));
     }
+}
 
-
+/* animacion-lenguajes */
+.imagen-container .animacion-lenguajes{
+    box-shadow: 0px 0px 10px  6px white;
+    background-color: rgba(221, 231, 129, 0.4);
 }

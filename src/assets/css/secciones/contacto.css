@@ -10,9 +10,10 @@
   
   .contacto{
     width: 90vw;
+    max-width: 1400px;
     margin: auto;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
   }
   
   @media screen and (max-width: 1080px) {
