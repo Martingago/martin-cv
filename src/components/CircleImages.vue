@@ -14,7 +14,6 @@
         </button>
     </div>
     <SkeletonCircleImagesVue v-else="imagenesCargadas"></SkeletonCircleImagesVue>
-
     
 </template>
 
@@ -24,6 +23,7 @@ import { useStorePerfilCv } from '@/store/cv/dataCv.user';
 import SkeletonCircleImagesVue from './skeleton/SkeletonCircleImages.vue';
 
 require("@/assets/css/componentes/circle-images.css");
+
 
 const imagenesCargadas = ref(false)
 const useStore = useStorePerfilCv()
@@ -44,7 +44,7 @@ const removeAnimation = e => {
     }, 1000);
 }
 
-const pause = ref(true)
+const pause = ref(false)
 
 </script>
 
