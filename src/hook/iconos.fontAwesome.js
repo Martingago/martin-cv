@@ -22,6 +22,8 @@ import { faSun } from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faPause } from "@fortawesome/free-solid-svg-icons";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export const libraryIcons = () => { library.add(
   faBars,
@@ -44,6 +46,8 @@ export const libraryIcons = () => { library.add(
   faSun,
   faMoon,
   faPause,
-  faPlay
+  faPlay,
+  faPhone,
+  faEnvelope
 );
 }

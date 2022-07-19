@@ -6,7 +6,7 @@ const routes = [
     path: '/',
     name: 'inicio',
     meta: {
-      tittle: `Inicio`
+      tittle: `Inicio - Martín CV`
     },
     component: function () {
       return import('@/views/Inicio.vue')
@@ -16,7 +16,7 @@ const routes = [
     path: '/contacto',
     name: 'contacto',
     meta: {
-      tittle: 'Contacto'
+      tittle: 'Contacto - Martín CV'
     },
     component: function () {
       return import('@/views/Contacto.vue')
@@ -26,7 +26,7 @@ const routes = [
     path: '/proyectos',
     name: 'proyectos',
     meta: {
-      tittle: 'Proyectos'
+      tittle: 'Proyectos - Martín CV'
     },
     component: function () {
       return import('@/views/Proyectos.vue')
@@ -36,7 +36,7 @@ const routes = [
     path: '/sobre-mi',
     name: 'sobre-mi',
     meta: {
-      tittle: 'Sobre mi'
+      tittle: 'Sobre mi - Martín CV'
     },
     component: function () {
       return import('@/views/About.vue')
@@ -46,7 +46,7 @@ const routes = [
     path: '/curriculum',
     name: 'curriculum',
     meta: {
-      title: "Curriculum"
+      tittle: "Curriculum - Martín CV"
     },
     component: function() {
       return import('@/views/CurriculumFirebase.vue')
@@ -56,7 +56,7 @@ const routes = [
     path: '/:pathMatch(.*)*',
     name: 'error-404',
     meta: {
-      tittle: 'Error 404'
+      tittle: 'Error 404 Página no encontrada'
     },
     component: function(){
       return import('@/components/PageNotFound.vue')

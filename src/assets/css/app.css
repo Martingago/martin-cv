@@ -10,6 +10,7 @@
   --colormenu-hover: rgba(214, 194, 127, .7);
   --colormenu-active: rgba(184, 64, 94, .8);
   --color-background: linear-gradient(324deg, rgba(255, 164, 5, 1) 0%, rgba(26, 251, 252, 1) 100%);
+  --color-light-background: rgba(200,200,200, 1);
   --color-primary-text: rgba(0, 0, 0, 1);
   --color-secondary-text: rgba(255, 255, 255, 1);
 
@@ -27,12 +28,13 @@
   --colormenu: rgba(30, 30, 30, .7);
   --colormenu-hover: rgba(146, 130, 78, 0.7);
   --colormenu-active: rgba(116, 40, 59, 0.8);
+  --color-light-background: rgb(44, 44, 44);
   --color-primary-text: rgba(255,255,255, 1);
-  --color-secondary-text: rgba(0,0,0, 1)
+  --color-secondary-text: rgba(0,0,0, 1);
 }
 
 body {
-  font-family: montserrat;
+  font-family: 'montserrat', 'Times New Roman', Times, serif;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;

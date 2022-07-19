@@ -8,7 +8,7 @@
 
             <div class="modulo-informacion-proyecto">
                 <nav class="informacion-proyecto-selector">
-                    <a href="#" class="proyecto-selector-btn" @click="mostrarDatos(index)"
+                    <a href="#" ref="button" class="proyecto-selector-btn" @click="mostrarDatos(index)" @mouseenter="activarHover(index)" @mouseleave="desactivarHover(index)"
                         v-for="(titulo, index) in titulo_descripcion" :key="index">{{ titulo }}</a>
                 </nav>
 
@@ -31,7 +31,7 @@
 </template>
 <script setup>
 import SkeletonModalProyectoVue from "@/components/skeleton/SkeletonModalProyecto.vue";
-import { ref } from "vue";
+import { ref, onUpdated} from "vue";
 import Carrusel from "./Carrusel.vue";
 require("@/assets/css/modal-window.css");
 
@@ -75,28 +75,31 @@ const props = defineProps({
 
 })
 
-// Mostrar datos
+const button = ref();
 let posicionDatos = ref(0)
+onUpdated(()=> {
+    button.value
+    if(posicionDatos.value == 0 && button.value[0]) {button.value[0].classList.add("proyecto-btn-active")}
+
+})
+
+// Mostrar datos
+
 const mostrarDatos = (i) => {
+    button.value.forEach(element => {
+        element.classList.remove("proyecto-btn-active")
+    });
+    button.value[i].classList.add("proyecto-btn-active")
     posicionDatos.value = i;
 }
 
-
-let posicion = ref(0)
-const moverSlider = (i) => {
-    posicion.value = i - 1;
-    console.log("posicionado en", posicion.value)
-    return posicion
-}
-
-const limitar = () => {
-    if (posicion.value > props.imagenes.length - 1) {
-        posicion.value = 0;
-    }
-    if (posicion.value < 0) {
-        posicion.value = props.imagenes.length - 1
+const activarHover = (index) => {
+    if (!button.value[index].classList.contains("proyecto-btn-active")){
+        button.value[index].classList.add("proyecto-btn-hover");
     }
 }
-
+const desactivarHover = (index) => {
+    button.value[index].classList.remove("proyecto-btn-hover")
+}
 
 </script>

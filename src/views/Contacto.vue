@@ -10,7 +10,7 @@
       </TextosimpleVue>
       <Formulario></Formulario>
     </div>
-    <BarraDatosVue></BarraDatosVue>
+    <BarraDatosPersonalesVue></BarraDatosPersonalesVue>
   </div>
  
 </template>
@@ -18,7 +18,7 @@
 <script setup>
 import Formulario from "../components/Formulario.vue"
 import TextosimpleVue from "@/components/Textosimple.vue";
-import BarraDatosVue from "@/components/BarraDatos.vue";
+import BarraDatosPersonalesVue from "@/components/BarraDatosPersonales.vue";
 require("@/assets/css/secciones/contacto.css");
 
 const props = defineProps({

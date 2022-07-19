@@ -75,7 +75,18 @@
         border-top-left-radius: 5px;
         font-size: 1.2rem;
         text-align: center;
+        transition: background-color .3s linear;
     }
+
+    .modulo-informacion-proyecto .informacion-proyecto-selector .proyecto-btn-hover{
+        background-color: var(--colormenu-hover);
+    }
+
+    .modulo-informacion-proyecto .informacion-proyecto-selector .proyecto-btn-active{
+        transition: background-color .3s linear;
+        background-color: var(--colormenu-active);
+    }
+
     .modulo-informacion-proyecto .btn-proyecto-info{
         display: grid;
         grid-template-columns:  auto auto;
@@ -110,7 +121,7 @@
 
     .modulo-informacion-proyecto .informacion-proyecto{
         padding: 1rem;
-        background-color: var(--colormenu);
+        background-color: var(--color-light-background);
         font-size: 1.2rem;
         height: 656px;
         width: 100%;

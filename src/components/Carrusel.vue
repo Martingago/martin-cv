@@ -40,7 +40,6 @@ const props = defineProps({
 let posicion = ref(0)
 const moverSlider = (i) => {
     posicion.value = i - 1;
-    console.log("posicionado en", posicion.value)
     return posicion
 }
 
