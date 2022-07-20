@@ -47,7 +47,7 @@
     position: relative;
     margin: auto;
     width: 600px;
-    aspect-ratio: 1 / 1;
+    height: 600px;
     animation: rotacion-container 20s linear infinite reverse;
 }
 
