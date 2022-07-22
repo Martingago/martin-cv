@@ -22,6 +22,10 @@
 .section-image img {
   display: flex;
   width: 100%;
-  /* padding: 2rem; */
+}
+@media screen  and (max-width:650px){
+  .section-image img{
+    width: 90%;
+  }
 }
 </style>

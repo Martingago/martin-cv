@@ -49,10 +49,7 @@
                 </ul>
                 <ul class="toggle-dark-mode-nav">
                     <li>
-                        <button @click="toggleDarkMode">
-                            <font-awesome-icon v-if="darkMode" :icon="['fa', 'sun']"></font-awesome-icon>
-                            <font-awesome-icon v-else="darkMode" :icon="['fa', 'moon']"></font-awesome-icon>
-                        </button>
+                        <BtnDarkModeVue></BtnDarkModeVue>
                     </li>
                 </ul>
             </nav>
@@ -64,21 +61,8 @@
 
 <script setup >
 import { ref } from 'vue';
+import BtnDarkModeVue from './componentes/BtnDarkMode.vue';
 require('@/assets/css/navegador.css');
-
-const body = document.querySelector("body");
-const darkMode = ref(false);
-const toggleDarkMode = () => {
-    darkMode.value = !darkMode.value
-    if(darkMode.value){
-        darkMode.value = true
-        body.classList.add('dark-mode')}
-    else{
-        darkMode.value = false
-        body.classList.remove('dark-mode');
-    }
-
-}
 
 const isActive = ref(false);
 const cerrarMenu = () => {
@@ -86,6 +70,4 @@ const cerrarMenu = () => {
         isActive.value = !isActive
     }
 }
-
-
 </script>

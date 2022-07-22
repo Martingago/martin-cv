@@ -6,6 +6,7 @@
 <script setup>
 import Navegador from "@/components/Navegador.vue";
 import { useStoreUsers } from "./store/users";
+
 require("@/assets/css/reset.css");
 require("@/assets/css/app.css");
 

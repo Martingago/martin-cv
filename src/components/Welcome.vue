@@ -52,7 +52,7 @@ onMounted(() => {
 const animacionLetrasCarga = () => {
     // letras y delay de aparición
     const letter = document.querySelector(".h1-tittle").childNodes;
-    const delay = 175
+    const delay = 150
     // recorre las letras, les añade animacion
     letter.forEach( (element, index) => {
         setTimeout(() => {

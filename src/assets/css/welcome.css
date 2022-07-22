@@ -36,7 +36,7 @@
 
 .display {
     opacity: 1;
-    animation: flipAnimacion .6s linear;
+    animation: flipAnimacion .35s linear;
 }
 
 @keyframes flipAnimacion {
@@ -60,6 +60,7 @@
 @media screen  and (max-width: 500px){
     
     .titulo-inicio .letter{
+        border: 1px solid white;
         font-size: clamp(2rem, 9vw, 5rem);
         padding: .1rem;
         margin: .1rem;

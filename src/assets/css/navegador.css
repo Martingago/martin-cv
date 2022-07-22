@@ -27,6 +27,9 @@
         z-index: 999;
         transition: all .3s linear;
     }
+    .navigation-index li button:focus{
+        outline: none;
+    }
     .navegation-menu{
        display: none;
     }
@@ -136,28 +139,6 @@
         height: 48px;
         margin: 20px;
     }
-    .toggle-dark-mode-nav li button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: inherit;
-        height: inherit;
-        border: none;
-        background-color: var(--colormenu);
-        backdrop-filter: blur(4px);
-        border-radius: 5px;
-        font-size: 2.2rem;
-        color: white;
-        cursor: pointer;
-        transition: all .3s linear;
-    }
-    .toggle-dark-mode-nav li button:hover{
-        background-color: var(--colormenu-hover);
-    }
-    .toggle-dark-mode-nav li button svg{
-        transition: all .2s linear;
-    }
-
 }
 
 @media screen and (min-width:1081px) {
@@ -221,6 +202,9 @@
         border-radius: 5px;
         cursor: pointer;
         transition: all .3s linear;
+    }
+    .main-menu-section .navigation-index li button:focus{
+        outline: none;
     }
 
     /* Menu navegación */
@@ -298,29 +282,7 @@
             width: 60px;
             height: 48px;
         }
-        .toggle-dark-mode-nav li button{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: inherit;
-            height: inherit;
-            border: none;
-            background-color: var(--colormenu);
-            backdrop-filter: blur(4px);
-            border-radius: 5px;
-            font-size: 2.2rem;
-            color: white;
-            cursor: pointer;
-            transition: all .3s linear;
-        }
-        .toggle-dark-mode-nav li button:hover{
-            background-color: var(--colormenu-hover);
-        }
-        .toggle-dark-mode-nav li button svg{
-            transition: all .2s linear;
-        }
-
-
+        
 /* boton menu  */
 .expanded-movile-menu .main-menu-section{
     grid-template-columns: 1fr;

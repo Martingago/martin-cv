@@ -22,7 +22,7 @@
 
 }
 
-.dark-mode {
+:root.dark{
   --colortransparencia: rgba(120, 120, 120, 0.6);
   --color-background: linear-gradient(121deg, rgba(24, 10, 82, 1) 0%, rgba(77, 185, 178, 1) 96%);
   --colormenu: rgba(30, 30, 30, .7);

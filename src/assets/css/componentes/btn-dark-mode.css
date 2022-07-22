@@ -1,0 +1,26 @@
+.btn-dark-mode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height: inherit;
+    border: none;
+    background-color: var(--colormenu);
+    backdrop-filter: blur(4px);
+    border-radius: 5px;
+    font-size: 2.2rem;
+    color: white;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+.btn-dark-mode:hover{
+    background-color: var(--colormenu-hover);
+}
+
+.btn-dark-mode:focus{
+    outline: none;
+}
+
+.btn-dark-mode svg{
+    transition: all .2s linear;
+}

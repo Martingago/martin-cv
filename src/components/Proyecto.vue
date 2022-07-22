@@ -56,6 +56,7 @@ const listaImagenes = ref([]);
 
 const handleModal = async (datos) => {
     cargarDatosProyecto(datos)
+    console.log(datos)
     cargarDatosImagenesProyecto(datos)
   isModalOpen.value = true;
   
